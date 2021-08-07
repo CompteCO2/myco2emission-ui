@@ -41,8 +41,10 @@
     ]
   },
   "devDependencies": {
+    "@typescript-eslint/parser": "^4.29.0",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
     "prettier": "2.3.2"
   }
 }
