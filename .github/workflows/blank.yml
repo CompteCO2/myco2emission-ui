@@ -18,10 +18,15 @@ jobs:
           node-version: '14.x'
       - id: install-aws-cli
         uses: unfor19/install-aws-cli-action@v1
+      - run: aws --version
+        shell: bash
       - run: npm ci
       - run: npm run lint
       - run: npm run build
       - run: aws configure set ${{ secrets.CELLAR_ADDON_KEY_ID }}
+        shell: bash
       - run: aws configure set ${{ secrets.CELLAR_ADDON_KEY_SECRET }}
+        shell: bash
       - name: Deploy
         run: aws s3 sync ./dist s3://${{ secrets.CELLAR_ADDON_HOST }}
+        shell: bash
