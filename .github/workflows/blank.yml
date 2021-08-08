@@ -28,5 +28,5 @@ jobs:
       - run: export AWS_SECRET_ACCESS_KEY=${{ secrets.CELLAR_ADDON_KEY_SECRET }}
         shell: bash
       - name: Deploy
-        run: aws s3 --endpoint-url https://${{ secrets.CELLAR_ADDON_HOST }} sync ./dist s3://${{ secrets.CELLAR_ADDON_HOST }}
+        run: aws s3 --endpoint-url https://${{ secrets.CELLAR_ADDON_HOST }} sync ./dist s3://${{ secrets.CELLAR_BUCKET }}
         shell: bash
