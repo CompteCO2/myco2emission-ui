@@ -3,16 +3,47 @@ import styled from "styled-components";
 
 import { getImagePath } from "helpers/image";
 
-const Wrapper = styled.div`
-  padding: 0 1rem;
+const Wrapper = styled.div<{ color: string }>`
+  padding: 0 2rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  color: ${props => props.theme.colors[props.color]};
+  text-align: center;
+  transition: transform 0.2s;
+  border-radius: 10px;
+  &:hover {
+    transform: scale(1.2);
+  }
+  &:last-child {
+    padding-right: 0;
+  }
 `;
 
-const Image = styled(SVG)`
-  width: 100%;
+const Line = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 1px;
+`;
+
+const Percentage = styled.div`
+  padding-left: 2rem;
+  font-size: 5vh;
+`;
+
+const Image = styled(SVG)<{ color: string }>`
+  width: 80%;
+  max-width: 100px;
+  fill: ${props => props.theme.colors[props.color]};
+`;
+
+const Amount = styled.div`
+  padding: 1rem;
 `;
 
 export interface ConsumingTypeItem {
+  id: string;
   image: string;
+  color?: string;
 }
 
 const ConsumingTypeListItem = ({
@@ -21,8 +52,12 @@ const ConsumingTypeListItem = ({
   type: ConsumingTypeItem;
 }): JSX.Element => {
   return (
-    <Wrapper>
-      <Image src={getImagePath(type.image)} />
+    <Wrapper color={type.color ?? ""}>
+      <Line>
+        <Image color={type.color ?? ""} src={getImagePath(type.image)} />
+        <Percentage>0%</Percentage>
+      </Line>
+      <Amount>0 kgCO2</Amount>
     </Wrapper>
   );
 };

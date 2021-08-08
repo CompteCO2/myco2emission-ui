@@ -1,16 +1,24 @@
 {
     "items": [
         {
-            "image": "/consumption_types/home.svg"
+            "id": "home",
+            "image": "/consumption_types/home.svg",
+            "color": "styleColor1"
         },
         {
-            "image": "/consumption_types/car.svg"
+            "id": "car",
+            "image": "/consumption_types/car.svg",
+            "color": "styleColor1"
         },
         {
-            "image": "/consumption_types/food.svg"
+            "id": "food",
+            "image": "/consumption_types/food.svg",
+            "color": "styleColor2"
         },
         {
-            "image": "/consumption_types/fly.svg"
+            "id": "fly",
+            "image": "/consumption_types/fly.svg",
+            "color": "styleColor3"
         }
     ]
 }
