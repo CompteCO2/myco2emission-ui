@@ -27,6 +27,9 @@ jobs:
         shell: bash
       - run: echo "AWS_SECRET_ACCESS_KEY=${{ secrets.CELLAR_ADDON_KEY_SECRET }}" >> $GITHUB_ENV
         shell: bash
+      - name: Configure AWS Region
+        run: echo "AWS_DEFAULT_REGION=us-east-1" >> $GITHUB_ENV
+        shell: bash
       - name: Deploy
-        run: aws s3 sync ./dist s3://${{ secrets.CELLAR_BUCKET }}  --endpoint-url https://${{ secrets.CELLAR_ADDON_HOST }} --region eu-west-1
+        run: aws s3 sync ./dist s3://${{ secrets.CELLAR_BUCKET }}  --endpoint-url https://${{ secrets.CELLAR_ADDON_HOST }}
         shell: bash
