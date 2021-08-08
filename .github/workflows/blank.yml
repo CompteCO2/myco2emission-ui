@@ -31,5 +31,5 @@ jobs:
         run: echo "AWS_DEFAULT_REGION=us-east-1" >> $GITHUB_ENV
         shell: bash
       - name: Deploy
-        run: aws s3 sync ./dist s3://${{ secrets.CELLAR_BUCKET }}  --endpoint-url https://${{ secrets.CELLAR_ADDON_HOST }}
+        run: aws s3 sync ./build s3://${{ secrets.CELLAR_BUCKET }}  --endpoint-url https://${{ secrets.CELLAR_ADDON_HOST }}
         shell: bash
