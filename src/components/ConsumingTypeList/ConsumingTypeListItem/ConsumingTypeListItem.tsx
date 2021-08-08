@@ -6,6 +6,7 @@ import { getImagePath } from "helpers/image";
 const Wrapper = styled.div<{ color: string }>`
   padding: 0 2rem;
   margin-bottom: 2rem;
+  margin-top: 4rem;
   flex-wrap: wrap;
   color: ${props => props.theme.colors[props.color]};
   text-align: center;
