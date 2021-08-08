@@ -13,6 +13,7 @@ const Wrapper = styled.div<{ color: string }>`
   transition: transform 0.2s;
   border-radius: 10px;
   cursor: pointer;
+  align-self: stretch;
   &:hover {
     transform: scale(1.2);
   }
@@ -24,7 +25,7 @@ const Wrapper = styled.div<{ color: string }>`
 const Line = styled.div`
   display: flex;
   align-items: center;
-  margin-bottom: 1px;
+  margin-bottom: 0.5rem;
 `;
 
 const Percentage = styled.div`
