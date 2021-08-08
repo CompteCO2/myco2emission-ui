@@ -11,6 +11,7 @@ const Wrapper = styled.div<{ color: string }>`
   text-align: center;
   transition: transform 0.2s;
   border-radius: 10px;
+  cursor: pointer;
   &:hover {
     transform: scale(1.2);
   }
