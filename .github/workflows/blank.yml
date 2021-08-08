@@ -19,6 +19,7 @@ jobs:
       - run: npm ci
       - run: npm run lint
       - run: npm run build
+      - run: sudo apt-get install awscli -y
       - run: aws configure set ${{ secrets.CELLAR_ADDON_KEY_ID }}
       - run: aws configure set ${{ secrets.CELLAR_ADDON_KEY_SECRET }}
       - name: Deploy
