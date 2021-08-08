@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { getImagePath } from "helpers/image";
 
 const Wrapper = styled.div<{ color: string }>`
-  padding: 0 2rem;
+  padding: 0 3rem;
   margin-bottom: 2rem;
   margin-top: 4rem;
   flex-wrap: wrap;
@@ -13,7 +13,6 @@ const Wrapper = styled.div<{ color: string }>`
   transition: transform 0.2s;
   border-radius: 10px;
   cursor: pointer;
-  align-self: stretch;
   &:hover {
     transform: scale(1.2);
   }
@@ -29,8 +28,8 @@ const Line = styled.div`
 `;
 
 const Percentage = styled.div`
-  padding-left: 2rem;
-  font-size: 5vh;
+  padding-left: 1rem;
+  font-size: 3vh;
 `;
 
 const Image = styled(SVG)<{ color: string }>`
@@ -41,6 +40,7 @@ const Image = styled(SVG)<{ color: string }>`
 
 const Amount = styled.div`
   padding: 1rem;
+  font-size: 4vh;
 `;
 
 export interface ConsumingTypeItem {
