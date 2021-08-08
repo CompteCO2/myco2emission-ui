@@ -1,20 +1,21 @@
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Normalize } from "styled-normalize";
+
+import "i18n/index";
+import ConsumingPage from "pages/ConsumingPage";
+
 const App = (): JSX.Element => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Normalize />
+      <Router>
+        <Switch>
+          <Route path="/">
+            <ConsumingPage />
+          </Route>
+        </Switch>
+      </Router>
+    </>
   );
 };
 

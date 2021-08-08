@@ -1,0 +1,16 @@
+{
+    "items": [
+        {
+            "image": "/consumption_types/home.svg"
+        },
+        {
+            "image": "/consumption_types/car.svg"
+        },
+        {
+            "image": "/consumption_types/food.svg"
+        },
+        {
+            "image": "/consumption_types/fly.svg"
+        }
+    ]
+}
