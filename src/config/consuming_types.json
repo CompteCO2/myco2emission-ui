@@ -8,12 +8,12 @@
         {
             "id": "car",
             "image": "/consumption_types/car.svg",
-            "color": "styleColor1"
+            "color": "styleColor2"
         },
         {
             "id": "food",
             "image": "/consumption_types/food.svg",
-            "color": "styleColor2"
+            "color": "styleColor3"
         },
         {
             "id": "fly",
