@@ -1,3 +1,8 @@
 {
-    "test": "test"
+    "pages": {
+        "consuming": {
+            "title": "I calculate my carbon footprint",
+            "tip": "Click on an icon to start the calculation."
+        }
+    }
 }

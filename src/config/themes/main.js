@@ -3,5 +3,6 @@ export const mainTheme = {
     styleColor1: "#cb287d",
     styleColor2: "#838383",
     styleColor3: "#0a7dc0",
+    styleColor4: "rgb(21, 73, 147)",
   },
 };
