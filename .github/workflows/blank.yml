@@ -23,13 +23,11 @@ jobs:
       - run: npm ci
       - run: npm run lint
       - run: npm run build
-      - run: echo "AWS_ACCESS_KEY_ID=${{ secrets.CELLAR_ADDON_KEY_ID }}" >> $GITHUB_ENV
-        shell: bash
-      - run: echo "AWS_SECRET_ACCESS_KEY=${{ secrets.CELLAR_ADDON_KEY_SECRET }}" >> $GITHUB_ENV
-        shell: bash
-      - name: Configure AWS Region
-        run: echo "AWS_DEFAULT_REGION=us-east-1" >> $GITHUB_ENV
-        shell: bash
-      - name: Deploy
-        run: aws s3 sync ./build s3://${{ secrets.CELLAR_BUCKET }}  --endpoint-url https://${{ secrets.CELLAR_ADDON_HOST }} --acl public-read
-        shell: bash
+      - name: Upload from public_html via FTP
+        uses: airvzxf/ftp-deployment-action@latest
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          user: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local_dir: "./public_html"
+          delete: "false"
