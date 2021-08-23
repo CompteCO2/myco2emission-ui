@@ -29,5 +29,5 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           user: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local_dir: "./public_html"
+          local_dir: "./build"
           delete: "false"
