@@ -16,10 +16,6 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '14.x'
-      - id: install-aws-cli
-        uses: unfor19/install-aws-cli-action@v1
-      - run: aws --version
-        shell: bash
       - run: npm ci
       - run: npm run lint
       - run: npm run build
