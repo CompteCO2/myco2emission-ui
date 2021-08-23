@@ -7,6 +7,7 @@ import "i18n/index";
 import ConsumingPage from "pages/ConsumingPage";
 import { mainTheme } from "config/themes/main";
 import LoadingPage from "pages/LoadingPage";
+import SelectType from "pages/SelectType";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -33,6 +34,9 @@ const App = (): JSX.Element => {
         <Normalize />
         <Router>
           <Switch>
+            <Route path="/:type">
+              <SelectType />
+            </Route>
             <Route path="/">
               <ConsumingPage />
             </Route>

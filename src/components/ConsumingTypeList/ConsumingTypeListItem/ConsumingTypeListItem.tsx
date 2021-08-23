@@ -3,9 +3,11 @@ import styled from "styled-components";
 
 import { getImagePath } from "helpers/image";
 
-const Wrapper = styled.div<{ color: string }>`
+const Wrapper = styled.a<{ color: string }>`
   padding: 0 3rem;
+  display: block;
   margin-bottom: 2rem;
+  text-decoration: none;
   margin-top: 4rem;
   flex-wrap: wrap;
   color: ${props => props.theme.colors[props.color]};
@@ -47,6 +49,7 @@ export interface ConsumingTypeItem {
   id: string;
   image: string;
   color?: string;
+  url?: string;
 }
 
 const ConsumingTypeListItem = ({
@@ -55,7 +58,7 @@ const ConsumingTypeListItem = ({
   type: ConsumingTypeItem;
 }): JSX.Element => {
   return (
-    <Wrapper color={type.color ?? ""}>
+    <Wrapper color={type.color ?? ""} href={type.url}>
       <Line>
         <Image color={type.color ?? ""} src={getImagePath(type.image)} />
         <Percentage>0%</Percentage>

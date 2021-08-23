@@ -3,22 +3,26 @@
         {
             "id": "home",
             "image": "/consumption_types/home.svg",
-            "color": "styleColor1"
+            "color": "styleColor1",
+            "url": "/home"
         },
         {
             "id": "car",
             "image": "/consumption_types/car.svg",
-            "color": "styleColor2"
+            "color": "styleColor2",
+            "url": "/car"
         },
         {
             "id": "food",
             "image": "/consumption_types/food.svg",
-            "color": "styleColor3"
+            "color": "styleColor3",
+            "url": "/food"
         },
         {
             "id": "fly",
             "image": "/consumption_types/fly.svg",
-            "color": "styleColor3"
+            "color": "styleColor3",
+            "url": "/fly"
         }
     ]
 }
