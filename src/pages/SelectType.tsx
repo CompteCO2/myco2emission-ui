@@ -2,7 +2,6 @@ import { useTranslation } from "react-i18next";
 import { useRouteMatch } from "react-router";
 
 import SelectConsuming from "components/SelectConsuming/SelectConsuming";
-import { useEffect, useState } from "react";
 
 interface SelectTypeMatch {
   type: string;
@@ -11,8 +10,7 @@ interface SelectTypeMatch {
 const SelectType = (): JSX.Element => {
   const { t } = useTranslation();
   const match = useRouteMatch<SelectTypeMatch>();
-  const { type} = match.params;
-
+  const { type } = match.params;
 
   if (!type) {
     return <></>;
