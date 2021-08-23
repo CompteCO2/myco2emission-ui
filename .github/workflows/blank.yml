@@ -19,6 +19,7 @@ jobs:
       - run: npm ci
       - run: npm run lint
       - run: npm run build
+      - run: cp ./.htaccess ./build/.htaccess
       - name: Upload from public_html via FTP
         uses: airvzxf/ftp-deployment-action@latest
         with:
