@@ -9,17 +9,14 @@ import { mainTheme } from "config/themes/main";
 import LoadingPage from "pages/LoadingPage";
 import SelectType from "pages/SelectType";
 
+import "antd/dist/antd.css";
+
 const GlobalStyle = createGlobalStyle`
   body {
     font-family: Open-Sans, Helvetica, Sans-Serif;
   }
-  h1 {
-    font-size: 5vh;
-    font-weight: normal;
-    text-align: center;
-  }
   h2 {
-    text-align: center;
+    
   }
   p {
     text-align: center;

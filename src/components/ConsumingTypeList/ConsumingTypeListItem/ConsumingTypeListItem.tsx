@@ -2,8 +2,9 @@ import SVG from "react-inlinesvg";
 import styled from "styled-components";
 
 import { getImagePath } from "helpers/image";
+import { Link } from "react-router-dom";
 
-const Wrapper = styled.a<{ color: string }>`
+const Wrapper = styled(Link)<{ color: string }>`
   padding: 0 3rem;
   display: block;
   margin-bottom: 2rem;
@@ -58,7 +59,7 @@ const ConsumingTypeListItem = ({
   type: ConsumingTypeItem;
 }): JSX.Element => {
   return (
-    <Wrapper color={type.color ?? ""} href={type.url}>
+    <Wrapper color={type.color ?? ""} to={type.url ?? ""}>
       <Line>
         <Image color={type.color ?? ""} src={getImagePath(type.image)} />
         <Percentage>0%</Percentage>

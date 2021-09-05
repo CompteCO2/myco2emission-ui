@@ -1,8 +1,9 @@
 import { useTranslation } from "react-i18next";
+import styled from "styled-components";
 
 import ConsumingTypeList from "components/ConsumingTypeList/ConsumingTypeList";
 import config from "config/consuming_types.json";
-import styled from "styled-components";
+import Header from "components/Header/Header";
 
 const Tip = styled.p`
   padding: 0.5rem 0 1rem 0;
@@ -20,7 +21,7 @@ const ConsumingPage = (): JSX.Element => {
 
   return (
     <>
-      <h1>{t("pages.consuming.title")}</h1>
+      <Header title={t("pages.consuming.title")} />
       <Tip>{t("pages.consuming.tip")}</Tip>
       <Total>0 kgCO2</Total>
       <ConsumingTypeList types={config.items} />

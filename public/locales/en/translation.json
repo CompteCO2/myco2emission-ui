@@ -20,5 +20,42 @@
             "title": "My air transport",
             "tip": "Estimation of the carbon footprint of my air journeys."
         }
+    },
+    "consumings": {
+        "home": {
+            "title": "TYPE OF HEATING",
+            "items": [
+                {
+                    "title": "No car",
+                    "value": "1"
+                },
+                {
+                    "title": "Diesel (including Hybrid)",
+                    "value": "2"
+                },
+                {
+                    "title": "Gasoline (including Hybrid)",
+                    "value": "3"
+                },
+                {
+                    "title": "Electric",
+                    "value": "4"
+                },
+                {
+                    "title": "No car",
+                    "value": "1"
+                },
+                {
+                    "title": "No car",
+                    "value": "1"
+                }
+
+                
+
+
+E85 (Superethanol)
+LPG 
+            ]
+        }
     }
 }
