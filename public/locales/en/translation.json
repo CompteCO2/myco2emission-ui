@@ -42,19 +42,13 @@
                     "value": "4"
                 },
                 {
-                    "title": "No car",
-                    "value": "1"
+                    "title": "E85 (Superethanol)",
+                    "value": "5"
                 },
                 {
-                    "title": "No car",
-                    "value": "1"
+                    "title": "LPG",
+                    "value": "6"
                 }
-
-                
-
-
-E85 (Superethanol)
-LPG 
             ]
         }
     }
