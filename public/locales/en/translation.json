@@ -23,8 +23,55 @@
     },
     "consumings": {
         "home": {
-            "title": "TYPE OF HEATING",
             "items": [
+                {
+                    "title": "Type of heating",
+                    "value": "0"
+                },
+                {
+                    "title": "Electricity",
+                    "value": "1"
+                },
+                {
+                    "title": "Natural gas",
+                    "value": "2"
+                },
+                {
+                    "title": "Coal",
+                    "value": "3"
+                },
+                {
+                    "title": "Heating oil",
+                    "value": "4"
+                },
+                {
+                    "title": "Drink",
+                    "value": "5"
+                },
+                {
+                    "title": "Heat pump",
+                    "value": "6"
+                },
+                {
+                    "title": "Solar thermal",
+                    "value": "7"
+                },
+                {
+                    "title": "Urban heating",
+                    "value": "8"
+                },
+                {
+                    "title": "Propane",
+                    "value": "9"
+                }
+            ]
+        },
+        "car": {
+            "items": [
+                {
+                    "title": "Type of heating",
+                    "value": "0"
+                },
                 {
                     "title": "No car",
                     "value": "1"
