@@ -3,9 +3,11 @@ import { useRouteMatch } from "react-router";
 
 import SelectConsuming from "components/SelectConsuming/SelectConsuming";
 import SelectConsumingHome from "components/SelectConsuming/SelectConsumingHome/SelectConsumingHome";
+import SelectConsumingTransport from "components/SelectConsuming/SelectConsumingTransport/SelectConsumingTransport";
 
 const SelectTypes: Record<string, JSX.Element> = {
   home: <SelectConsumingHome />,
+  car: <SelectConsumingTransport />,
 };
 
 interface SelectTypeMatch {

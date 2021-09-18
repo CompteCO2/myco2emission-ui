@@ -18,6 +18,7 @@ const Wrapper = styled(Link)<{ color: string }>`
   cursor: pointer;
   &:hover {
     transform: scale(1.2);
+    color: ${props => props.theme.colors[props.color]};
   }
   &:last-child {
     padding-right: 0;

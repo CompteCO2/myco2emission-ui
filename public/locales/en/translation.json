@@ -66,10 +66,10 @@
                 }
             ]
         },
-        "car": {
+        "transport": {
             "items": [
                 {
-                    "title": "Type of heating",
+                    "title": "Type of transport",
                     "value": "0"
                 },
                 {
