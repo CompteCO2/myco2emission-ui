@@ -1,17 +1,17 @@
+import { SelectOption } from "components/Select/Select";
 import { useTranslation } from "react-i18next";
-
-import Select, { SelectOption } from "components/Select/Select";
+import FoodTypeList from "./FoodTypeList/FoodTypeList";
 
 const SelectConsumingFood = (): JSX.Element => {
   const { t } = useTranslation();
-  const items = t("consumings.transport.items", {
+  const foodTypes = t("consumings.food.items", {
     returnObjects: true,
   }) as SelectOption[];
 
   return (
-    <div>
-      <Select items={items} icon="/types/car.svg" />
-    </div>
+    <>
+      <FoodTypeList types={foodTypes} />
+    </>
   );
 };
 

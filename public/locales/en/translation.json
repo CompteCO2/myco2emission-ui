@@ -97,6 +97,46 @@
                     "value": "6"
                 }
             ]
+        },
+        "food": {
+            "items": [
+                {
+                    "title": "Red meat",
+                    "value": "0"
+                },
+                {
+                    "title": "V. white white / poultry",
+                    "value": "1"
+                },
+                {
+                    "title": "Fish / Crustaceans",
+                    "value": "2"
+                },
+                {
+                    "title": "Leg. / Seasonal fruits",
+                    "value": "3"
+                },
+                {
+                    "title": "Leg. / Exotic fruits ",
+                    "value": "4"
+                },
+                {
+                    "title": "From./Dairy/Eggs",
+                    "value": "5"
+                },
+                {
+                    "title": "Pasta / Rice",
+                    "value": "6"
+                },
+                {
+                    "title": "Wine / Beers",
+                    "value": "7"
+                },
+                {
+                    "title": "Fruit juice / Sodas / Water",
+                    "value": "8"
+                }
+            ]
         }
     }
 }
