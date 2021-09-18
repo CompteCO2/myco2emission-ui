@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 
-import ConsumingTypeList from "components/ConsumingTypeList/ConsumingTypeList";
+import ConsumingTypeList from "pages/ConsumingPage/ConsumingTypeList/ConsumingTypeList";
 import config from "config/consuming_types.json";
 import Header from "components/Header/Header";
 
