@@ -4,10 +4,10 @@ import { Normalize } from "styled-normalize";
 import { ThemeProvider, createGlobalStyle } from "styled-components";
 
 import "i18n/index";
-import ConsumingPage from "pages/ConsumingPage";
+import ConsumingPage from "pages/ConsumingPage/ConsumingPage";
 import { mainTheme } from "config/themes/main";
-import LoadingPage from "pages/LoadingPage";
-import SelectType from "pages/SelectType";
+import LoadingPage from "pages/LoadingPage/LoadingPage";
+import SelectTypePage from "pages/SelectTypePage/SelectTypePage";
 
 import "antd/dist/antd.css";
 
@@ -32,7 +32,7 @@ const App = (): JSX.Element => {
         <Router>
           <Switch>
             <Route path="/:type">
-              <SelectType />
+              <SelectTypePage />
             </Route>
             <Route path="/">
               <ConsumingPage />

@@ -7,7 +7,7 @@
             "url": "/home"
         },
         {
-            "id": "car",
+            "id": "transport",
             "image": "/consumption_types/car.svg",
             "color": "styleColor2",
             "url": "/car"
