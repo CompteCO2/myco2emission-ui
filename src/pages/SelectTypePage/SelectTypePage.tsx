@@ -8,8 +8,8 @@ import SelectConsumingFood from "pages/SelectTypePage/SelectConsuming/SelectCons
 
 const SelectTypes: Record<string, JSX.Element> = {
   home: <SelectConsumingHome />,
-  car: <SelectConsumingTransport />,
-  transport: <SelectConsumingFood />,
+  transport: <SelectConsumingTransport />,
+  food: <SelectConsumingFood />,
 };
 
 interface SelectTypeMatch {

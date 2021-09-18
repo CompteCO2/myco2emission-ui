@@ -99,6 +99,7 @@
             ]
         },
         "food": {
+            "portion": " times / week",
             "items": [
                 {
                     "title": "Red meat",

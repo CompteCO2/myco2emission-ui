@@ -10,7 +10,7 @@
             "id": "transport",
             "image": "/consumption_types/car.svg",
             "color": "styleColor2",
-            "url": "/car"
+            "url": "/transport"
         },
         {
             "id": "food",
