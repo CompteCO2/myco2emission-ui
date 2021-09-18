@@ -8,7 +8,7 @@ const SelectConsumingFly = (): JSX.Element => {
         throw new Error("Function not implemented.");
       }}
     >
-        <AddFly />
+      <AddFly />
     </SelectConsumingWrapper>
   );
 };

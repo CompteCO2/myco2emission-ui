@@ -138,6 +138,10 @@
                     "value": "8"
                 }
             ]
-        }
+        },
+        "fly": {
+            "destination": "destination",
+            "arrival": "arrival"
+        } 
     }
 }

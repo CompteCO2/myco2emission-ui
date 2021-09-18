@@ -11,7 +11,7 @@ const SelectTypes: Record<string, JSX.Element> = {
   home: <SelectConsumingHome />,
   transport: <SelectConsumingTransport />,
   food: <SelectConsumingFood />,
-  fly: <SelectConsumingFly />
+  fly: <SelectConsumingFly />,
 };
 
 interface SelectTypeMatch {

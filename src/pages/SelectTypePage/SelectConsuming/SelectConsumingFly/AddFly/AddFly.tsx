@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 import Select from "components/Select/Select";
+import WithLabel from "components/WithLabel/WithLabel";
+import { useTranslation } from "react-i18next";
 
 const Wrapper = styled.div`
   padding: 1rem 2rem;
@@ -19,12 +21,14 @@ const Selectors = styled.div`
 `;
 
 const Selector = styled(Select)`
-  width: 46%;
-
   > svg {
     height: 30px;
     width: 40px;
   }
+`;
+
+const Line = styled.div`
+  width: 46%;
 
   @media screen and (max-width: 1000px) {
     width: 100%;
@@ -48,13 +52,22 @@ const ASelector = styled(Selector)`
 `;
 
 const AddFly = (): JSX.Element => {
+  const { t } = useTranslation();
+
   return (
     <Wrapper>
       <Selectors>
-        <DSelector items={[]} icon="/fly/fly1.svg" />
-        <ASelector items={[]} icon="/fly/fly1.svg" />
+        <Line>
+          <WithLabel label={t("consumings.fly.destination")}>
+            <DSelector items={[]} icon="/fly/fly1.svg" />
+          </WithLabel>
+        </Line>
+        <Line>
+          <WithLabel label={t("consumings.fly.arrival")}>
+            <ASelector items={[]} icon="/fly/fly1.svg" />
+          </WithLabel>
+        </Line>
       </Selectors>
-
     </Wrapper>
   );
 };

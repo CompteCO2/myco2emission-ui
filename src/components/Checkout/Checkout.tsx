@@ -16,7 +16,7 @@ const Wrapper = styled.div`
       return `box-shadow: 0 3px 6px -4px ${color}, 0 6px 16px ${color},
       0 9px 28px 8px ${color}`;
     }};
-  
+
     background-color: #fff;
     color: ${props => props.theme.colors.styleColor3};
     transition: color, box-shadow 0.3s;
@@ -33,7 +33,7 @@ const Wrapper = styled.div`
   }
 `;
 
-export const Checkout = ({ onClick }: { onClick: () => void }) => {
+export const Checkout = ({ onClick }: { onClick: () => void }): JSX.Element => {
   return (
     <Wrapper onClick={onClick}>
       <Avatar
