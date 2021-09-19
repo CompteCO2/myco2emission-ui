@@ -1,4 +1,5 @@
-import { Subject } from "rxjs";
+import { BehaviorSubject } from "rxjs";
+import airports from "config/airports.json";
 
 export interface Airport {
   name: string;
@@ -10,4 +11,4 @@ export interface Airport {
   passengers: number;
 }
 
-export const airportsSubject = new Subject<number>();
+export const airports$ = new BehaviorSubject<Airport[]>(airports);

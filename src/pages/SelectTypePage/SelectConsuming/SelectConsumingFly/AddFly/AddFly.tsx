@@ -1,8 +1,11 @@
 import styled from "styled-components";
-
-import Select from "components/Select/Select";
-import WithLabel from "components/WithLabel/WithLabel";
 import { useTranslation } from "react-i18next";
+import { map } from "rxjs/operators";
+import { useEffect, useState } from "react";
+
+import Select, { SelectOption } from "components/Select/Select";
+import WithLabel from "components/WithLabel/WithLabel";
+import { airports$ } from "subjects/airports";
 
 const Wrapper = styled.div`
   padding: 1rem 2rem;
@@ -52,19 +55,48 @@ const ASelector = styled(Selector)`
 `;
 
 const AddFly = (): JSX.Element => {
+  const [airports, setAirports] = useState<SelectOption[]>([]);
   const { t } = useTranslation();
+
+  // map airports to options.
+  useEffect(() => {
+    const airportsOptions$ = airports$.pipe(
+      map(airports => {
+        return airports.map(airport => {
+          return {
+            title: `${airport.name} ${airport.IATA}`,
+            value: airport.IATA,
+          };
+        });
+      })
+    );
+
+    airportsOptions$.subscribe(airports => {
+      setAirports(airports);
+    });
+  }, []);
 
   return (
     <Wrapper>
       <Selectors>
         <Line>
           <WithLabel label={t("consumings.fly.destination")}>
-            <DSelector items={[]} icon="/fly/fly1.svg" />
+            <DSelector
+              showSearch
+              dropdownMatchSelectWidth={400}
+              items={airports}
+              icon="/fly/fly1.svg"
+            />
           </WithLabel>
         </Line>
         <Line>
           <WithLabel label={t("consumings.fly.arrival")}>
-            <ASelector items={[]} icon="/fly/fly1.svg" />
+            <ASelector
+              showSearch
+              dropdownMatchSelectWidth={400}
+              items={airports}
+              icon="/fly/fly1.svg"
+            />
           </WithLabel>
         </Line>
       </Selectors>
