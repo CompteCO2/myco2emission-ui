@@ -141,7 +141,11 @@
         },
         "fly": {
             "destination": "destination",
-            "arrival": "arrival"
+            "arrival": "arrival",
+            "class": {
+                "econom": "Econom",
+                "business": "Business"
+            }
         } 
     }
 }

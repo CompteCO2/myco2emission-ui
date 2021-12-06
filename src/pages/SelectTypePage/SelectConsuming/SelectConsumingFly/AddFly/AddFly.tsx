@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
 import { map } from "rxjs/operators";
+import { Radio } from "antd";
 import { useEffect, useState } from "react";
 
 import Select, { SelectOption } from "components/Select/Select";
@@ -12,14 +13,22 @@ const Wrapper = styled.div`
   border-radius: 1rem;
   border: 1px solid ${props => props.theme.colors.styleColor1};
   margin-top: -1rem;
-`;
 
-const Selectors = styled.div`
-  display: flex;
-  justify-content: space-between;
+  .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
+    color: ${props => props.theme.colors.styleColor1};
+    border-color: ${props => props.theme.colors.styleColor1};
+  }
 
-  @media screen and (max-width: 1000px) {
-    display: block;
+  .ant-radio-button-wrapper-checked:not([class*=" ant-radio-button-wrapper-disabled"]).ant-radio-button-wrapper:first-child {
+    border-right-color: ${props => props.theme.colors.styleColor1};
+  }
+
+  .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled)::before {
+    background-color: ${props => props.theme.colors.styleColor1};
+  }
+
+  .ant-radio-button-wrapper:hover {
+    color: ${props => props.theme.colors.styleColor1};
   }
 `;
 
@@ -37,6 +46,13 @@ const Selector = styled(Select)`
 `;
 
 const Line = styled.div`
+  width: 100%;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+`;
+
+const Cell = styled.div`
   width: 46%;
 
   @media screen and (max-width: 1000px) {
@@ -84,8 +100,8 @@ const AddFly = (): JSX.Element => {
 
   return (
     <Wrapper>
-      <Selectors>
-        <Line>
+      <Line>
+        <Cell>
           <WithLabel label={t("consumings.fly.destination")}>
             <DSelector
               showSearch
@@ -94,8 +110,8 @@ const AddFly = (): JSX.Element => {
               icon="/fly/fly1.svg"
             />
           </WithLabel>
-        </Line>
-        <Line>
+        </Cell>
+        <Cell>
           <WithLabel label={t("consumings.fly.arrival")}>
             <ASelector
               showSearch
@@ -104,8 +120,21 @@ const AddFly = (): JSX.Element => {
               icon="/fly/fly1.svg"
             />
           </WithLabel>
-        </Line>
-      </Selectors>
+        </Cell>
+      </Line>
+      <Line>
+        <Cell>
+          <Radio.Group defaultValue="a">
+            <Radio.Button value="a">
+              {t("consumings.fly.class.econom")}
+            </Radio.Button>
+            <Radio.Button value="b">
+              {t("consumings.fly.class.business")}
+            </Radio.Button>
+          </Radio.Group>
+        </Cell>
+        <Cell>123</Cell>
+      </Line>
     </Wrapper>
   );
 };
