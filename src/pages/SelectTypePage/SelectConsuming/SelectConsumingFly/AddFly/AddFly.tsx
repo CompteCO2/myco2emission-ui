@@ -26,7 +26,13 @@ const Selectors = styled.div`
 const Selector = styled(Select)`
   > svg {
     height: 30px;
-    width: 40px;
+    max-width: 10%;
+    width: 10%;
+  }
+
+  .ant-select {
+    width: 90%;
+    overflow: hidden;
   }
 `;
 
