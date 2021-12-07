@@ -19,6 +19,10 @@
         "fly": {
             "title": "My air transport",
             "tip": "Estimation of the carbon footprint of my air journeys."
+        },
+        "transport": {
+            "title": "My transport",
+            "tip": "Estimate the carbon footprint of my vehicle"
         }
     },
     "consumings": {
