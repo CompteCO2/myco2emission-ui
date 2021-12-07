@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
 import { map } from "rxjs/operators";
-import { Radio, InputNumber } from "antd";
+import { Radio, InputNumber, Space, Button } from "antd";
 import { useEffect, useState } from "react";
 
 import Select, { SelectOption } from "components/Select/Select";
@@ -67,6 +67,13 @@ const DSelector = styled(Selector)`
   }
 `;
 
+const AddButton = styled(Button)`
+  background-color: ${props => props.theme.colors.styleColor3};
+  padding: 0.5rem 2rem;
+  border-radius: 25px;
+  height: auto;
+`
+
 const ASelector = styled(Selector)`
   > svg {
     transform: rotateX(45deg) rotateZ(45deg);
@@ -74,6 +81,10 @@ const ASelector = styled(Selector)`
     left: 0.2rem;
     top: 0.2rem;
   }
+`;
+
+const ButtonLine = styled(Line)`
+  justify-content: right;
 `;
 
 const AddFly = (): JSX.Element => {
@@ -124,7 +135,7 @@ const AddFly = (): JSX.Element => {
       </Line>
       <Line>
         <Cell>
-          <WithLabel label={t("consumings.class.name")} noBackground={true}>
+          <WithLabel label={t("consumings.fly.class.name")} noBackground={true}>
             <Radio.Group defaultValue="a">
               <Radio.Button value="a">
                 {t("consumings.fly.class.econom")}
@@ -141,6 +152,23 @@ const AddFly = (): JSX.Element => {
           </WithLabel>
         </Cell>
       </Line>
+      <Line>
+        <Cell>
+          <WithLabel label={t("consumings.fly.way.name")} noBackground={true}>
+            <Radio.Group value={1}>
+              <Space direction="vertical">
+                <Radio value={1}>{t("consumings.fly.way.one")}</Radio>
+                <Radio value={2}>{t("consumings.fly.way.round")}</Radio>
+              </Space>
+            </Radio.Group>
+          </WithLabel>
+        </Cell>
+      </Line>
+      <ButtonLine>
+        <AddButton type="primary" shape="circle">
+          {t("consumings.fly.buttons.add")}
+        </AddButton>
+      </ButtonLine>
     </Wrapper>
   );
 };

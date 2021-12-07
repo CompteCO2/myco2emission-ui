@@ -146,6 +146,14 @@
                 "name": "Class",
                 "econom": "Econom",
                 "business": "Business"
+            },
+            "way": {
+                "name": "Way",
+                "one": "One way ticket",
+                "round": "Round trip"
+            },
+            "buttons": {
+                "add": "Add"
             }
         } 
     }
