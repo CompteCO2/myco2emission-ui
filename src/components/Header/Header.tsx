@@ -9,8 +9,12 @@ const PageHeaderWrapper = styled(PageHeader)`
     justify-content: center;
   }
   .ant-page-header-heading-title {
-    font-size: 5vh;
+    font-size: 2rem;
     font-weight: normal;
+
+    @media screen and (max-width: 600px) {
+      font-size: 1.5rem;
+  }
   }
 `;
 

@@ -33,7 +33,11 @@ const Line = styled.div`
 
 const Percentage = styled.div`
   padding-left: 1rem;
-  font-size: 3vh;
+  font-size: 1rem;
+
+  @media screen and (max-width: 600px) {
+    font-size: 1.5rem;
+  }
 `;
 
 const Image = styled(SVG)<{ color: string }>`
@@ -44,7 +48,11 @@ const Image = styled(SVG)<{ color: string }>`
 
 const Amount = styled.div`
   padding: 1rem;
-  font-size: 4vh;
+  font-size: 1rem;
+
+  @media screen and (max-width: 600px) {
+    font-size: 1.5rem;
+  }
 `;
 
 export interface ConsumingTypeItem {

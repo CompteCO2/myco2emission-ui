@@ -72,7 +72,7 @@ const AddButton = styled(Button)`
   padding: 0.5rem 2rem;
   border-radius: 25px;
   height: auto;
-`
+`;
 
 const ASelector = styled(Selector)`
   > svg {
