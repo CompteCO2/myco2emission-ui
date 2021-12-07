@@ -12,8 +12,8 @@ const Title = styled.div`
   color: ${props => props.theme.colors.styleColor1};
 `;
 
-const Body = styled.div`
-  background: rgba(0, 0, 0, 0.05);
+const Body = styled.div<{ noBackground: boolean }>`
+  background: ${props => (!props.noBackground ? "rgba(0, 0, 0, 0.05)" : "")};
   border-radius: 5px;
   padding: 0.5rem 1rem;
 `;
@@ -22,15 +22,17 @@ const WithLabel = ({
   label,
   className,
   children,
+  noBackground,
 }: {
   label: string;
   className?: string;
+  noBackground?: boolean;
   children?: JSX.Element | JSX.Element[];
 }): JSX.Element => {
   return (
     <Wrapper className={className}>
       <Title>{label}</Title>
-      <Body>{children}</Body>
+      <Body noBackground={noBackground ?? false}>{children}</Body>
     </Wrapper>
   );
 };

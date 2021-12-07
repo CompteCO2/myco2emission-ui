@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
 import { map } from "rxjs/operators";
-import { Radio } from "antd";
+import { Radio, InputNumber } from "antd";
 import { useEffect, useState } from "react";
 
 import Select, { SelectOption } from "components/Select/Select";
@@ -124,16 +124,22 @@ const AddFly = (): JSX.Element => {
       </Line>
       <Line>
         <Cell>
-          <Radio.Group defaultValue="a">
-            <Radio.Button value="a">
-              {t("consumings.fly.class.econom")}
-            </Radio.Button>
-            <Radio.Button value="b">
-              {t("consumings.fly.class.business")}
-            </Radio.Button>
-          </Radio.Group>
+          <WithLabel label={t("consumings.class.name")} noBackground={true}>
+            <Radio.Group defaultValue="a">
+              <Radio.Button value="a">
+                {t("consumings.fly.class.econom")}
+              </Radio.Button>
+              <Radio.Button value="b">
+                {t("consumings.fly.class.business")}
+              </Radio.Button>
+            </Radio.Group>
+          </WithLabel>
         </Cell>
-        <Cell>123</Cell>
+        <Cell>
+          <WithLabel label={t("consumings.fly.arrival")} noBackground={true}>
+            <InputNumber min={1} max={999} defaultValue={1} />
+          </WithLabel>
+        </Cell>
       </Line>
     </Wrapper>
   );
