@@ -1,4 +1,4 @@
-import { BehaviorSubject } from "rxjs";
+import { makeAutoObservable } from "mobx";
 import airports from "config/airports.json";
 
 export interface Airport {
@@ -11,4 +11,10 @@ export interface Airport {
   passengers: number;
 }
 
-export const airports$ = new BehaviorSubject<Airport[]>(airports);
+export class AirportStore {
+  public airports: Airport[] = airports;
+
+  constructor() {
+    makeAutoObservable(this);
+  }
+}

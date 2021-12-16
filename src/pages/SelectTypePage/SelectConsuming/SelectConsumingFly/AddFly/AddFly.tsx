@@ -1,14 +1,12 @@
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
-import { map } from "rxjs/operators";
 import { Radio, InputNumber, Space, Button } from "antd";
-import { useEffect, useState } from "react";
+import { useForm, Controller } from "react-hook-form";
 
 import Select, { SelectOption } from "components/Select/Select";
 import WithLabel from "components/WithLabel/WithLabel";
-import { airports$ } from "subjects/airports";
 
-const Wrapper = styled.div`
+const Wrapper = styled.form`
   padding: 1rem 2rem;
   border-radius: 1rem;
   border: 1px solid ${props => props.theme.colors.styleColor1};
@@ -87,48 +85,61 @@ const ButtonLine = styled(Line)`
   justify-content: right;
 `;
 
-const AddFly = (): JSX.Element => {
-  const [airports, setAirports] = useState<SelectOption[]>([]);
+const AddFly = ({
+  airports,
+  onAdd,
+}: {
+  airports: SelectOption[];
+  onAdd: () => void;
+}): JSX.Element => {
+  const { control, handleSubmit } = useForm({
+    defaultValues: {
+      passagersNumber: 1,
+      destination: "",
+      arrival: "",
+      class: "1",
+      type: 1,
+    },
+  });
+
   const { t } = useTranslation();
 
-  // map airports to options.
-  useEffect(() => {
-    const airportsOptions$ = airports$.pipe(
-      map(airports => {
-        return airports.map(airport => {
-          return {
-            title: `${airport.name} ${airport.IATA}`,
-            value: airport.IATA,
-          };
-        });
-      })
-    );
-
-    airportsOptions$.subscribe(airports => {
-      setAirports(airports);
-    });
-  }, []);
+  const onSubmit = (data: any) => console.log(data);
 
   return (
     <Wrapper>
       <Line>
         <Cell>
           <WithLabel label={t("consumings.fly.destination")}>
-            <DSelector
-              showSearch
-              dropdownMatchSelectWidth={400}
-              items={airports}
-              icon="/fly/fly1.svg"
+            <Controller
+              name="destination"
+              control={control}
+              render={({ field }) => (
+                <DSelector
+                  showSearch
+                  dropdownMatchSelectWidth={400}
+                  items={airports}
+                  icon="/fly/fly1.svg"
+                  {...field}
+                />
+              )}
             />
           </WithLabel>
         </Cell>
         <Cell>
           <WithLabel label={t("consumings.fly.arrival")}>
-            <ASelector
-              showSearch
-              dropdownMatchSelectWidth={400}
-              items={airports}
-              icon="/fly/fly1.svg"
+            <Controller
+              name="arrival"
+              control={control}
+              render={({ field }) => (
+                <ASelector
+                  showSearch
+                  dropdownMatchSelectWidth={400}
+                  items={airports}
+                  icon="/fly/fly1.svg"
+                  {...field}
+                />
+              )}
             />
           </WithLabel>
         </Cell>
@@ -136,36 +147,58 @@ const AddFly = (): JSX.Element => {
       <Line>
         <Cell>
           <WithLabel label={t("consumings.fly.class.name")} noBackground={true}>
-            <Radio.Group defaultValue="a">
-              <Radio.Button value="a">
-                {t("consumings.fly.class.econom")}
-              </Radio.Button>
-              <Radio.Button value="b">
-                {t("consumings.fly.class.business")}
-              </Radio.Button>
-            </Radio.Group>
+            <Controller
+              name="class"
+              control={control}
+              render={({ field }) => (
+                <Radio.Group defaultValue="1" {...field}>
+                  <Radio.Button value="1">
+                    {t("consumings.fly.class.econom")}
+                  </Radio.Button>
+                  <Radio.Button value="2">
+                    {t("consumings.fly.class.business")}
+                  </Radio.Button>
+                </Radio.Group>
+              )}
+            />
           </WithLabel>
         </Cell>
         <Cell>
-          <WithLabel label={t("consumings.fly.arrival")} noBackground={true}>
-            <InputNumber min={1} max={999} defaultValue={1} />
+          <WithLabel label={t("consumings.fly.number")} noBackground={true}>
+            <Controller
+              name="passagersNumber"
+              control={control}
+              render={({ field }) => (
+                <InputNumber min={1} max={999} {...field} />
+              )}
+            />
           </WithLabel>
         </Cell>
       </Line>
       <Line>
         <Cell>
           <WithLabel label={t("consumings.fly.way.name")} noBackground={true}>
-            <Radio.Group value={1}>
-              <Space direction="vertical">
-                <Radio value={1}>{t("consumings.fly.way.one")}</Radio>
-                <Radio value={2}>{t("consumings.fly.way.round")}</Radio>
-              </Space>
-            </Radio.Group>
+            <Controller
+              name="type"
+              control={control}
+              render={({ field }) => (
+                <Radio.Group {...field}>
+                  <Space direction="vertical">
+                    <Radio value={1}>{t("consumings.fly.way.one")}</Radio>
+                    <Radio value={2}>{t("consumings.fly.way.round")}</Radio>
+                  </Space>
+                </Radio.Group>
+              )}
+            />
           </WithLabel>
         </Cell>
       </Line>
       <ButtonLine>
-        <AddButton type="primary" shape="circle">
+        <AddButton
+          type="primary"
+          shape="circle"
+          onClick={handleSubmit(onSubmit)}
+        >
           {t("consumings.fly.buttons.add")}
         </AddButton>
       </ButtonLine>

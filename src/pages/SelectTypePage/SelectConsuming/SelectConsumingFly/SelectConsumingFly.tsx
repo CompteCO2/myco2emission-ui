@@ -1,5 +1,5 @@
 import SelectConsumingWrapper from "pages/SelectTypePage/SelectWrapper/SelectWrapper";
-import AddFly from "./AddFly/AddFly";
+import AddFlyContainer from "./AddFly/AddFlyContainer";
 
 const SelectConsumingFly = (): JSX.Element => {
   return (
@@ -8,7 +8,7 @@ const SelectConsumingFly = (): JSX.Element => {
         throw new Error("Function not implemented.");
       }}
     >
-      <AddFly />
+      <AddFlyContainer />
     </SelectConsumingWrapper>
   );
 };
