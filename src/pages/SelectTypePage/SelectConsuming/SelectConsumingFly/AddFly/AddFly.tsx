@@ -2,9 +2,12 @@ import styled from "styled-components";
 import { useTranslation } from "react-i18next";
 import { Radio, InputNumber, Space, Button } from "antd";
 import { useForm, Controller } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 
 import Select, { SelectOption } from "components/Select/Select";
 import WithLabel from "components/WithLabel/WithLabel";
+import { Fly } from "stores/fly";
 
 const Wrapper = styled.form`
   padding: 1rem 2rem;
@@ -85,14 +88,21 @@ const ButtonLine = styled(Line)`
   justify-content: right;
 `;
 
+const schema = yup
+  .object({
+    destination: yup.string().required(),
+    arrival: yup.string().required(),
+  })
+  .required();
+
 const AddFly = ({
   airports,
   onAdd,
 }: {
   airports: SelectOption[];
-  onAdd: () => void;
+  onAdd: (data: Fly) => void;
 }): JSX.Element => {
-  const { control, handleSubmit } = useForm({
+  const { control, handleSubmit, formState } = useForm<Fly>({
     defaultValues: {
       passagersNumber: 1,
       destination: "",
@@ -100,11 +110,15 @@ const AddFly = ({
       class: "1",
       type: 1,
     },
+    resolver: yupResolver(schema),
+    mode: "onChange",
   });
 
   const { t } = useTranslation();
 
-  const onSubmit = (data: any) => console.log(data);
+  const onSubmit = (data: Fly) => {
+    onAdd(data)
+  };
 
   return (
     <Wrapper>
@@ -168,6 +182,7 @@ const AddFly = ({
             <Controller
               name="passagersNumber"
               control={control}
+              rules={{ required: true }}
               render={({ field }) => (
                 <InputNumber min={1} max={999} {...field} />
               )}
@@ -195,6 +210,7 @@ const AddFly = ({
       </Line>
       <ButtonLine>
         <AddButton
+          disabled={!formState.isValid}
           type="primary"
           shape="circle"
           onClick={handleSubmit(onSubmit)}

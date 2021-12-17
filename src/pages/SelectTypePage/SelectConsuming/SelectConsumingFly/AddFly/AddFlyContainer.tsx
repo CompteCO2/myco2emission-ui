@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
+import { observer } from "mobx-react";
 
 import { SelectOption } from "components/Select/Select";
 import { useRootStore } from "providers/RootStoreProvider";
 import AddFly from "./AddFly";
+import { Fly } from "stores/fly";
 
-const AddFlyContainer = (): JSX.Element => {
-  const { airportStore } = useRootStore();
+const AddFlyContainer = observer((): JSX.Element => {
+  const { airportStore, flyStore } = useRootStore();
   const [airports, setAirports] = useState<SelectOption[]>([]);
 
   // map airports to options.
@@ -20,8 +22,12 @@ const AddFlyContainer = (): JSX.Element => {
     );
   }, []);
 
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  return <AddFly airports={airports} onAdd={() => {}} />;
-};
+  // add fly.
+  const onAddCallback = (data: Fly) => {
+    flyStore.addFly(data);
+  };
+
+  return <AddFly airports={airports} onAdd={onAddCallback} />;
+});
 
 export default AddFlyContainer;
