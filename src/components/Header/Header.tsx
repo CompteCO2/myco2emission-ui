@@ -14,7 +14,7 @@ const PageHeaderWrapper = styled(PageHeader)`
 
     @media screen and (max-width: 600px) {
       font-size: 1.5rem;
-  }
+    }
   }
 `;
 

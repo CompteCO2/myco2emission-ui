@@ -13,7 +13,6 @@ const Wrapper = styled.form`
   padding: 1rem 2rem;
   border-radius: 1rem;
   border: 1px solid ${props => props.theme.colors.styleColor1};
-  margin-top: -1rem;
 
   .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
     color: ${props => props.theme.colors.styleColor1};
@@ -117,7 +116,7 @@ const AddFly = ({
   const { t } = useTranslation();
 
   const onSubmit = (data: Fly) => {
-    onAdd(data)
+    onAdd(data);
   };
 
   return (

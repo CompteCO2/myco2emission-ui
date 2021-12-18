@@ -5,7 +5,7 @@ export const FliesList = ({ flies }: { flies: Fly[] }): JSX.Element => {
   return (
     <>
       {flies.map((fly, key) => {
-        <FliesListItem key={key} fly={fly} />;
+        return <FliesListItem key={key} fly={fly} />;
       })}
     </>
   );

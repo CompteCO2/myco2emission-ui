@@ -16,6 +16,6 @@ export class FlyStore {
   }
 
   public addFly(fly: Fly): void {
-    this.flies.push(fly);
+    this.flies = [...this.flies, fly];
   }
 }
