@@ -4,7 +4,7 @@ export interface Fly {
   destination: string;
   arrival: string;
   class: string;
-  passagersNumber: number;
+  travelNumber: number;
   type: number;
 }
 

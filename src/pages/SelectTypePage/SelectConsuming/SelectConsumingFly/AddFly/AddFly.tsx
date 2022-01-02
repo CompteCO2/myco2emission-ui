@@ -103,7 +103,7 @@ const AddFly = ({
 }): JSX.Element => {
   const { control, handleSubmit, formState } = useForm<Fly>({
     defaultValues: {
-      passagersNumber: 1,
+      travelNumber: 1,
       destination: "",
       arrival: "",
       class: "1",
@@ -179,7 +179,7 @@ const AddFly = ({
         <Cell>
           <WithLabel label={t("consumings.fly.number")} noBackground={true}>
             <Controller
-              name="passagersNumber"
+              name="travelNumber"
               control={control}
               rules={{ required: true }}
               render={({ field }) => (
@@ -191,15 +191,15 @@ const AddFly = ({
       </Line>
       <Line>
         <Cell>
-          <WithLabel label={t("consumings.fly.way.name")} noBackground={true}>
+          <WithLabel label={t("consumings.fly.way")} noBackground={true}>
             <Controller
               name="type"
               control={control}
               render={({ field }) => (
                 <Radio.Group {...field}>
                   <Space direction="vertical">
-                    <Radio value={1}>{t("consumings.fly.way.one")}</Radio>
-                    <Radio value={2}>{t("consumings.fly.way.round")}</Radio>
+                    <Radio value={1}>{t("consumings.fly.type.1")}</Radio>
+                    <Radio value={2}>{t("consumings.fly.type.2")}</Radio>
                   </Space>
                 </Radio.Group>
               )}

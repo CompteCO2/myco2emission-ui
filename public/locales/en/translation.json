@@ -152,13 +152,16 @@
                 "econom": "Econom",
                 "business": "Business"
             },
-            "way": {
-                "name": "Way",
-                "one": "One way ticket",
-                "round": "Round trip"
+            "type": {
+                "1": "One way ticket",
+                "2": "Round trip"
             },
+            "way": "Way",
             "buttons": {
                 "add": "Add"
+            },
+            "list": {
+                "travelNumber": "travels"
             }
         } 
     }
