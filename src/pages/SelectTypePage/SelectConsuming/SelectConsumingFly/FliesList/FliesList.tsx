@@ -6,7 +6,16 @@ const Wrapper = styled.div`
   padding-bottom: 2rem;
 `;
 
-export const FliesList = ({ flies }: { flies: Fly[] }): JSX.Element => {
+export interface FlyWithFullAirportsName extends Fly {
+  destinationName: string;
+  arrivalName: string;
+}
+
+export const FliesList = ({
+  flies,
+}: {
+  flies: FlyWithFullAirportsName[];
+}): JSX.Element => {
   return (
     <Wrapper>
       {flies.map((fly, key) => {

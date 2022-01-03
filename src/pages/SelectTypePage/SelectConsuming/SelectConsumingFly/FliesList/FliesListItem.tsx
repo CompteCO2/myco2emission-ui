@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
-import { Fly } from "stores/fly";
 import styled from "styled-components";
+import { FlyWithFullAirportsName } from "./FliesList";
 
 const Wrapper = styled.div`
   padding: 1rem 2rem;
@@ -28,7 +28,11 @@ const Type = styled.div`
   display: inline-block;
 `;
 
-export const FliesListItem = ({ fly }: { fly: Fly }): JSX.Element => {
+export const FliesListItem = ({
+  fly,
+}: {
+  fly: FlyWithFullAirportsName;
+}): JSX.Element => {
   const { t } = useTranslation();
 
   return (
