@@ -1,5 +1,4 @@
 import { Select as AntSelect } from "antd";
-import { SelectProps, SelectValue } from "antd/es/select/index";
 
 import SVG from "react-inlinesvg";
 import styled from "styled-components";
@@ -24,7 +23,7 @@ export interface SelectOption {
   value: string;
 }
 
-export interface MySelectProps extends SelectProps<SelectValue> {
+export interface MySelectProps {
   items: SelectOption[];
   icon: string;
   className?: string;
@@ -41,10 +40,7 @@ const Select = ({
   return (
     <Wrapper className={className}>
       <StyledSVG src={getImagePath(icon)} />
-      <StyledSelect
-        defaultValue={items.length ? items[0].value : ""}
-        {...(rest as any)}
-      >
+      <StyledSelect defaultValue={items.length ? items[0].value : ""} {...rest}>
         {items.map(item => {
           return (
             <Option key={item.value} value={item.value}>
