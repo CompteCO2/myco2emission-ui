@@ -41,7 +41,10 @@ const Select = ({
   return (
     <Wrapper className={className}>
       <StyledSVG src={getImagePath(icon)} />
-      <StyledSelect defaultValue={items.length ? items[0].value : ""} {...rest}>
+      <StyledSelect
+        defaultValue={items.length ? items[0].value : ""}
+        {...(rest as any)}
+      >
         {items.map(item => {
           return (
             <Option key={item.value} value={item.value}>
