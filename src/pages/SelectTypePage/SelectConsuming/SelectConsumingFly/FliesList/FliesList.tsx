@@ -13,13 +13,17 @@ export interface FlyWithFullAirportsName extends Fly {
 
 export const FliesList = ({
   flies,
+  onClick,
 }: {
   flies: FlyWithFullAirportsName[];
+  onClick: (index: number) => void;
 }): JSX.Element => {
   return (
     <Wrapper>
       {flies.map((fly, key) => {
-        return <FliesListItem key={key} fly={fly} />;
+        return (
+          <FliesListItem onClick={onClick} index={key} key={key} fly={fly} />
+        );
       })}
     </Wrapper>
   );

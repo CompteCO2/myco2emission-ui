@@ -18,4 +18,10 @@ export class FlyStore {
   public addFly(fly: Fly): void {
     this.flies = [...this.flies, fly];
   }
+
+  public deleteByIndex(index: number): void {
+    this.flies.splice(index, 1);
+
+    this.flies = [...this.flies];
+  }
 }

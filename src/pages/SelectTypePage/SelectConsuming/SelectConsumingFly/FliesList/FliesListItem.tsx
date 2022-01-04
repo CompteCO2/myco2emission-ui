@@ -1,7 +1,10 @@
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
+import { CloseOutlined } from "@ant-design/icons";
+
 import { FlyWithFullAirportsName } from "./FliesList";
 import { ReactComponent as RoseSVG } from "../../../../../icons/rose.svg";
+import { useCallback } from "react";
 
 const Wrapper = styled.div`
   padding: 1rem 2rem;
@@ -10,15 +13,26 @@ const Wrapper = styled.div`
   border: 1px solid ${props => props.theme.colors.styleColor1};
   display: flex;
   justify-content: space-between;
+  position: relative;
 
   &:last-child {
     margin: 0;
   }
 `;
 
+const Delete = styled(CloseOutlined)`
+  color: ${props => props.theme.colors.styleColor1};
+  font-size: 140%;
+  position: absolute;
+  right: 3%;
+  cursor: pointer;
+  z-index: 10;
+`;
+
 const Left = styled.div``;
 
 const Right = styled.div`
+  padding-right: 7%;
   color: ${props => props.theme.colors.styleColor1};
   text-align: center;
   text-transform: none;
@@ -49,10 +63,18 @@ const FlyClass = styled.div``;
 
 export const FliesListItem = ({
   fly,
+  index,
+  onClick,
 }: {
   fly: FlyWithFullAirportsName;
+  index: number;
+  onClick: (index: number) => void;
 }): JSX.Element => {
   const { t } = useTranslation();
+
+  const onClickCallback = useCallback(() => {
+    onClick(index);
+  }, [index, onClick]);
 
   return (
     <Wrapper>
@@ -74,6 +96,7 @@ export const FliesListItem = ({
         <RoseSVG />
         <FlyClass>{t(`consumings.fly.class.${fly.class}`)}</FlyClass>
       </Right>
+      <Delete onClick={onClickCallback} />
     </Wrapper>
   );
 };

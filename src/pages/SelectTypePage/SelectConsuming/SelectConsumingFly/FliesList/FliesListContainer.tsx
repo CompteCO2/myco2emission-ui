@@ -1,5 +1,5 @@
 import { observer } from "mobx-react";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import { useRootStore } from "providers/RootStoreProvider";
 import { FliesList, FlyWithFullAirportsName } from "./FliesList";
@@ -7,6 +7,12 @@ import { FliesList, FlyWithFullAirportsName } from "./FliesList";
 export const FliesListContainer = observer((): JSX.Element => {
   const { flyStore, airportStore } = useRootStore();
   const [flies, setFlies] = useState<FlyWithFullAirportsName[]>([]);
+  const onClick = useCallback(
+    (index: number) => {
+      flyStore.deleteByIndex(index);
+    },
+    [flyStore]
+  );
 
   useEffect(() => {
     const airports = airportStore.getAiportsDictByIATA();
@@ -21,5 +27,5 @@ export const FliesListContainer = observer((): JSX.Element => {
     setFlies(flies);
   }, [flyStore.flies, airportStore.airports]);
 
-  return <FliesList flies={flies} />;
+  return <FliesList flies={flies} onClick={onClick} />;
 });
