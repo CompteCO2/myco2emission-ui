@@ -1,9 +1,10 @@
-import { Select as AntSelect } from "antd";
+import { Select as AntSelect, SelectProps } from "antd";
 
 import SVG from "react-inlinesvg";
 import styled from "styled-components";
 
 import { getImagePath } from "helpers/image";
+import { BaseOptionType, DefaultOptionType } from "antd/lib/select";
 
 const StyledSelect = styled(AntSelect)`
   width: 100%;
@@ -23,7 +24,8 @@ export interface SelectOption {
   value: string;
 }
 
-export interface MySelectProps {
+export interface MySelectProps
+  extends SelectProps<unknown, DefaultOptionType | BaseOptionType> {
   items: SelectOption[];
   icon: string;
   className?: string;
