@@ -149,8 +149,8 @@
             "arrival": "arrival",
             "class": {
                 "name": "Class",
-                "econom": "Econom",
-                "business": "Business"
+                "1": "Econom",
+                "2": "Business"
             },
             "type": {
                 "1": "One way ticket",
@@ -161,7 +161,8 @@
                 "add": "Add"
             },
             "list": {
-                "travelNumber": "travels"
+                "travelNumber": "travels",
+                "path": "{{arrivalName}} > {{destinationName}}"
             }
         } 
     }

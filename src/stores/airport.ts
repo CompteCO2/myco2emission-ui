@@ -17,4 +17,12 @@ export class AirportStore {
   constructor() {
     makeAutoObservable(this);
   }
+
+  public getAiportsDictByIATA(): Record<string, Airport> {
+    return this.airports.reduce<Record<string, Airport>>((acc, value) => {
+      acc[value.IATA] = value;
+
+      return acc;
+    }, {});
+  }
 }

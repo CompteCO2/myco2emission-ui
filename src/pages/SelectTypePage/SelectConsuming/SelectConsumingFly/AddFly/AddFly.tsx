@@ -166,10 +166,10 @@ const AddFly = ({
               render={({ field }) => (
                 <Radio.Group defaultValue="1" {...field}>
                   <Radio.Button value="1">
-                    {t("consumings.fly.class.econom")}
+                    {t("consumings.fly.class.1")}
                   </Radio.Button>
                   <Radio.Button value="2">
-                    {t("consumings.fly.class.business")}
+                    {t("consumings.fly.class.2")}
                   </Radio.Button>
                 </Radio.Group>
               )}
