@@ -1,4 +1,8 @@
 {
+    "dimentions": {
+        "kg": "kg",
+        "liter": "L"
+    },
     "pages": {
         "consuming": {
             "title": "I calculate my carbon footprint",
@@ -27,48 +31,26 @@
     },
     "consumings": {
         "home": {
-            "items": [
-                {
-                    "title": "Type of heating",
-                    "value": "0"
-                },
-                {
-                    "title": "Electricity",
-                    "value": "1"
-                },
-                {
-                    "title": "Natural gas",
-                    "value": "2"
-                },
-                {
-                    "title": "Coal",
-                    "value": "3"
-                },
-                {
-                    "title": "Heating oil",
-                    "value": "4"
-                },
-                {
-                    "title": "Drink",
-                    "value": "5"
-                },
-                {
-                    "title": "Heat pump",
-                    "value": "6"
-                },
-                {
-                    "title": "Solar thermal",
-                    "value": "7"
-                },
-                {
-                    "title": "Urban heating",
-                    "value": "8"
-                },
-                {
-                    "title": "Propane",
-                    "value": "9"
-                }
-            ]
+            "type_of_heating": "TYPE DE CHAUFFAGE",
+            "surface": "SURFACE",
+            "no_co2": "The consumption of this type of heating does not emit CO2 in the calculation methodology",
+            "consumption": "consumtion",
+            "items": {
+                "": "Type of heating",
+                "ELECTRICITY": "Electricity",
+                "NATURAL_GAS": "Natural gas",
+                "COAL": "Coal",
+                "HEATING_OIL": "Heating oil",
+                "DRINK": "Drink",
+                "HEAP_PUMP": "Heat pump",
+                "SOLAR_THERMAL": "Solar thermal",
+                "URBAN_HEATING": "Urban heating",
+                "PROPAN": "Propane"
+            },
+            "gas": {
+                "department": "DEPARTMENT",
+                "year": "YEAR OF HOUSING"
+            }
         },
         "transport": {
             "items": [

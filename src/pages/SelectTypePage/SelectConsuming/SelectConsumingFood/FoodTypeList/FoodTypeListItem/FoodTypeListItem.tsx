@@ -1,7 +1,6 @@
 import { Slider } from "antd";
 import { useCallback, useState } from "react";
 import styled from "styled-components";
-import { darken, lighten } from "polished";
 
 import { SelectOption } from "components/Select/Select";
 import { useTranslation } from "react-i18next";
@@ -31,32 +30,6 @@ const SliderWrapper = styled.div`
 
   @media screen and (max-width: 700px) {
     width: 100%;
-  }
-
-  .ant-slider-handle {
-    width: 25px;
-    height: 25px;
-    top: -2px;
-
-    border-color: ${props => props.theme.colors.styleColor1};
-  }
-
-  .ant-slider-track {
-    background-color: ${props => lighten(0.4, props.theme.colors.styleColor1)};
-  }
-
-  .ant-slider {
-    &:hover {
-      .ant-slider-handle {
-        border-color: ${props =>
-          darken(0.2, props.theme.colors.styleColor1)} !important;
-      }
-
-      .ant-slider-track {
-        background-color: ${props =>
-          lighten(0.1, props.theme.colors.styleColor1)} !important;
-      }
-    }
   }
 `;
 
