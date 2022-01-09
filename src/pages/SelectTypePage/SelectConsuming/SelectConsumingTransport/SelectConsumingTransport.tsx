@@ -6,15 +6,7 @@ import WithLabel from "components/WithLabel/WithLabel";
 import { useCallback, useMemo, useState } from "react";
 import { Electric } from "./Electric/Electric";
 import { DefaultSliders } from "./DefaultSliders/DefaultSliders";
-
-enum TRANSPORT_CONSUMTION_TYPES {
-  NO_CAR = "NO_CAR",
-  DIESEL = "DIESEL",
-  GASOLINE = "GASOLINE",
-  ELECTRIC = "ELECTRIC",
-  E85 = "E85",
-  LPG = "LPG",
-}
+import { TRANSPORT_CONSUMTION_TYPES } from "types/consumptions/transport";
 
 const SelectConsumingTransport = (): JSX.Element => {
   const { t } = useTranslation();

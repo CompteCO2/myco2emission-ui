@@ -5,10 +5,6 @@ import styled from "styled-components";
 import { SelectOption } from "components/Select/Select";
 import { useTranslation } from "react-i18next";
 
-interface FoodTypeListItemProps {
-  type: SelectOption;
-}
-
 const Wrapper = styled.div`
   margin-bottom: 3rem;
   display: flex;
@@ -37,27 +33,26 @@ const Title = styled.div`
   font-size: 120%;
 `;
 
-const MAX_VALUE = 14;
-
-const getFoodTypeListItemTooltip = (
-  value: number | undefined,
-  title: string
-) => {
-  return (
-    <Tooltip>
-      {value}
-      {title}
-    </Tooltip>
-  );
-};
-
-const FoodTypeListItem = ({ type }: FoodTypeListItemProps): JSX.Element => {
-  const [current, setCurrent] = useState(Math.ceil(MAX_VALUE / 2));
+/**
+ * An item of a food type list.
+ */
+const FoodTypeListItem = ({
+  type,
+  onSelect,
+  max,
+  defaultValue,
+}: {
+  type: SelectOption;
+  max: number;
+  defaultValue: number;
+  onSelect: (type: SelectOption, value: number) => void;
+}): JSX.Element => {
+  const [current, setCurrent] = useState(defaultValue);
   const { t } = useTranslation();
   const title = t("consumings.food.portion");
   const onChangeCallback = useCallback(value => {
     setCurrent(value);
-    console.log(type)
+    onSelect(type, value);
   }, []);
 
   return (
@@ -67,10 +62,13 @@ const FoodTypeListItem = ({ type }: FoodTypeListItemProps): JSX.Element => {
         <Slider
           onChange={onChangeCallback}
           defaultValue={current}
-          max={MAX_VALUE}
+          max={max}
           tooltipVisible={false}
         />
-        {getFoodTypeListItemTooltip(current, title)}
+        <Tooltip>
+          {current}
+          {title}
+        </Tooltip>
       </SliderWrapper>
     </Wrapper>
   );

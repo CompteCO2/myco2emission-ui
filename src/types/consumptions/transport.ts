@@ -1,0 +1,8 @@
+export enum TRANSPORT_CONSUMTION_TYPES {
+  NO_CAR = "NO_CAR",
+  DIESEL = "DIESEL",
+  GASOLINE = "GASOLINE",
+  ELECTRIC = "ELECTRIC",
+  E85 = "E85",
+  LPG = "LPG",
+}
