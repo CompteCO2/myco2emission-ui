@@ -9,7 +9,7 @@ import { mainTheme } from "config/themes/main";
 import LoadingPage from "pages/LoadingPage/LoadingPage";
 import SelectTypePage from "pages/SelectTypePage/SelectTypePage";
 
-import "antd/dist/antd.css";
+import "antd/dist/antd.min.css";
 
 const GlobalStyle = createGlobalStyle`
   :root {

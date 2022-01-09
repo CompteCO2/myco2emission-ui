@@ -1,7 +1,8 @@
 {
     "dimentions": {
         "kg": "kg",
-        "liter": "L"
+        "liter": "L",
+        "km": "km"
     },
     "pages": {
         "consuming": {
@@ -53,36 +54,19 @@
             }
         },
         "transport": {
-            "items": [
-                {
-                    "title": "Type of transport",
-                    "value": "0"
-                },
-                {
-                    "title": "No car",
-                    "value": "1"
-                },
-                {
-                    "title": "Diesel (including Hybrid)",
-                    "value": "2"
-                },
-                {
-                    "title": "Gasoline (including Hybrid)",
-                    "value": "3"
-                },
-                {
-                    "title": "Electric",
-                    "value": "4"
-                },
-                {
-                    "title": "E85 (Superethanol)",
-                    "value": "5"
-                },
-                {
-                    "title": "LPG",
-                    "value": "6"
-                }
-            ]
+            "fuel": "FUEL",
+            "annual_mileage": "ANNUAL MILEAGE",
+            "cunsomption": "CONSUMPTION",
+            "cunsomption_per_km": "L/100km",
+            "items": {
+                "": "Type of transport",
+                "NO_CAR": "No car",
+                "DIESEL": "Diesel (including Hybrid)",
+                "GASOLINE": "Gasoline (including Hybrid)",
+                "ELECTRIC": "Electric",
+                "E85": "E85 (Superethanol)",
+                "LPG": "LPG"
+            }
         },
         "food": {
             "portion": " times / week",

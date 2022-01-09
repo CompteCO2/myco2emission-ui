@@ -14,6 +14,7 @@ const StyledSVG = styled(SVG)`
 const Child = styled.div`
   margin-left: 1rem;
   flex-grow: 1;
+  max-width: 100%;
 `;
 
 const WithLeftSVG: React.FunctionComponent<{
