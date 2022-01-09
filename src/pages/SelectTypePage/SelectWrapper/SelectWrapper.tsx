@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 import { Checkout } from "components/Checkout/Checkout";
+import { useCallback } from "react";
+import { useHistory } from "react-router";
 
 const Wrapper = styled.div`
   width: 80%;
@@ -19,10 +21,16 @@ const SelectConsumingWrapper = ({
   onCheckout: () => void;
   children?: unknown;
 }): JSX.Element => {
+  const history = useHistory();
+  const onCheckoutCallback = useCallback(() => {
+    onCheckout();
+    history.push("/");
+  }, []);
+
   return (
     <Wrapper>
       {children}
-      <Checkout onClick={onCheckout} />
+      <Checkout onClick={onCheckoutCallback} />
     </Wrapper>
   );
 };

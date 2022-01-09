@@ -70,44 +70,17 @@
         },
         "food": {
             "portion": " times / week",
-            "items": [
-                {
-                    "title": "Red meat",
-                    "value": "0"
-                },
-                {
-                    "title": "V. white white / poultry",
-                    "value": "1"
-                },
-                {
-                    "title": "Fish / Crustaceans",
-                    "value": "2"
-                },
-                {
-                    "title": "Leg. / Seasonal fruits",
-                    "value": "3"
-                },
-                {
-                    "title": "Leg. / Exotic fruits ",
-                    "value": "4"
-                },
-                {
-                    "title": "From./Dairy/Eggs",
-                    "value": "5"
-                },
-                {
-                    "title": "Pasta / Rice",
-                    "value": "6"
-                },
-                {
-                    "title": "Wine / Beers",
-                    "value": "7"
-                },
-                {
-                    "title": "Fruit juice / Sodas / Water",
-                    "value": "8"
-                }
-            ]
+            "items": {
+                "RED_MEAT": "Red meat",
+                "WHITE_MEAT": "V. white / poultry",
+                "FIST": "Fish / Crustaceans",
+                "SEASON_FRUITS": "Seasonal fruits",
+                "EXOTIC_FRUITS": "Exotic fruits",
+                "CHEESE": "Dairy / Eggs",
+                "RICE": "Pasta / Rice",
+                "ALCOHOL": "Wine / Beers",
+                "SOFT": "Fruit juice / Sodas / Water"
+            }
         },
         "fly": {
             "number": "NUMBER OF JOURNEYS",

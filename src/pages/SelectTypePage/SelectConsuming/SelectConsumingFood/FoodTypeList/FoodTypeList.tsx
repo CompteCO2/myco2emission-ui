@@ -7,11 +7,11 @@ interface FoodTypeListProps {
 
 const FoodTypeList = ({ types }: FoodTypeListProps): JSX.Element => {
   return (
-    <div>
+    <>
       {types.map(type => {
         return <FoodTypeListItem type={type} key={type.value} />;
       })}
-    </div>
+    </>
   );
 };
 

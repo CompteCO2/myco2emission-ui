@@ -57,6 +57,7 @@ const FoodTypeListItem = ({ type }: FoodTypeListItemProps): JSX.Element => {
   const title = t("consumings.food.portion");
   const onChangeCallback = useCallback(value => {
     setCurrent(value);
+    console.log(type)
   }, []);
 
   return (

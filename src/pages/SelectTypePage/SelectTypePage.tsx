@@ -4,13 +4,13 @@ import { useRouteMatch } from "react-router";
 import SelectConsuming from "pages/SelectTypePage/SelectConsuming/SelectConsuming";
 import SelectConsumingHome from "pages/SelectTypePage/SelectConsuming/SelectConsumingHome/SelectConsumingHome";
 import SelectConsumingTransport from "pages/SelectTypePage/SelectConsuming/SelectConsumingTransport/SelectConsumingTransport";
-import SelectConsumingFood from "pages/SelectTypePage/SelectConsuming/SelectConsumingFood/SelectConsumingFood";
 import SelectConsumingFly from "./SelectConsuming/SelectConsumingFly/SelectConsumingFly";
+import SelectConsumingFoodContainer from "./SelectConsuming/SelectConsumingFood/SelectConsumingFood.container";
 
 const SelectTypes: Record<string, JSX.Element> = {
   home: <SelectConsumingHome />,
   transport: <SelectConsumingTransport />,
-  food: <SelectConsumingFood />,
+  food: <SelectConsumingFoodContainer />,
   fly: <SelectConsumingFly />,
 };
 
