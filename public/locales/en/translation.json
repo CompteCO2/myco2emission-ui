@@ -1,8 +1,10 @@
 {
+    "co2": "CO2",
     "dimentions": {
         "kg": "kg",
         "liter": "L",
-        "km": "km"
+        "km": "km",
+        "percentage": "%"
     },
     "pages": {
         "consuming": {

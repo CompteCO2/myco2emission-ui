@@ -1,9 +1,10 @@
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
+import { observer } from "mobx-react";
 
-import ConsumingTypeList from "pages/ConsumingPage/ConsumingTypeList/ConsumingTypeList";
-import config from "config/consuming_types.json";
 import Header from "components/Header/Header";
+import { useRootStore } from "providers/RootStoreProvider";
+import ConsumingTypeListContainer from "./ConsumingTypeList/ConsumingTypeListContainer";
 
 const Tip = styled.p`
   padding: 0.5rem 0 1rem 0;
@@ -16,17 +17,21 @@ const Total = styled.div`
   color: ${props => props.theme.colors.styleColor4};
 `;
 
-const ConsumingPage = (): JSX.Element => {
+const ConsumingPage = observer((): JSX.Element => {
   const { t } = useTranslation();
+  const { carbonFootprintStore } = useRootStore();
 
   return (
     <>
       <Header title={t("pages.consuming.title")} />
       <Tip>{t("pages.consuming.tip")}</Tip>
-      <Total>0 kgCO2</Total>
-      <ConsumingTypeList types={config.items} />
+      <Total>
+        {carbonFootprintStore.sum.toFixed(2)} {t("dimentions.kg")}
+        {t("co2")}
+      </Total>
+      <ConsumingTypeListContainer />
     </>
   );
-};
+});
 
 export default ConsumingPage;

@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import { getImagePath } from "helpers/image";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const Wrapper = styled(Link)<{ color: string }>`
   padding: 0 3rem;
@@ -60,6 +61,7 @@ export interface ConsumingTypeItem {
   image: string;
   color?: string;
   url?: string;
+  proportion?: number;
 }
 
 const ConsumingTypeListItem = ({
@@ -67,11 +69,15 @@ const ConsumingTypeListItem = ({
 }: {
   type: ConsumingTypeItem;
 }): JSX.Element => {
+  const { t } = useTranslation();
+
   return (
     <Wrapper color={type.color ?? ""} to={type.url ?? ""}>
       <Line>
         <Image color={type.color ?? ""} src={getImagePath(type.image)} />
-        <Percentage>0%</Percentage>
+        <Percentage>
+          {(type.proportion ?? 0).toFixed(0)} {t("dimentions.percentage")}
+        </Percentage>
       </Line>
       <Amount>0 kgCO2</Amount>
     </Wrapper>
