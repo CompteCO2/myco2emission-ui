@@ -1,5 +1,17 @@
-export interface EmmisionStore {
-  emission: number;
+import { action, makeObservable, observable } from "mobx";
 
-  calculate(props: Record<string, unknown>): void;
+export abstract class EmmisionStore {
+  public emission: number | undefined;
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  public calculate(_props: Record<string, unknown>): unknown {
+    throw new Error("not implemented!");
+  }
+
+  constructor() {
+    makeObservable(this, {
+      emission: observable,
+      calculate: action,
+    });
+  }
 }

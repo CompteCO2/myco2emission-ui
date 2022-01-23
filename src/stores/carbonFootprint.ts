@@ -1,18 +1,24 @@
 import { makeAutoObservable } from "mobx";
+import { RootStore } from "stores";
 import { FoodEmmision } from "./emmisions/food";
 
-const enum CARBON_FOOTPRINT_MODULES {
+export const enum CARBON_FOOTPRINT_MODULES {
   FOOD,
 }
 
 export class CarbonFootprint {
+  // root store.
+  private root: RootStore;
+
   // a dict with modules for calculator
   public modules = {
     [CARBON_FOOTPRINT_MODULES.FOOD]: new FoodEmmision(),
   };
 
-  constructor() {
+  constructor(root: RootStore) {
     makeAutoObservable(this);
+
+    this.root = root;
   }
 
   /**

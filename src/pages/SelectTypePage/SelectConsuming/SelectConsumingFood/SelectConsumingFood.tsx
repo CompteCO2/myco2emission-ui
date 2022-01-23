@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { SelectOption } from "components/Select/Select";
 import FoodTypeList from "./FoodTypeList/FoodTypeList";
 import SelectConsumingWrapper from "pages/SelectTypePage/SelectWrapper/SelectWrapper";
-import { useCallback, useMemo } from "react";
+import { useMemo } from "react";
 
 /**
  * Renders a select of food consumtion.
@@ -12,10 +12,12 @@ const SelectConsumingFood = ({
   onChange,
   values,
   maxValue,
+  onCheckout,
 }: {
   onChange: (type: string, value: number) => void;
   values: Record<string, number>;
   maxValue: number;
+  onCheckout: () => void;
 }): JSX.Element => {
   const { t } = useTranslation();
   const foodTypes = t("consumings.food.items", {
@@ -33,8 +35,7 @@ const SelectConsumingFood = ({
   }, [foodTypes]);
 
   return (
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
-    <SelectConsumingWrapper onCheckout={() => {}}>
+    <SelectConsumingWrapper onCheckout={onCheckout}>
       <FoodTypeList
         maxValue={maxValue}
         values={values}

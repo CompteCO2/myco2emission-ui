@@ -71,15 +71,16 @@
         "food": {
             "portion": " times / week",
             "items": {
-                "RED_MEAT": "Red meat",
-                "WHITE_MEAT": "V. white / poultry",
-                "FIST": "Fish / Crustaceans",
-                "SEASON_FRUITS": "Seasonal fruits",
-                "EXOTIC_FRUITS": "Exotic fruits",
-                "CHEESE": "Dairy / Eggs",
-                "RICE": "Pasta / Rice",
-                "ALCOHOL": "Wine / Beers",
-                "SOFT": "Fruit juice / Sodas / Water"
+                "meatRed": "Red meat",
+                "meatWhite": "V. white / poultry",
+                "fish": "Fish / Crustaceans",
+                "bread": "Bread",
+                "harvestLocal": "Seasonal fruits",
+                "harvestExotic": "Exotic fruits",
+                "cheese": "Dairy / Eggs",
+                "rice": "Pasta / Rice",
+                "alcohol": "Wine / Beers",
+                "soft": "Fruit juice / Sodas / Water"
             }
         },
         "fly": {

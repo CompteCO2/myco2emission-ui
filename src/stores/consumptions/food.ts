@@ -1,5 +1,5 @@
+import { FoodE } from "@cco2/carbon-weight/dist/food/types";
 import { makeAutoObservable } from "mobx";
-import { CONSUMING_FOOD_TYPE } from "types/consumptions/food";
 
 /**
  * A controller for comsumption by food.
@@ -26,13 +26,10 @@ export class FoodConsumption {
    * Init default consumptions.
    */
   private initConsumptions() {
-    this.consumptionByFood = Object.keys(CONSUMING_FOOD_TYPE).reduce(
-      (acc, type) => {
-        acc[type] = Math.ceil(this.maxValue / 2);
-        return acc;
-      },
-      {} as Record<string, number>
-    );
+    this.consumptionByFood = Object.keys(FoodE).reduce((acc, type) => {
+      acc[type] = Math.ceil(this.maxValue / 2);
+      return acc;
+    }, {} as Record<string, number>);
   }
 
   /**
