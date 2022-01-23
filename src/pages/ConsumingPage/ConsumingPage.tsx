@@ -26,7 +26,7 @@ const ConsumingPage = observer((): JSX.Element => {
       <Header title={t("pages.consuming.title")} />
       <Tip>{t("pages.consuming.tip")}</Tip>
       <Total>
-        {carbonFootprintStore.sum.toFixed(2)} {t("dimentions.kg")}
+        {carbonFootprintStore.sum.toFixed(0)} {t("dimentions.kg")}
         {t("co2")}
       </Total>
       <ConsumingTypeListContainer />

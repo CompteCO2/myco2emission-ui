@@ -3,7 +3,7 @@ import { EmmisionStore } from "stores/emmisions";
 import { FoodEmmision } from "../emmisions/food";
 
 export const enum CARBON_FOOTPRINT_MODULES {
-  FOOD,
+  FOOD = "food",
 }
 
 export class CarbonFootprintStore {

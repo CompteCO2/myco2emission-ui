@@ -62,6 +62,7 @@ export interface ConsumingTypeItem {
   color?: string;
   url?: string;
   proportion?: number;
+  value?: number;
 }
 
 const ConsumingTypeListItem = ({
@@ -79,7 +80,10 @@ const ConsumingTypeListItem = ({
           {(type.proportion ?? 0).toFixed(0)} {t("dimentions.percentage")}
         </Percentage>
       </Line>
-      <Amount>0 kgCO2</Amount>
+      <Amount>
+        {(type.value ?? 0).toFixed(0)} {t("dimentions.kg")}
+        {t("co2")}
+      </Amount>
     </Wrapper>
   );
 };

@@ -10,18 +10,19 @@ const ConsumingTypeListContainer = observer((): JSX.Element => {
   const { carbonFootprintStore } = useRootStore();
   const [items, setItems] = useState<ConsumingTypeItem[]>([]);
 
-  // set proportion
+  // set proportion and value.
   useEffect(() => {
-    setItems(
-      config.items.reduce((acc, item) => {
-        acc.push({
-          proportion: carbonFootprintStore.proportion[item.id],
-          ...item,
-        });
+    const items = config.items.reduce((acc, item) => {
+      acc.push({
+        value: carbonFootprintStore.modules[item.id]?.emission ?? 0,
+        proportion: carbonFootprintStore.proportion[item.id],
+        ...item,
+      });
 
-        return acc;
-      }, [] as ConsumingTypeItem[])
-    );
+      return acc;
+    }, [] as ConsumingTypeItem[]);
+
+    setItems(items);
   }, []);
 
   return <ConsumingTypeList types={items} />;
