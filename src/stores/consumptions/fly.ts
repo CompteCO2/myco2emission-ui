@@ -3,9 +3,19 @@ import { makeAutoObservable } from "mobx";
 export interface Fly {
   destination: string;
   arrival: string;
-  class: string;
+  class: FLY_CLASS;
   travelNumber: number;
-  type: number;
+  type: FLY_TYPE;
+}
+
+export enum FLY_CLASS {
+  ECONOM = "1",
+  BUSINESS = "2",
+}
+
+export enum FLY_TYPE {
+  SIMPLE = 1,
+  ROUND = 2,
 }
 
 /**

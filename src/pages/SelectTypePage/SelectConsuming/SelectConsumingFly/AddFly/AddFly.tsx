@@ -7,7 +7,7 @@ import * as yup from "yup";
 
 import Select, { SelectOption } from "components/Select/Select";
 import WithLabel from "components/WithLabel/WithLabel";
-import { Fly } from "stores/consumptions/fly";
+import { Fly, FLY_CLASS } from "stores/consumptions/fly";
 
 const Wrapper = styled.form`
   padding: 1rem 2rem;
@@ -106,7 +106,7 @@ const AddFly = ({
       travelNumber: 1,
       destination: "",
       arrival: "",
-      class: "1",
+      class: FLY_CLASS.ECONOM,
       type: 1,
     },
     resolver: yupResolver(schema),

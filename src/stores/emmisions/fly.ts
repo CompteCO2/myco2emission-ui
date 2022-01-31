@@ -1,6 +1,17 @@
 import { EmmisionStore } from ".";
-import { getEmissionConsumed } from "@cco2/carbon-weight/dist/vehicle/index";
-import { ConsumptionT } from "@cco2/carbon-weight/dist/vehicle/types";
+import { getEmission } from "@cco2/carbon-weight/dist/flight/index";
+import { Fly, FLY_CLASS, FLY_TYPE } from "stores/consumptions/fly";
+import { SeatE } from "@cco2/carbon-weight/dist/flight/types";
+
+const FlyClassComparator = {
+  [FLY_CLASS.BUSINESS]: SeatE.business,
+  [FLY_CLASS.ECONOM]: SeatE.economy,
+};
+
+const FlyTypeComparator = {
+  [FLY_TYPE.SIMPLE]: false,
+  [FLY_TYPE.ROUND]: true,
+};
 
 export class FlyEmmision extends EmmisionStore {
   public emission = 0;
@@ -9,9 +20,24 @@ export class FlyEmmision extends EmmisionStore {
    *
    * @param props - a dic with props.
    */
-  calculate(props: ConsumptionT): void {
-    const emission = getEmissionConsumed({ ...props });
+  calculate(props: { flies: Fly[] }): void {
+    const emissions = props.flies.reduce((acc, value) => {
+      const emmision = getEmission(
+        {
+          fromIATA: value.arrival,
+          nbPassengers: value.travelNumber,
+          roundTrip: FlyTypeComparator[value.type],
+          seatType: FlyClassComparator[value.class],
+          toIATA: value.destination,
+        },
+        1
+      );
 
-    this.emission = emission;
+      acc = acc + emmision;
+
+      return acc;
+    }, 0);
+
+    this.emission = emissions;
   }
 }
