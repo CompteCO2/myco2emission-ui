@@ -1,11 +1,12 @@
 import { SelectOption } from "components/Select/Select";
+import { observer } from "mobx-react";
 import { useRootStore } from "providers/RootStoreProvider";
 import { useCallback, useEffect, useState } from "react";
 import { Fly } from "stores/consumptions/fly";
 import { FlyWithFullAirportsName } from "./FliesList/FliesList";
 import SelectConsumingFly from "./SelectConsumingFly";
 
-const SelectConsumingFlyContainer = (): JSX.Element => {
+const SelectConsumingFlyContainer = observer((): JSX.Element => {
   const { flyConsumption, airportStore } = useRootStore();
 
   const [airports, setAirports] = useState<SelectOption[]>([]);
@@ -59,6 +60,6 @@ const SelectConsumingFlyContainer = (): JSX.Element => {
       onAdd={onAddCallback}
     />
   );
-};
+});
 
 export default SelectConsumingFlyContainer;
