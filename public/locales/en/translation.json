@@ -63,9 +63,9 @@
             "items": {
                 "": "Type of transport",
                 "NO_CAR": "No car",
-                "DIESEL": "Diesel (including Hybrid)",
-                "GASOLINE": "Gasoline (including Hybrid)",
-                "ELECTRIC": "Electric",
+                "fuel": "Diesel (including Hybrid)",
+                "gasoil": "Gasoline (including Hybrid)",
+                "electric": "Electric",
                 "E85": "E85 (Superethanol)",
                 "LPG": "LPG"
             }

@@ -22,10 +22,12 @@ const SelectConsumingWrapper = ({
   children?: unknown;
 }): JSX.Element => {
   const history = useHistory();
-  const onCheckoutCallback = useCallback(() => {
+
+  // checkout
+  const onCheckoutCallback = () => {
     onCheckout();
     history.push("/");
-  }, []);
+  };
 
   return (
     <Wrapper>

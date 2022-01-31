@@ -3,23 +3,42 @@ import { useTranslation } from "react-i18next";
 import Select from "components/Select/Select";
 import SelectConsumingWrapper from "pages/SelectTypePage/SelectWrapper/SelectWrapper";
 import WithLabel from "components/WithLabel/WithLabel";
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { Electric } from "./Electric/Electric";
 import { DefaultSliders } from "./DefaultSliders/DefaultSliders";
-import { TRANSPORT_CONSUMTION_TYPES } from "types/consumptions/transport";
+import { ConsumptionT, FuelE } from "@cco2/carbon-weight/dist/vehicle/types";
 
-const SelectConsumingTransport = (): JSX.Element => {
+const SelectConsumingTransport = ({
+  onCheckout,
+  currentConsumption,
+}: {
+  onCheckout: (props: ConsumptionT | null) => void;
+  currentConsumption: ConsumptionT | null | undefined;
+}): JSX.Element => {
   const { t } = useTranslation();
-  const [homeConsumingType, setHomeConsumingType] = useState<number>(0);
+
+  // current type.
+  const [fuelType, setFuelType] = useState<FuelE | null | undefined>();
+
+  // set fuel type.
+  useEffect(() => {
+    setFuelType(currentConsumption?.fuel);
+  }, []);
+
+  // translate items.
   const items = t("consumings.transport.items", {
     returnObjects: true,
   }) as Record<string, string>;
+
+  // on select type.
   const onSelectType = useCallback(
     item => {
-      setHomeConsumingType(item);
+      setFuelType(item);
     },
-    [setHomeConsumingType]
+    [setFuelType]
   );
+
+  // select options.
   const options = useMemo(() => {
     return Object.keys(items).map(item => {
       return {
@@ -30,31 +49,41 @@ const SelectConsumingTransport = (): JSX.Element => {
   }, [items]);
 
   // mapping a type of consuming to a component.
-  const MAPPING_TYPE_TO_COMPONENTS: Record<number, JSX.Element> =
-    useMemo(() => {
-      return {
-        [TRANSPORT_CONSUMTION_TYPES.LPG]: <DefaultSliders />,
-        [TRANSPORT_CONSUMTION_TYPES.E85]: <DefaultSliders />,
-        [TRANSPORT_CONSUMTION_TYPES.GASOLINE]: <DefaultSliders />,
-        [TRANSPORT_CONSUMTION_TYPES.DIESEL]: <DefaultSliders />,
-        [TRANSPORT_CONSUMTION_TYPES.ELECTRIC]: (
-          <Electric
-            postfix={t("dimentions.km")}
-            min={0}
-            max={40000}
-            defaultValue={20000}
-          />
-        ),
-      };
-    }, []);
+  const MAPPING_TYPE_TO_COMPONENTS: Record<FuelE, JSX.Element> = useMemo(() => {
+    return {
+      [FuelE.LPG]: <DefaultSliders />,
+      [FuelE.E85]: <DefaultSliders />,
+      [FuelE.gasoil]: <DefaultSliders />,
+      [FuelE.fuel]: <DefaultSliders />,
+      [FuelE.electric]: (
+        <Electric
+          postfix={t("dimentions.km")}
+          min={0}
+          max={40000}
+          defaultValue={20000}
+        />
+      ),
+    };
+  }, []);
+
+  // on checkout.
+  const onCheckoutCallback = useCallback(() => {
+    console.log(fuelType);
+    onCheckout(
+      fuelType
+        ? {
+            fuel: fuelType,
+          }
+        : null
+    );
+  }, [fuelType]);
 
   return (
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
-    <SelectConsumingWrapper onCheckout={() => {}}>
+    <SelectConsumingWrapper onCheckout={onCheckoutCallback}>
       <WithLabel noBackground label={t("consumings.transport.fuel")}>
         <Select items={options} icon="/types/car.svg" onSelect={onSelectType} />
       </WithLabel>
-      {MAPPING_TYPE_TO_COMPONENTS[homeConsumingType]}
+      {fuelType ? MAPPING_TYPE_TO_COMPONENTS[fuelType] : null}
     </SelectConsumingWrapper>
   );
 };

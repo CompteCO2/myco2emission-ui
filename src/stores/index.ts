@@ -1,6 +1,7 @@
 import { AirportStore } from "./airport";
 import { CarbonFootprintStore } from "./carbonFootprint";
 import { FoodConsumption } from "./consumptions/food";
+import { TransportConsumption } from "./consumptions/transport";
 import { FlyStore } from "./fly";
 
 export class RootStore {
@@ -10,6 +11,7 @@ export class RootStore {
 
   // consumptions
   public foodConsumption: FoodConsumption;
+  public transportConsumption: TransportConsumption;
 
   constructor() {
     this.flyStore = new FlyStore();
@@ -18,5 +20,6 @@ export class RootStore {
 
     // consumptions
     this.foodConsumption = new FoodConsumption();
+    this.transportConsumption = new TransportConsumption();
   }
 }
