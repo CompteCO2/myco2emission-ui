@@ -66,8 +66,6 @@ const SelectConsumingTransport = ({
     [currentCunsomption]
   );
 
-  console.log(currentCunsomption)
-
   // on change annual mileage.
   const onChangeAnnualMileage = useCallback(
     value => {
