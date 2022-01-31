@@ -6,36 +6,41 @@ import WithLabel from "components/WithLabel/WithLabel";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { Electric } from "./Electric/Electric";
 import { DefaultSliders } from "./DefaultSliders/DefaultSliders";
-import { ConsumptionT, FuelE } from "@cco2/carbon-weight/dist/vehicle/types";
+import { FuelE } from "@cco2/carbon-weight/dist/vehicle/types";
+import { TConsumption } from "stores/consumptions/transport";
 
 const SelectConsumingTransport = ({
   onCheckout,
-  currentConsumption,
+  cunsomption,
 }: {
-  onCheckout: (props: ConsumptionT | null) => void;
-  currentConsumption: ConsumptionT | null | undefined;
+  onCheckout: (props: TConsumption) => void;
+  cunsomption: TConsumption;
 }): JSX.Element => {
   const { t } = useTranslation();
 
-  // current type.
-  const [fuelType, setFuelType] = useState<FuelE | null | undefined>();
+  // current cunsomption.
+  const [currentCunsomption, setCurrentCunsomption] =
+    useState<TConsumption>(cunsomption);
 
-  // set fuel type.
+  // set cunsomption.
   useEffect(() => {
-    setFuelType(currentConsumption?.fuel);
-  }, []);
+    setCurrentCunsomption(cunsomption);
+  }, [cunsomption]);
 
   // translate items.
   const items = t("consumings.transport.items", {
     returnObjects: true,
   }) as Record<string, string>;
 
-  // on select type.
+  // on select fuel type.
   const onSelectType = useCallback(
     item => {
-      setFuelType(item);
+      setCurrentCunsomption({
+        ...currentCunsomption,
+        fuel: item,
+      });
     },
-    [setFuelType]
+    [currentCunsomption]
   );
 
   // select options.
@@ -48,42 +53,84 @@ const SelectConsumingTransport = ({
     });
   }, [items]);
 
+  // on change cunsomption per km.
+  const onChangeCunsomptionPerKm = useCallback(
+    value => {
+      if (currentCunsomption) {
+        setCurrentCunsomption({
+          ...currentCunsomption,
+          mpg: value,
+        });
+      }
+    },
+    [currentCunsomption]
+  );
+
+  console.log(currentCunsomption)
+
+  // on change annual mileage.
+  const onChangeAnnualMileage = useCallback(
+    value => {
+      if (currentCunsomption) {
+        setCurrentCunsomption({
+          ...currentCunsomption,
+          distanceByYear: value,
+        });
+      }
+    },
+    [currentCunsomption]
+  );
+
+  // get a screen with default sliders.
+  const getDefaultSliders = () => {
+    return (
+      <DefaultSliders
+        onChangeCunsomptionPerKm={onChangeCunsomptionPerKm}
+        onChangeAnnualMileage={onChangeAnnualMileage}
+        distanceByYear={currentCunsomption?.distanceByYear ?? 0}
+        cunsomptionPerKm={currentCunsomption?.mpg ?? 0}
+      />
+    );
+  };
+
   // mapping a type of consuming to a component.
-  const MAPPING_TYPE_TO_COMPONENTS: Record<FuelE, JSX.Element> = useMemo(() => {
-    return {
-      [FuelE.LPG]: <DefaultSliders />,
-      [FuelE.E85]: <DefaultSliders />,
-      [FuelE.gasoil]: <DefaultSliders />,
-      [FuelE.fuel]: <DefaultSliders />,
-      [FuelE.electric]: (
-        <Electric
-          postfix={t("dimentions.km")}
-          min={0}
-          max={40000}
-          defaultValue={20000}
-        />
-      ),
-    };
-  }, []);
+  const MAPPING_TYPE_TO_COMPONENTS: Record<string, JSX.Element> =
+    useMemo(() => {
+      return {
+        [FuelE.LPG]: getDefaultSliders(),
+        [FuelE.E85]: getDefaultSliders(),
+        [FuelE.gasoil]: getDefaultSliders(),
+        [FuelE.fuel]: getDefaultSliders(),
+        [FuelE.electric]: (
+          <Electric
+            onChangeAnnualMileage={onChangeAnnualMileage}
+            distanceByYear={currentCunsomption?.distanceByYear ?? 0}
+            postfix={t("dimentions.km")}
+            min={0}
+            max={40000}
+          />
+        ),
+      };
+    }, [currentCunsomption]);
 
   // on checkout.
   const onCheckoutCallback = useCallback(() => {
-    console.log(fuelType);
-    onCheckout(
-      fuelType
-        ? {
-            fuel: fuelType,
-          }
-        : null
-    );
-  }, [fuelType]);
+    onCheckout(currentCunsomption);
+  }, [currentCunsomption]);
 
   return (
     <SelectConsumingWrapper onCheckout={onCheckoutCallback}>
       <WithLabel noBackground label={t("consumings.transport.fuel")}>
-        <Select items={options} icon="/types/car.svg" onSelect={onSelectType} />
+        <Select
+          items={options}
+          icon="/types/car.svg"
+          onSelect={onSelectType}
+          value={currentCunsomption?.fuel}
+        />
       </WithLabel>
-      {fuelType ? MAPPING_TYPE_TO_COMPONENTS[fuelType] : null}
+      {currentCunsomption?.fuel
+        ? MAPPING_TYPE_TO_COMPONENTS[currentCunsomption.fuel]
+        : null}
     </SelectConsumingWrapper>
   );
 };

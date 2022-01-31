@@ -1,8 +1,7 @@
 import styled from "styled-components";
+import { useHistory } from "react-router";
 
 import { Checkout } from "components/Checkout/Checkout";
-import { useCallback } from "react";
-import { useHistory } from "react-router";
 
 const Wrapper = styled.div`
   width: 80%;

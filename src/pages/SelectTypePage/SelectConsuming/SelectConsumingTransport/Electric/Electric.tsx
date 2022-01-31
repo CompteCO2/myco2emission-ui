@@ -5,12 +5,14 @@ export const Electric = ({
   postfix,
   min,
   max,
-  defaultValue,
+  distanceByYear,
+  onChangeAnnualMileage,
 }: {
   postfix: string;
   min: number;
   max: number;
-  defaultValue: number;
+  distanceByYear: number;
+  onChangeAnnualMileage: (mileage: number) => void;
 }): JSX.Element => {
   const { t } = useTranslation();
 
@@ -21,9 +23,8 @@ export const Electric = ({
       postfix={postfix}
       min={min}
       max={max}
-      defaultValue={defaultValue}
-      // eslint-disable-next-line no-console
-      onChange={(value: number) => console.log(value)}
+      defaultValue={distanceByYear}
+      onChange={onChangeAnnualMileage}
     />
   );
 };

@@ -10,7 +10,7 @@ export class TransportEmmision extends EmmisionStore {
    * @param props - a dic with props.
    */
   calculate(props: ConsumptionT): void {
-    const emission = getEmissionConsumed({ ...props } as ConsumptionT);
+    const emission = getEmissionConsumed({ ...props });
 
     this.emission = emission;
   }
