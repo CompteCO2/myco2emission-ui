@@ -7,7 +7,7 @@ import * as yup from "yup";
 
 import Select, { SelectOption } from "components/Select/Select";
 import WithLabel from "components/WithLabel/WithLabel";
-import { Fly } from "stores/fly";
+import { Fly } from "stores/consumptions/fly";
 
 const Wrapper = styled.form`
   padding: 1rem 2rem;

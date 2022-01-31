@@ -1,16 +1,27 @@
+import { SelectOption } from "components/Select/Select";
 import SelectConsumingWrapper from "pages/SelectTypePage/SelectWrapper/SelectWrapper";
-import AddFlyContainer from "./AddFly/AddFlyContainer";
-import { FliesListContainer } from "./FliesList/FliesListContainer";
+import { Fly } from "stores/consumptions/fly";
+import AddFly from "./AddFly/AddFly";
 
-const SelectConsumingFly = (): JSX.Element => {
+import { FliesList, FlyWithFullAirportsName } from "./FliesList/FliesList";
+
+const SelectConsumingFly = ({
+  flies,
+  airports,
+  onAdd,
+  onDeleteItem,
+  onCheckout,
+}: {
+  flies: FlyWithFullAirportsName[];
+  airports: SelectOption[];
+  onAdd: (data: Fly) => void;
+  onDeleteItem: (index: number) => void;
+  onCheckout: () => void;
+}): JSX.Element => {
   return (
-    <SelectConsumingWrapper
-      onCheckout={function (): void {
-        throw new Error("Function not implemented.");
-      }}
-    >
-      <FliesListContainer />
-      <AddFlyContainer />
+    <SelectConsumingWrapper onCheckout={onCheckout}>
+      <FliesList flies={flies} onDeleteItem={onDeleteItem} />
+      <AddFly airports={airports} onAdd={onAdd} />
     </SelectConsumingWrapper>
   );
 };

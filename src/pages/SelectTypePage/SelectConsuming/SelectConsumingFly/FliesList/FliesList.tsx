@@ -1,4 +1,4 @@
-import { Fly } from "stores/fly";
+import { Fly } from "stores/consumptions/fly";
 import styled from "styled-components";
 import { FliesListItem } from "./FliesListItem";
 
@@ -13,16 +13,21 @@ export interface FlyWithFullAirportsName extends Fly {
 
 export const FliesList = ({
   flies,
-  onClick,
+  onDeleteItem,
 }: {
   flies: FlyWithFullAirportsName[];
-  onClick: (index: number) => void;
+  onDeleteItem: (index: number) => void;
 }): JSX.Element => {
   return (
     <Wrapper>
       {flies.map((fly, key) => {
         return (
-          <FliesListItem onClick={onClick} index={key} key={key} fly={fly} />
+          <FliesListItem
+            onClick={onDeleteItem}
+            index={key}
+            key={key}
+            fly={fly}
+          />
         );
       })}
     </Wrapper>

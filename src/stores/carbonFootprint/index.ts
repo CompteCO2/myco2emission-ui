@@ -1,11 +1,13 @@
 import { makeAutoObservable } from "mobx";
 import { EmmisionStore } from "stores/emmisions";
+import { FlyEmmision } from "stores/emmisions/fly";
 import { TransportEmmision } from "stores/emmisions/transport";
 import { FoodEmmision } from "../emmisions/food";
 
 export const enum CARBON_FOOTPRINT_MODULES {
   FOOD = "food",
   TRANSPORT = "transport",
+  FLY = "fly",
 }
 
 export class CarbonFootprintStore {
@@ -13,6 +15,7 @@ export class CarbonFootprintStore {
   public modules: Record<string, EmmisionStore> = {
     [CARBON_FOOTPRINT_MODULES.FOOD]: new FoodEmmision(),
     [CARBON_FOOTPRINT_MODULES.TRANSPORT]: new TransportEmmision(),
+    [CARBON_FOOTPRINT_MODULES.FLY]: new FlyEmmision(),
   };
 
   // a footprint sum.
