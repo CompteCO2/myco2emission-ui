@@ -1,0 +1,386 @@
+[
+ {
+   "DEP": "1",
+   "NCC": "AIN"
+ },
+ {
+   "DEP": "2",
+   "NCC": "AISNE"
+ },
+ {
+   "DEP": "3",
+   "NCC": "ALLIER"
+ },
+ {
+   "DEP": "4",
+   "NCC": "ALPES-DE-HAUTE-PROVENCE"
+ },
+ {
+   "DEP": "5",
+   "NCC": "HAUTES-ALPES"
+ },
+ {
+   "DEP": "6",
+   "NCC": "ALPES-MARITIMES"
+ },
+ {
+   "DEP": "7",
+   "NCC": "ARDECHE"
+ },
+ {
+   "DEP": "8",
+   "NCC": "ARDENNES"
+ },
+ {
+   "DEP": "9",
+   "NCC": "ARIEGE"
+ },
+ {
+   "DEP": "10",
+   "NCC": "AUBE"
+ },
+ {
+   "DEP": "11",
+   "NCC": "AUDE"
+ },
+ {
+   "DEP": "12",
+   "NCC": "AVEYRON"
+ },
+ {
+   "DEP": "13",
+   "NCC": "BOUCHES-DU-RHONE"
+ },
+ {
+   "DEP": "14",
+   "NCC": "CALVADOS"
+ },
+ {
+   "DEP": "15",
+   "NCC": "CANTAL"
+ },
+ {
+   "DEP": "16",
+   "NCC": "CHARENTE"
+ },
+ {
+   "DEP": "17",
+   "NCC": "CHARENTE-MARITIME"
+ },
+ {
+   "DEP": "18",
+   "NCC": "CHER"
+ },
+ {
+   "DEP": "19",
+   "NCC": "CORREZE"
+ },
+ {
+   "DEP": "21",
+   "NCC": "COTE-D'OR"
+ },
+ {
+   "DEP": "22",
+   "NCC": "COTES-D'ARMOR"
+ },
+ {
+   "DEP": "23",
+   "NCC": "CREUSE"
+ },
+ {
+   "DEP": "24",
+   "NCC": "DORDOGNE"
+ },
+ {
+   "DEP": "25",
+   "NCC": "DOUBS"
+ },
+ {
+   "DEP": "26",
+   "NCC": "DROME"
+ },
+ {
+   "DEP": "27",
+   "NCC": "EURE"
+ },
+ {
+   "DEP": "28",
+   "NCC": "EURE-ET-LOIR"
+ },
+ {
+   "DEP": "29",
+   "NCC": "FINISTERE"
+ },
+ {
+   "DEP": "2A",
+   "NCC": "CORSE-DU-SUD"
+ },
+ {
+   "DEP": "2B",
+   "NCC": "HAUTE-CORSE"
+ },
+ {
+   "DEP": "30",
+   "NCC": "GARD"
+ },
+ {
+   "DEP": "31",
+   "NCC": "HAUTE-GARONNE"
+ },
+ {
+   "DEP": "32",
+   "NCC": "GERS"
+ },
+ {
+   "DEP": "33",
+   "NCC": "GIRONDE"
+ },
+ {
+   "DEP": "34",
+   "NCC": "HERAULT"
+ },
+ {
+   "DEP": "35",
+   "NCC": "ILLE-ET-VILAINE"
+ },
+ {
+   "DEP": "36",
+   "NCC": "INDRE"
+ },
+ {
+   "DEP": "37",
+   "NCC": "INDRE-ET-LOIRE"
+ },
+ {
+   "DEP": "38",
+   "NCC": "ISERE"
+ },
+ {
+   "DEP": "39",
+   "NCC": "JURA"
+ },
+ {
+   "DEP": "40",
+   "NCC": "LANDES"
+ },
+ {
+   "DEP": "41",
+   "NCC": "LOIR-ET-CHER"
+ },
+ {
+   "DEP": "42",
+   "NCC": "LOIRE"
+ },
+ {
+   "DEP": "43",
+   "NCC": "HAUTE-LOIRE"
+ },
+ {
+   "DEP": "44",
+   "NCC": "LOIRE-ATLANTIQUE"
+ },
+ {
+   "DEP": "45",
+   "NCC": "LOIRET"
+ },
+ {
+   "DEP": "46",
+   "NCC": "LOT"
+ },
+ {
+   "DEP": "47",
+   "NCC": "LOT-ET-GARONNE"
+ },
+ {
+   "DEP": "48",
+   "NCC": "LOZERE"
+ },
+ {
+   "DEP": "49",
+   "NCC": "MAINE-ET-LOIRE"
+ },
+ {
+   "DEP": "50",
+   "NCC": "MANCHE"
+ },
+ {
+   "DEP": "51",
+   "NCC": "MARNE"
+ },
+ {
+   "DEP": "52",
+   "NCC": "HAUTE-MARNE"
+ },
+ {
+   "DEP": "53",
+   "NCC": "MAYENNE"
+ },
+ {
+   "DEP": "54",
+   "NCC": "MEURTHE-ET-MOSELLE"
+ },
+ {
+   "DEP": "55",
+   "NCC": "MEUSE"
+ },
+ {
+   "DEP": "56",
+   "NCC": "MORBIHAN"
+ },
+ {
+   "DEP": "57",
+   "NCC": "MOSELLE"
+ },
+ {
+   "DEP": "58",
+   "NCC": "NIEVRE"
+ },
+ {
+   "DEP": "59",
+   "NCC": "NORD"
+ },
+ {
+   "DEP": "60",
+   "NCC": "OISE"
+ },
+ {
+   "DEP": "61",
+   "NCC": "ORNE"
+ },
+ {
+   "DEP": "62",
+   "NCC": "PAS-DE-CALAIS"
+ },
+ {
+   "DEP": "63",
+   "NCC": "PUY-DE-DOME"
+ },
+ {
+   "DEP": "64",
+   "NCC": "PYRENEES-ATLANTIQUES"
+ },
+ {
+   "DEP": "65",
+   "NCC": "HAUTES-PYRENEES"
+ },
+ {
+   "DEP": "66",
+   "NCC": "PYRENEES-ORIENTALES"
+ },
+ {
+   "DEP": "67",
+   "NCC": "BAS-RHIN"
+ },
+ {
+   "DEP": "68",
+   "NCC": "HAUT-RHIN"
+ },
+ {
+   "DEP": "69",
+   "NCC": "RHONE"
+ },
+ {
+   "DEP": "70",
+   "NCC": "HAUTE-SAONE"
+ },
+ {
+   "DEP": "71",
+   "NCC": "SAONE-ET-LOIRE"
+ },
+ {
+   "DEP": "72",
+   "NCC": "SARTHE"
+ },
+ {
+   "DEP": "73",
+   "NCC": "SAVOIE"
+ },
+ {
+   "DEP": "74",
+   "NCC": "HAUTE-SAVOIE"
+ },
+ {
+   "DEP": "75",
+   "NCC": "PARIS"
+ },
+ {
+   "DEP": "76",
+   "NCC": "SEINE-MARITIME"
+ },
+ {
+   "DEP": "77",
+   "NCC": "SEINE-ET-MARNE"
+ },
+ {
+   "DEP": "78",
+   "NCC": "YVELINES"
+ },
+ {
+   "DEP": "79",
+   "NCC": "DEUX-SEVRES"
+ },
+ {
+   "DEP": "80",
+   "NCC": "SOMME"
+ },
+ {
+   "DEP": "81",
+   "NCC": "TARN"
+ },
+ {
+   "DEP": "82",
+   "NCC": "TARN-ET-GARONNE"
+ },
+ {
+   "DEP": "83",
+   "NCC": "VAR"
+ },
+ {
+   "DEP": "84",
+   "NCC": "VAUCLUSE"
+ },
+ {
+   "DEP": "85",
+   "NCC": "VENDEE"
+ },
+ {
+   "DEP": "86",
+   "NCC": "VIENNE"
+ },
+ {
+   "DEP": "87",
+   "NCC": "HAUTE-VIENNE"
+ },
+ {
+   "DEP": "88",
+   "NCC": "VOSGES"
+ },
+ {
+   "DEP": "89",
+   "NCC": "YONNE"
+ },
+ {
+   "DEP": "90",
+   "NCC": "TERRITOIRE DE BELFORT"
+ },
+ {
+   "DEP": "91",
+   "NCC": "ESSONNE"
+ },
+ {
+   "DEP": "92",
+   "NCC": "HAUTS-DE-SEINE"
+ },
+ {
+   "DEP": "93",
+   "NCC": "SEINE-SAINT-DENIS"
+ },
+ {
+   "DEP": "94",
+   "NCC": "VAL-DE-MARNE"
+ },
+ {
+   "DEP": "95",
+   "NCC": "VAL-D'OISE"
+ }
+]

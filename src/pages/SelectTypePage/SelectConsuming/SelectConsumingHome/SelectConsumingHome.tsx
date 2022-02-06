@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { useCallback, useMemo, useState } from "react";
 
-import Select from "components/Select/Select";
+import Select, { SelectOption } from "components/Select/Select";
 import SelectConsumingWrapper from "pages/SelectTypePage/SelectWrapper/SelectWrapper";
 import { NoCO2 } from "./NoCO2/NoCO2";
 import { ConsumptionSlider } from "./ConsumptionSlider/ConsumptionSlider";
@@ -9,7 +9,11 @@ import { Gas } from "./Gas/Gas";
 import WithLabel from "components/WithLabel/WithLabel";
 import { HOME_CONSUMTION_TYPES } from "types/consumptions/home";
 
-const SelectConsumingHome = (): JSX.Element => {
+const SelectConsumingHome = ({
+  departments,
+}: {
+  departments: SelectOption[];
+}): JSX.Element => {
   const { t } = useTranslation();
   const [homeConsumingType, setHomeConsumingType] = useState<number>(0);
   const items = t("consumings.home.items", {
@@ -35,7 +39,7 @@ const SelectConsumingHome = (): JSX.Element => {
     useMemo(() => {
       return {
         [HOME_CONSUMTION_TYPES.ELECTRICITY]: <NoCO2 />,
-        [HOME_CONSUMTION_TYPES.NATURAL_GAS]: <Gas />,
+        [HOME_CONSUMTION_TYPES.NATURAL_GAS]: <Gas departments={departments} />,
         [HOME_CONSUMTION_TYPES.DRINK]: <NoCO2 />,
         [HOME_CONSUMTION_TYPES.HEAP_PUMP]: <NoCO2 />,
         [HOME_CONSUMTION_TYPES.SOLAR_THERMAL]: <NoCO2 />,
@@ -65,7 +69,7 @@ const SelectConsumingHome = (): JSX.Element => {
           />
         ),
       };
-    }, []);
+    }, [departments]);
 
   return (
     // eslint-disable-next-line @typescript-eslint/no-empty-function

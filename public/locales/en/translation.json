@@ -51,6 +51,7 @@
                 "PROPAN": "Propane"
             },
             "gas": {
+                "surface": "SURFACE",
                 "department": "DEPARTMENT",
                 "year": "YEAR OF HOUSING"
             }

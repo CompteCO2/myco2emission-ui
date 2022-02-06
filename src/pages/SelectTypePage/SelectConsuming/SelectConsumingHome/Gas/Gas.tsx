@@ -1,20 +1,24 @@
 import { Input } from "antd";
-import Select from "components/Select/Select";
+import Select, { SelectOption } from "components/Select/Select";
 import { Slider } from "components/Slider/Slider";
 import WithLabel from "components/WithLabel/WithLabel";
 import WithLeftSVG from "components/WithLeftSVG/WithLeftSVG";
 import { useTranslation } from "react-i18next";
 
-export const Gas = (): JSX.Element => {
+export const Gas = ({
+  departments,
+}: {
+  departments: SelectOption[];
+}): JSX.Element => {
   const { t } = useTranslation();
 
   return (
     <>
       <WithLabel noBackground label={t("consumings.home.gas.department")}>
-        <Select items={[]} icon="/icons/france.svg" />
+        <Select items={departments} icon="/icons/france.svg" />
       </WithLabel>
 
-      <WithLabel noBackground label={t("consumings.home.gas.department")}>
+      <WithLabel noBackground label={t("consumings.home.gas.surface")}>
         <WithLeftSVG icon="/icons/surface.svg">
           <Input type="number" />
         </WithLeftSVG>
