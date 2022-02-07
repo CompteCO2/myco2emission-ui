@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
   position: fixed;
-  right: 5%;
+  right: 10%;
   bottom: 10%;
   cursor: pointer;
 
@@ -16,6 +16,15 @@ const Wrapper = styled.div`
       return `box-shadow: 0 3px 6px -4px ${color}, 0 6px 16px ${color},
       0 9px 28px 8px ${color}`;
     }};
+
+    width: 80px !important;
+    height: 80px !important;
+
+    svg {
+      margin-top: 20px;
+      width: 40px !important;
+      height: 40px !important;
+    }
 
     background-color: #fff;
     color: ${props => props.theme.colors.styleColor3};

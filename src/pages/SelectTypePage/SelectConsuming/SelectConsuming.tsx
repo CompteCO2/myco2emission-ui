@@ -6,6 +6,10 @@ import Header from "components/Header/Header";
 const Wrapper = styled.div`
   width: 60%;
   margin: auto auto;
+
+  @media (max-width: 640px) {
+    width: 90%;
+  }
 `;
 
 const SelectConsuming = ({

@@ -35,13 +35,6 @@ const Wrapper = styled.form`
 const Selector = styled(Select)`
   > svg {
     height: 30px;
-    max-width: 10%;
-    width: 10%;
-  }
-
-  .ant-select {
-    width: 90%;
-    overflow: hidden;
   }
 `;
 
@@ -50,6 +43,10 @@ const Line = styled.div`
   margin-bottom: 1rem;
   display: flex;
   justify-content: space-between;
+
+  @media screen and (max-width: 1000px) {
+    display: block;
+  }
 `;
 
 const Cell = styled.div`
@@ -85,6 +82,12 @@ const ASelector = styled(Selector)`
 
 const ButtonLine = styled(Line)`
   justify-content: right;
+`;
+
+const InputFlyNumber = styled(InputNumber)`
+  @media screen and (max-width: 1000px) {
+    width: 100%;
+  }
 `;
 
 const schema = yup
@@ -183,7 +186,7 @@ const AddFly = ({
               control={control}
               rules={{ required: true }}
               render={({ field }) => (
-                <InputNumber min={1} max={999} {...field} />
+                <InputFlyNumber min={1} max={999} {...field} />
               )}
             />
           </WithLabel>

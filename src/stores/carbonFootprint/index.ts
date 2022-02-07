@@ -1,4 +1,4 @@
-import { makeAutoObservable } from "mobx";
+import { makeAutoObservable, reaction } from "mobx";
 import { EmmisionStore } from "stores/emmisions";
 import { FlyEmmision } from "stores/emmisions/fly";
 import { TransportEmmision } from "stores/emmisions/transport";
@@ -26,6 +26,24 @@ export class CarbonFootprintStore {
 
   constructor() {
     makeAutoObservable(this);
+
+    // react to change emissions.
+    Object.values(this.modules).forEach(module => {
+      reaction(
+        () => module.emission,
+        () => {
+          this.calculateFootprint();
+        }
+      );
+    });
+
+    // react to change sum.
+    reaction(
+      () => this.sum,
+      () => {
+        this.calculateProportion();
+      }
+    );
   }
 
   /**
@@ -42,9 +60,6 @@ export class CarbonFootprintStore {
     }
 
     this.modules[moduleName].calculate(params);
-
-    this.calculateFootprint();
-    this.calculateProportion();
   }
 
   /**

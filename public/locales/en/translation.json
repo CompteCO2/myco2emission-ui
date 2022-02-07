@@ -40,15 +40,11 @@
             "consumption": "consumtion",
             "items": {
                 "": "Type of heating",
-                "ELECTRICITY": "Electricity",
-                "NATURAL_GAS": "Natural gas",
-                "COAL": "Coal",
-                "HEATING_OIL": "Heating oil",
-                "DRINK": "Drink",
-                "HEAP_PUMP": "Heat pump",
-                "SOLAR_THERMAL": "Solar thermal",
-                "URBAN_HEATING": "Urban heating",
-                "PROPAN": "Propane"
+                "electric": "Electricity",
+                "GPL": "Natural gas",
+                "wood": "Coal",
+                "fuelOil": "Heating oil",
+                "urban": "Urban heating"
             },
             "gas": {
                 "surface": "SURFACE",

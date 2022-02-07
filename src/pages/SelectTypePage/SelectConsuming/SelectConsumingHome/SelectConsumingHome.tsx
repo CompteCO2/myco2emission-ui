@@ -7,7 +7,7 @@ import { NoCO2 } from "./NoCO2/NoCO2";
 import { ConsumptionSlider } from "./ConsumptionSlider/ConsumptionSlider";
 import { Gas } from "./Gas/Gas";
 import WithLabel from "components/WithLabel/WithLabel";
-import { HOME_CONSUMTION_TYPES } from "types/consumptions/home";
+import { HeaterE } from "@cco2/carbon-weight/dist/house/types";
 
 const SelectConsumingHome = ({
   departments,
@@ -38,13 +38,9 @@ const SelectConsumingHome = ({
   const MAPPING_TYPE_TO_COMPONENTS: Record<number, JSX.Element> =
     useMemo(() => {
       return {
-        [HOME_CONSUMTION_TYPES.ELECTRICITY]: <NoCO2 />,
-        [HOME_CONSUMTION_TYPES.NATURAL_GAS]: <Gas departments={departments} />,
-        [HOME_CONSUMTION_TYPES.DRINK]: <NoCO2 />,
-        [HOME_CONSUMTION_TYPES.HEAP_PUMP]: <NoCO2 />,
-        [HOME_CONSUMTION_TYPES.SOLAR_THERMAL]: <NoCO2 />,
-        [HOME_CONSUMTION_TYPES.URBAN_HEATING]: <NoCO2 />,
-        [HOME_CONSUMTION_TYPES.COAL]: (
+        [HeaterE.electric]: <NoCO2 />,
+        [HeaterE.fuelOil]: <Gas departments={departments} />,
+        [HeaterE.wood]: (
           <ConsumptionSlider
             min={0}
             max={10000}
@@ -52,7 +48,7 @@ const SelectConsumingHome = ({
             defaultValue={5000}
           />
         ),
-        [HOME_CONSUMTION_TYPES.HEATING_OIL]: (
+        [HeaterE.fuelOil]: (
           <ConsumptionSlider
             min={0}
             max={10000}
@@ -60,14 +56,8 @@ const SelectConsumingHome = ({
             defaultValue={5000}
           />
         ),
-        [HOME_CONSUMTION_TYPES.PROPAN]: (
-          <ConsumptionSlider
-            min={0}
-            max={10000}
-            postfix={t("dimentions.liter")}
-            defaultValue={5000}
-          />
-        ),
+        [HeaterE.urban]: <NoCO2 />,
+        [HeaterE.GPL]: <Gas departments={departments} />,
       };
     }, [departments]);
 

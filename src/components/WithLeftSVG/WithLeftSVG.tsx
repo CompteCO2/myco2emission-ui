@@ -7,14 +7,16 @@ const Wrapper = styled.div`
   display: flex;
 `;
 
-const StyledSVG = styled(SVG)`
-  width: 20px;
-`;
+const StyledSVG = styled(SVG)``;
 
 const Child = styled.div`
   margin-left: 1rem;
   flex-grow: 1;
-  max-width: 100%;
+  width: 80%;
+
+  @media screen and (max-width: 1000px) {
+    width: 85%;
+  }
 `;
 
 const WithLeftSVG: React.FunctionComponent<{

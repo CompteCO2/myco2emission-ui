@@ -5,7 +5,7 @@ import SelectConsuming from "pages/SelectTypePage/SelectConsuming/SelectConsumin
 import SelectConsumingFoodContainer from "./SelectConsuming/SelectConsumingFood/SelectConsumingFood.container";
 import SelectConsumingTransportContainer from "./SelectConsuming/SelectConsumingTransport/SelectConsumingTransport.container";
 import SelectConsumingFlyContainer from "./SelectConsuming/SelectConsumingFly/SelectConsumingFly.container";
-import SelectConsumingHomeContainer from "./SelectConsuming/SelectConsumingHome/SelectConsumingHomeContainer";
+import SelectConsumingHomeContainer from "./SelectConsuming/SelectConsumingHome/SelectConsumingHome.container";
 
 const SelectTypes: Record<string, JSX.Element> = {
   home: <SelectConsumingHomeContainer />,
