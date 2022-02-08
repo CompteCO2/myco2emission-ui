@@ -40,14 +40,7 @@ const SelectConsumingHome = ({
       return {
         [HeaterE.electric]: <NoCO2 />,
         [HeaterE.fuelOil]: <Gas departments={departments} />,
-        [HeaterE.wood]: (
-          <ConsumptionSlider
-            min={0}
-            max={10000}
-            postfix={t("Units.kg")}
-            defaultValue={5000}
-          />
-        ),
+        [HeaterE.wood]: <NoCO2 />,
         [HeaterE.fuelOil]: (
           <ConsumptionSlider
             min={0}

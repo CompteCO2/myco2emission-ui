@@ -17,11 +17,11 @@ const Wrapper = styled.div`
       0 9px 28px 8px ${color}`;
     }};
 
-    width: 80px !important;
-    height: 80px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     svg {
-      margin-top: 20px;
       width: 40px !important;
       height: 40px !important;
     }
