@@ -15,10 +15,6 @@
             "title": "My home",
             "tip": "Estimation of the carbon footprint of my home"
         },
-        "car": {
-            "title": "My transport",
-            "tip": "Estimate the carbon footprint of my vehicle"
-        },
         "food": {
             "title": "My diet",
             "tip": "From the estimate of the carbon footprint of food, we deduce that of waste."

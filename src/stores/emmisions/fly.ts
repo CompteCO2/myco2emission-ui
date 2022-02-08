@@ -2,6 +2,8 @@ import { EmmisionStore } from ".";
 import { getEmission } from "@cco2/carbon-weight/dist/flight/index";
 import { Fly, FLY_CLASS, FLY_TYPE } from "stores/consumptions/fly";
 import { SeatE } from "@cco2/carbon-weight/dist/flight/types";
+import { RootStore } from "stores";
+import { reaction } from "mobx";
 
 const FlyClassComparator = {
   [FLY_CLASS.BUSINESS]: SeatE.business,
@@ -15,6 +17,18 @@ const FlyTypeComparator = {
 
 export class FlyEmmision extends EmmisionStore {
   public emission = 0;
+
+  constructor(rootStore: RootStore) {
+    super(rootStore);
+
+    // react to change consumption.
+    reaction(
+      () => rootStore.flyConsumption.flies,
+      flies => {
+        this.calculate({ flies });
+      }
+    );
+  }
 
   /**
    *

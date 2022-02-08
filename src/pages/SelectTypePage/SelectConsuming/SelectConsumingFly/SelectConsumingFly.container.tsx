@@ -2,13 +2,12 @@ import { SelectOption } from "components/Select/Select";
 import { observer } from "mobx-react";
 import { useRootStore } from "providers/RootStoreProvider";
 import { useCallback, useEffect, useState } from "react";
-import { CARBON_FOOTPRINT_MODULES } from "stores/carbonFootprint";
 import { Fly } from "stores/consumptions/fly";
 import { FlyWithFullAirportsName } from "./FliesList/FliesList";
 import SelectConsumingFly from "./SelectConsumingFly";
 
 const SelectConsumingFlyContainer = observer((): JSX.Element => {
-  const { flyConsumption, airportStore, carbonFootprintStore } = useRootStore();
+  const { flyConsumption, airportStore } = useRootStore();
 
   const [airports, setAirports] = useState<SelectOption[]>([]);
   const [flies, setFlies] = useState<FlyWithFullAirportsName[]>([]);
@@ -52,18 +51,10 @@ const SelectConsumingFlyContainer = observer((): JSX.Element => {
     flyConsumption.addFly(data);
   };
 
-  // on checkout flies.
-  const onCheckout = useCallback(() => {
-    carbonFootprintStore.calculate(CARBON_FOOTPRINT_MODULES.FLY, {
-      flies: [...flies],
-    });
-  }, [flies]);
-
   return (
     <SelectConsumingFly
       flies={flies}
       onDeleteItem={onDelete}
-      onCheckout={onCheckout}
       airports={airports}
       onAdd={onAddCallback}
     />

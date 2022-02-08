@@ -10,16 +10,14 @@ const SelectConsumingFly = ({
   airports,
   onAdd,
   onDeleteItem,
-  onCheckout,
 }: {
   flies: FlyWithFullAirportsName[];
   airports: SelectOption[];
   onAdd: (data: Fly) => void;
   onDeleteItem: (index: number) => void;
-  onCheckout: () => void;
 }): JSX.Element => {
   return (
-    <SelectConsumingWrapper onCheckout={onCheckout}>
+    <SelectConsumingWrapper>
       <FliesList flies={flies} onDeleteItem={onDeleteItem} />
       <AddFly airports={airports} onAdd={onAdd} />
     </SelectConsumingWrapper>
