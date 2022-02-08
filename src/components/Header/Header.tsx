@@ -4,6 +4,7 @@ import styled from "styled-components";
 const PageHeaderWrapper = styled(PageHeader)`
   .ant-page-header-heading {
     display: block;
+    margin-top: 2rem;
   }
   .ant-page-header-heading-left {
     justify-content: center;

@@ -1,4 +1,8 @@
 {
+  "languages": {
+    "us": "English",
+    "fr": "French"
+  },
   "co2": "CO2",
   "Units": {
     "kg": "kg",

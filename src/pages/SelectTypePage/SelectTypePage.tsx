@@ -6,6 +6,7 @@ import SelectConsumingFoodContainer from "./SelectConsuming/SelectConsumingFood/
 import SelectConsumingTransportContainer from "./SelectConsuming/SelectConsumingTransport/SelectConsumingTransport.container";
 import SelectConsumingFlyContainer from "./SelectConsuming/SelectConsumingFly/SelectConsumingFly.container";
 import SelectConsumingHomeContainer from "./SelectConsuming/SelectConsumingHome/SelectConsumingHome.container";
+import MainLayout from "layouts/main";
 
 const SelectTypes: Record<string, JSX.Element> = {
   home: <SelectConsumingHomeContainer />,
@@ -29,12 +30,14 @@ const SelectTypePage = (): JSX.Element => {
   }
 
   return (
-    <SelectConsuming
-      title={t(`pages.${type}.title`)}
-      tip={t(`pages.${type}.tip`)}
-    >
-      {typeComponent ? typeComponent : null}
-    </SelectConsuming>
+    <MainLayout>
+      <SelectConsuming
+        title={t(`pages.${type}.title`)}
+        tip={t(`pages.${type}.tip`)}
+      >
+        {typeComponent ? typeComponent : null}
+      </SelectConsuming>
+    </MainLayout>
   );
 };
 

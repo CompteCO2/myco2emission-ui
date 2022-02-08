@@ -5,6 +5,7 @@ import { observer } from "mobx-react";
 import Header from "components/Header/Header";
 import { useRootStore } from "providers/RootStoreProvider";
 import ConsumingTypeListContainer from "./ConsumingTypeList/ConsumingTypeListContainer";
+import MainLayout from "layouts/main";
 
 const Tip = styled.p`
   padding: 0.5rem 0 1rem 0;
@@ -22,7 +23,7 @@ const ConsumingPage = observer((): JSX.Element => {
   const { carbonFootprintStore } = useRootStore();
 
   return (
-    <>
+    <MainLayout>
       <Header title={t("pages.consuming.title")} />
       <Tip>{t("pages.consuming.tip")}</Tip>
       <Total>
@@ -30,7 +31,7 @@ const ConsumingPage = observer((): JSX.Element => {
         {t("co2")}
       </Total>
       <ConsumingTypeListContainer />
-    </>
+    </MainLayout>
   );
 });
 

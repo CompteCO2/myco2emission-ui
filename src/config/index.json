@@ -1,3 +1,8 @@
 {
-    "imageBasePath": "/images"
+    "imageBasePath": "/images",
+    "defaultLang": "fr",
+    "languages": [
+        "fr",
+        "us"
+    ]
 }
