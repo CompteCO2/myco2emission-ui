@@ -1,4 +1,5 @@
 import { makeAutoObservable, reaction } from "mobx";
+import { RootStore } from "stores";
 import { EmmisionStore } from "stores/emmisions";
 import { FlyEmmision } from "stores/emmisions/fly";
 import { TransportEmmision } from "stores/emmisions/transport";
@@ -11,12 +12,7 @@ export const enum CARBON_FOOTPRINT_MODULES {
 }
 
 export class CarbonFootprintStore {
-  // a dict with modules for calculator
-  public modules: Record<string, EmmisionStore> = {
-    [CARBON_FOOTPRINT_MODULES.FOOD]: new FoodEmmision(),
-    [CARBON_FOOTPRINT_MODULES.TRANSPORT]: new TransportEmmision(),
-    [CARBON_FOOTPRINT_MODULES.FLY]: new FlyEmmision(),
-  };
+  public modules: Record<string, EmmisionStore>;
 
   // a footprint sum.
   public sum = 0;
@@ -24,8 +20,15 @@ export class CarbonFootprintStore {
   // a footprint proportion
   public proportion: Record<string, number> = {};
 
-  constructor() {
+  constructor(rootStore: RootStore) {
     makeAutoObservable(this);
+
+    // a dict with modules for calculator
+    this.modules = {
+      [CARBON_FOOTPRINT_MODULES.FOOD]: new FoodEmmision(rootStore),
+      [CARBON_FOOTPRINT_MODULES.TRANSPORT]: new TransportEmmision(rootStore),
+      [CARBON_FOOTPRINT_MODULES.FLY]: new FlyEmmision(rootStore),
+    };
 
     // react to change emissions.
     Object.values(this.modules).forEach(module => {

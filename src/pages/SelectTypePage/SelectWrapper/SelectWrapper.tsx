@@ -17,14 +17,16 @@ const SelectConsumingWrapper = ({
   onCheckout,
   children,
 }: {
-  onCheckout: () => void;
+  onCheckout?: () => void;
   children?: unknown;
 }): JSX.Element => {
   const history = useHistory();
 
   // checkout
   const onCheckoutCallback = () => {
-    onCheckout();
+    if (onCheckout) {
+      onCheckout();
+    }
     history.push("/");
   };
 

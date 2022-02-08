@@ -1,4 +1,5 @@
 import { action, makeObservable, observable } from "mobx";
+import { RootStore } from "stores";
 
 export abstract class EmmisionStore {
   public emission: number | undefined;
@@ -8,7 +9,9 @@ export abstract class EmmisionStore {
     throw new Error("not implemented!");
   }
 
-  constructor() {
+  constructor(private rootStore: RootStore) {
+    this.rootStore = rootStore;
+
     makeObservable(this, {
       emission: observable,
       calculate: action,

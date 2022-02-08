@@ -15,11 +15,13 @@ export class RootStore {
 
   constructor() {
     this.airportStore = new AirportStore();
-    this.carbonFootprintStore = new CarbonFootprintStore();
 
     // consumptions
     this.foodConsumption = new FoodConsumption();
     this.transportConsumption = new TransportConsumption();
     this.flyConsumption = new FlyConsumption();
+
+    // calculation
+    this.carbonFootprintStore = new CarbonFootprintStore(this);
   }
 }
