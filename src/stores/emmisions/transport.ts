@@ -1,6 +1,6 @@
 import { EmmisionStore } from ".";
 import { getEmissionConsumed } from "@cco2/carbon-weight/dist/vehicle/index";
-import { ConsumptionT } from "@cco2/carbon-weight/dist/vehicle/types";
+import { ConsumptionT, FuelE } from "@cco2/carbon-weight/dist/vehicle/types";
 import { RootStore } from "stores";
 import { reaction } from "mobx";
 
@@ -24,8 +24,6 @@ export class TransportEmmision extends EmmisionStore {
    * @param props - a dic with props.
    */
   calculate(props: ConsumptionT): void {
-    const emission = getEmissionConsumed({ ...props });
-
-    this.emission = emission;
+    this.emission = props.fuel in FuelE ? getEmissionConsumed({ ...props }) : 0;
   }
 }
