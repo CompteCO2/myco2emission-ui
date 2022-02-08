@@ -16,7 +16,7 @@ const SelectConsumingHome = ({
 }): JSX.Element => {
   const { t } = useTranslation();
   const [homeConsumingType, setHomeConsumingType] = useState<number>(0);
-  const items = t("consumings.home.items", {
+  const items = t("consuming.home.items", {
     returnObjects: true,
   }) as Record<string, string>;
   const onSelectType = useCallback(
@@ -44,7 +44,7 @@ const SelectConsumingHome = ({
           <ConsumptionSlider
             min={0}
             max={10000}
-            postfix={t("dimentions.kg")}
+            postfix={t("Units.kg")}
             defaultValue={5000}
           />
         ),
@@ -52,7 +52,7 @@ const SelectConsumingHome = ({
           <ConsumptionSlider
             min={0}
             max={10000}
-            postfix={t("dimentions.liter")}
+            postfix={t("Units.liter")}
             defaultValue={5000}
           />
         ),
@@ -64,7 +64,7 @@ const SelectConsumingHome = ({
   return (
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     <SelectConsumingWrapper onCheckout={() => {}}>
-      <WithLabel noBackground label={t("consumings.home.type_of_heating")}>
+      <WithLabel noBackground label={t("consuming.home.type_of_heating")}>
         <Select
           items={options}
           icon="/types/home.svg"

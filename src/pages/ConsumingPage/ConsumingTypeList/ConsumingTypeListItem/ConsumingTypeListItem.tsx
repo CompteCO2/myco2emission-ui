@@ -77,11 +77,11 @@ const ConsumingTypeListItem = ({
       <Line>
         <Image color={type.color ?? ""} src={getImagePath(type.image)} />
         <Percentage>
-          {(type.proportion ?? 0).toFixed(0)} {t("dimentions.percentage")}
+          {(type.proportion ?? 0).toFixed(0)} {t("Units.percentage")}
         </Percentage>
       </Line>
       <Amount>
-        {(type.value ?? 0).toFixed(0)} {t("dimentions.kg")}
+        {(type.value ?? 0).toFixed(0)} {t("Units.kg")}
         {t("co2")}
       </Amount>
     </Wrapper>

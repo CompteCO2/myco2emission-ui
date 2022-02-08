@@ -17,7 +17,7 @@ export const ConsumptionSlider = ({
   return (
     <Slider
       noBackground
-      label={t("consumings.home.consumption")}
+      label={t("consuming.home.consumption")}
       postfix={postfix}
       min={min}
       max={max}

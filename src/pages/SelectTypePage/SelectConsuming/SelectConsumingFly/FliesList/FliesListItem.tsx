@@ -81,12 +81,12 @@ export const FliesListItem = ({
       <Left>
         <TopLine>
           <PassagerNumber>
-            {fly.travelNumber} {t("consumings.fly.list.travelNumber")}
+            {fly.travelNumber} {t("consuming.fly.list.travelNumber")}
           </PassagerNumber>
-          <Type>{t(`consumings.fly.type.${fly.type}`)}</Type>
+          <Type>{t(`consuming.fly.type.${fly.type}`)}</Type>
         </TopLine>
         <Path>
-          {t(`consumings.fly.list.path`, {
+          {t(`consuming.fly.list.path`, {
             arrivalName: fly.arrivalName,
             destinationName: fly.destinationName,
           })}
@@ -94,7 +94,7 @@ export const FliesListItem = ({
       </Left>
       <Right>
         <RoseSVG />
-        <FlyClass>{t(`consumings.fly.class.${fly.class}`)}</FlyClass>
+        <FlyClass>{t(`consuming.fly.class.${fly.class}`)}</FlyClass>
       </Right>
       <Delete onClick={onClickCallback} />
     </Wrapper>

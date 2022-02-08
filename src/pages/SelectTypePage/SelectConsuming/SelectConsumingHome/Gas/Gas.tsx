@@ -14,11 +14,11 @@ export const Gas = ({
 
   return (
     <>
-      <WithLabel noBackground label={t("consumings.home.gas.department")}>
+      <WithLabel noBackground label={t("consuming.home.gas.department")}>
         <Select items={departments} icon="/icons/france.svg" />
       </WithLabel>
 
-      <WithLabel noBackground label={t("consumings.home.gas.surface")}>
+      <WithLabel noBackground label={t("consuming.home.gas.surface")}>
         <WithLeftSVG icon="/icons/surface.svg">
           <Input type="number" />
         </WithLeftSVG>
@@ -26,7 +26,7 @@ export const Gas = ({
 
       <Slider
         noBackground
-        label={t("consumings.home.gas.year")}
+        label={t("consuming.home.gas.year")}
         min={1972}
         max={2001}
         defaultValue={1980}

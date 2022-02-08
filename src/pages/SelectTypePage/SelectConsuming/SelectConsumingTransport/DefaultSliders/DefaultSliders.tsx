@@ -28,8 +28,8 @@ export const DefaultSliders = ({
     <>
       <Slider
         noBackground
-        label={t("consumings.transport.cunsomption")}
-        postfix={t("consumings.transport.cunsomption_per_km")}
+        label={t("consuming.transport.consumption")}
+        postfix={t("consuming.transport.consumption_per_km")}
         min={0}
         max={17}
         defaultValue={cunsomptionPerKm}
@@ -37,8 +37,8 @@ export const DefaultSliders = ({
       />
       <Slider
         noBackground
-        label={t("consumings.transport.annual_mileage")}
-        postfix={t("dimentions.km")}
+        label={t("consuming.transport.annual_mileage")}
+        postfix={t("Units.km")}
         min={0}
         max={40000}
         defaultValue={distanceByYear}

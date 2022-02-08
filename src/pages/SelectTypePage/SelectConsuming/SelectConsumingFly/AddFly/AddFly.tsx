@@ -126,7 +126,7 @@ const AddFly = ({
     <Wrapper>
       <Line>
         <Cell>
-          <WithLabel label={t("consumings.fly.destination")}>
+          <WithLabel label={t("consuming.fly.departure")}>
             <Controller
               name="destination"
               control={control}
@@ -143,7 +143,7 @@ const AddFly = ({
           </WithLabel>
         </Cell>
         <Cell>
-          <WithLabel label={t("consumings.fly.arrival")}>
+          <WithLabel label={t("consuming.fly.arrival")}>
             <Controller
               name="arrival"
               control={control}
@@ -162,17 +162,17 @@ const AddFly = ({
       </Line>
       <Line>
         <Cell>
-          <WithLabel label={t("consumings.fly.class.name")} noBackground={true}>
+          <WithLabel label={t("consuming.fly.class.name")} noBackground={true}>
             <Controller
               name="class"
               control={control}
               render={({ field }) => (
                 <Radio.Group defaultValue="1" {...field}>
                   <Radio.Button value="1">
-                    {t("consumings.fly.class.1")}
+                    {t("consuming.fly.class.1")}
                   </Radio.Button>
                   <Radio.Button value="2">
-                    {t("consumings.fly.class.2")}
+                    {t("consuming.fly.class.2")}
                   </Radio.Button>
                 </Radio.Group>
               )}
@@ -180,7 +180,7 @@ const AddFly = ({
           </WithLabel>
         </Cell>
         <Cell>
-          <WithLabel label={t("consumings.fly.number")} noBackground={true}>
+          <WithLabel label={t("consuming.fly.number")} noBackground={true}>
             <Controller
               name="travelNumber"
               control={control}
@@ -194,15 +194,15 @@ const AddFly = ({
       </Line>
       <Line>
         <Cell>
-          <WithLabel label={t("consumings.fly.way")} noBackground={true}>
+          <WithLabel label={t("consuming.fly.way")} noBackground={true}>
             <Controller
               name="type"
               control={control}
               render={({ field }) => (
                 <Radio.Group {...field}>
                   <Space direction="vertical">
-                    <Radio value={1}>{t("consumings.fly.type.1")}</Radio>
-                    <Radio value={2}>{t("consumings.fly.type.2")}</Radio>
+                    <Radio value={1}>{t("consuming.fly.type.1")}</Radio>
+                    <Radio value={2}>{t("consuming.fly.type.2")}</Radio>
                   </Space>
                 </Radio.Group>
               )}
@@ -217,7 +217,7 @@ const AddFly = ({
           shape="circle"
           onClick={handleSubmit(onSubmit)}
         >
-          {t("consumings.fly.buttons.add")}
+          {t("consuming.fly.buttons.add")}
         </AddButton>
       </ButtonLine>
     </Wrapper>

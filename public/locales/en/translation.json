@@ -1,104 +1,111 @@
 {
-    "co2": "CO2",
-    "dimentions": {
-        "kg": "kg",
-        "liter": "L",
-        "km": "km",
-        "percentage": "%"
+  "co2": "CO2",
+  "Units": {
+    "kg": "kg",
+    "liter": "L",
+    "km": "km",
+    "percentage": "%"
+  },
+  "pages": {
+    "consuming": {
+      "title": "I calculate my carbon footprint",
+      "tip": "Click on an icon to start the calculation"
     },
-    "pages": {
-        "consuming": {
-            "title": "I calculate my carbon footprint",
-            "tip": "Click on an icon to start the calculation."
-        },
-        "home": {
-            "title": "My home",
-            "tip": "Estimation of the carbon footprint of my home"
-        },
-        "food": {
-            "title": "My diet",
-            "tip": "From the estimate of the carbon footprint of food, we deduce that of waste."
-        },
-        "fly": {
-            "title": "My air transport",
-            "tip": "Estimation of the carbon footprint of my air journeys."
-        },
-        "transport": {
-            "title": "My transport",
-            "tip": "Estimate the carbon footprint of my vehicle"
-        }
+    "home": {
+      "title": "My home",
+      "tip": "Estimation of the carbon footprint of my home"
     },
-    "consumings": {
-        "home": {
-            "type_of_heating": "TYPE DE CHAUFFAGE",
-            "surface": "SURFACE",
-            "no_co2": "The consumption of this type of heating does not emit CO2 in the calculation methodology",
-            "consumption": "consumtion",
-            "items": {
-                "": "Type of heating",
-                "electric": "Electricity",
-                "GPL": "Natural gas",
-                "wood": "Coal",
-                "fuelOil": "Heating oil",
-                "urban": "Urban heating"
-            },
-            "gas": {
-                "surface": "SURFACE",
-                "department": "DEPARTMENT",
-                "year": "YEAR OF HOUSING"
-            }
-        },
-        "transport": {
-            "fuel": "FUEL",
-            "annual_mileage": "ANNUAL MILEAGE",
-            "cunsomption": "CONSUMPTION",
-            "cunsomption_per_km": "L/100km",
-            "items": {
-                "": "Type of transport",
-                "NO_CAR": "No car",
-                "fuel": "Diesel (including Hybrid)",
-                "gasoil": "Gasoline (including Hybrid)",
-                "electric": "Electric",
-                "E85": "E85 (Superethanol)",
-                "LPG": "LPG"
-            }
-        },
-        "food": {
-            "portion": " times / week",
-            "items": {
-                "meatRed": "Red meat",
-                "meatWhite": "V. white / poultry",
-                "fish": "Fish / Crustaceans",
-                "bread": "Bread",
-                "harvestLocal": "Seasonal fruits",
-                "harvestExotic": "Exotic fruits",
-                "cheese": "Dairy / Eggs",
-                "rice": "Pasta / Rice",
-                "alcohol": "Wine / Beers",
-                "soft": "Fruit juice / Sodas / Water"
-            }
-        },
-        "fly": {
-            "number": "NUMBER OF JOURNEYS",
-            "destination": "destination",
-            "arrival": "arrival",
-            "class": {
-                "name": "Class",
-                "1": "Econom",
-                "2": "Business"
-            },
-            "type": {
-                "1": "One way ticket",
-                "2": "Round trip"
-            },
-            "way": "Way",
-            "buttons": {
-                "add": "Add"
-            },
-            "list": {
-                "travelNumber": "travels",
-                "path": "{{arrivalName}} > {{destinationName}}"
-            }
-        } 
+    "car": {
+      "title": "My transport",
+      "tip": "Estimation the carbon footprint of my vehicle"
+    },
+    "food": {
+      "title": "My diet",
+      "tip": "From the estimate of the carbon footprint of food, we deduce that of waste"
+    },
+    "fly": {
+      "title": "My air transport",
+      "tip": "Estimation of the carbon footprint of my air journeys"
+    },
+    "transport": {
+      "title": "My transport",
+      "tip": "Estimation the carbon footprint of my vehicle"
     }
+  },
+  "consuming": {
+    "home": {
+      "type_of_heating": "TYPE OF HEATING",
+      "surface": "SURFACE",
+      "no_co2": "The consumption of this type of heating does not emit CO2 in the calculation methodology",
+      "consumption": "CONSUMPTION",
+      "items": {
+        "": "TYPE OF HEATING",
+        "electric": "Electricity",
+        "GPL": "Natural gas",
+        "wood": "Coal",
+        "fuelOil": "Heating oil",
+        "urban": "Urban heating",
+        "heat_pump": "Heat pump",
+        "thermal_solar": "Thermal solar",
+        "Propane": "Propane"
+      },
+      "gas": {
+        "surface": "SURFACE",
+        "department": "DEPARTMENT",
+        "year": "BUILDING CONSTRUCTION YEAR"
+      }
+    },
+    "transport": {
+      "fuel": "FUEL",
+      "annual_mileage": "ANNUAL MILEAGE",
+      "consumption": "CONSUMPTION",
+      "consumption_per_km": "L/100km",
+      "items": {
+        "": "FUEL",
+        "NO_CAR": "No car",
+        "fuel": "Diesel (including Hybrid)",
+        "gasoil": "Diesel (including Hybrid)",
+        "electric": "Electric",
+        "E85": "E85 (Superethanol)",
+        "LPG": "LPG"
+      }
+    },
+    "food": {
+      "portion": " times / week",
+      "items": {
+        "meatRed": "Red meat",
+        "meatWhite": "White m. / poultry",
+        "fish": "Fish / Seafood",
+        "bread": "Bread",
+        "harvestLocal": "Seasonal fruit",
+        "harvestExotic": "Exotic fruit",
+        "cheese": "Dairy / Egg",
+        "rice": "Pasta / Rice",
+        "alcohol": "Wine / Beer",
+        "soft": "Fruit juice / Sodas / Water"
+      }
+    },
+    "fly": {
+      "number": "NUMBER OF JOURNEYS",
+      "departure": "FROM",
+      "arrival": "TO",
+      "class": {
+        "name": "CLASS",
+        "1": "Economy",
+        "2": "Business"
+      },
+      "type": {
+        "1": "One way ticket",
+        "2": "Round trip"
+      },
+      "way": "",
+      "buttons": {
+        "add": "Add"
+      },
+      "list": {
+        "travelNumber": "travel",
+        "path": "{{arrivalName}} > {{destinationName}}"
+      }
+    }
+  }
 }

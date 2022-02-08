@@ -12,5 +12,5 @@ const Wrapper = styled.div`
 export const NoCO2 = (): JSX.Element => {
   const { t } = useTranslation();
 
-  return <Wrapper>{t("consumings.home.no_co2")}</Wrapper>;
+  return <Wrapper>{t("consuming.home.no_co2")}</Wrapper>;
 };

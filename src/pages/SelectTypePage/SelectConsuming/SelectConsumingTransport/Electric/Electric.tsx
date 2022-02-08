@@ -19,7 +19,7 @@ export const Electric = ({
   return (
     <Slider
       noBackground
-      label={t("consumings.transport.annual_mileage")}
+      label={t("consuming.transport.annual_mileage")}
       postfix={postfix}
       min={min}
       max={max}

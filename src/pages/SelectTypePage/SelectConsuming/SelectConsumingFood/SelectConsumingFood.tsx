@@ -20,7 +20,7 @@ const SelectConsumingFood = ({
   onCheckout: () => void;
 }): JSX.Element => {
   const { t } = useTranslation();
-  const foodTypes = t("consumings.food.items", {
+  const foodTypes = t("consuming.food.items", {
     returnObjects: true,
   }) as Record<string, unknown>;
 

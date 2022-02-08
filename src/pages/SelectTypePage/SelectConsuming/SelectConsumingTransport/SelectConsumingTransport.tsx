@@ -28,7 +28,7 @@ const SelectConsumingTransport = ({
   }, [cunsomption]);
 
   // translate items.
-  const items = t("consumings.transport.items", {
+  const items = t("consuming.transport.items", {
     returnObjects: true,
   }) as Record<string, string>;
 
@@ -103,7 +103,7 @@ const SelectConsumingTransport = ({
           <Electric
             onChangeAnnualMileage={onChangeAnnualMileage}
             distanceByYear={currentCunsomption?.distanceByYear ?? 0}
-            postfix={t("dimentions.km")}
+            postfix={t("Units.km")}
             min={0}
             max={40000}
           />
@@ -118,7 +118,7 @@ const SelectConsumingTransport = ({
 
   return (
     <SelectConsumingWrapper onCheckout={onCheckoutCallback}>
-      <WithLabel noBackground label={t("consumings.transport.fuel")}>
+      <WithLabel noBackground label={t("consuming.transport.fuel")}>
         <Select
           items={options}
           icon="/types/car.svg"

@@ -49,7 +49,7 @@ const FoodTypeListItem = ({
 }): JSX.Element => {
   const [current, setCurrent] = useState(defaultValue);
   const { t } = useTranslation();
-  const title = t("consumings.food.portion");
+  const title = t("consuming.food.portion");
   const onChangeCallback = useCallback(value => {
     setCurrent(value);
     onSelect(type, value);

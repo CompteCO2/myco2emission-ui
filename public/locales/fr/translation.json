@@ -1,0 +1,111 @@
+{
+  "co2": "CO2",
+  "Units": {
+    "kg": "kg",
+    "liter": "L",
+    "km": "km",
+    "percentage": "%"
+  },
+  "pages": {
+    "consuming": {
+      "title": "Je calcule mon empreinte carbone",
+      "tip": "Cliquer sur une icône pour commencer le calcul"
+    },
+    "home": {
+      "title": "Mon logement",
+      "tip": "Estimation de l'empreinte carbone de mon logement"
+    },
+    "car": {
+      "title": "Mon véhicule",
+      "tip": "Estimation l'empreinte carbone de mon véhicule"
+    },
+    "food": {
+      "title": "Mon alimentation",
+      "tip": "À partir de l'estimation de l'empreinte carbone de l'alimentation on déduit celle des déchets"
+    },
+    "fly": {
+      "title": "Mon transport aérien",
+      "tip": "Estimation de l'empreinte carbone de mes trajets aériens"
+    },
+    "transport": {
+      "title": "Mon véhicule",
+      "tip": "Estimation l'empreinte carbone de mon véhicule"
+    }
+  },
+  "consuming": {
+    "home": {
+      "type_of_heating": "TYPE DE CHAUFFAGE",
+      "surface": "SURFACE",
+      "no_co2": "La consommation de ce type de chauffage n’émet pas de CO2 dans la méthodologie de calcul",
+      "consumption": "CONSOMMATION",
+      "items": {
+        "": "TYPE DE CHAUFFAGE",
+        "electric": "Electricité",
+        "GPL": "Gaz de ville",
+        "fuelOil": "Fioul domestique",
+        "urban": "Réseau de chaleur urbain",
+        "wood": "Bois",
+        "heat_pump": "Pompe à chaleur",
+        "thermal_solar": "Solaire thermique",
+        "Propane": "Propane"
+      },
+      "gas": {
+        "surface": "SURFACE",
+        "department": "DÉPARTEMENT",
+        "year": "ANNÉE DU LOGEMENT"
+      }
+    },
+    "transport": {
+      "fuel": "CARBURANT",
+      "annual_mileage": "KILOMÉTRAGE ANNUEL",
+      "consumption": "CONSOMMATION",
+      "consumption_per_km": "L/100km",
+      "items": {
+        "": "CARBURANT",
+        "NO_CAR": "Pas de voiture",
+        "fuel": "Diesel (inclus Hybride)",
+        "gasoil": "Essence (inclus Hybride)",
+        "electric": "Electrique",
+        "E85": "E85 (Superethanol)",
+        "LPG": "GPL"
+      }
+    },
+    "food": {
+      "portion": " fois / semaine",
+      "items": {
+        "meatRed": "Viande rouge",
+        "meatWhite": "V. blanche / Volaille",
+        "fish": "Poisson / Crustacé",
+        "bread": "Pain",
+        "harvestLocal": "Lég. / Fruit saison",
+        "harvestExotic": "Lég. / Fruit exotiques",
+        "cheese": "From. / Laitage / Oeuf",
+        "rice": "Pâtes / Riz",
+        "alcohol": "Vin / Bière",
+        "soft": "Jus de fruits / Sodat / Eau"
+      }
+    },
+    "fly": {
+      "number": "NOMBRE DE TRAJETS",
+      "departure": "DE",
+      "arrival": "A",
+      "class": {
+        "name": "CLASSE",
+        "1": "Économique",
+        "2": "Affaire"
+      },
+      "type": {
+        "1": "Aller Simple",
+        "2": "Aller / Retour"
+      },
+      "way": "",
+      "buttons": {
+        "add": "AJOUTER"
+      },
+      "list": {
+        "travelNumber": "trajet",
+        "path": "{{arrivalName}} > {{destinationName}}"
+      }
+    }
+  }
+}
