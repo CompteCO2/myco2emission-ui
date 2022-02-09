@@ -11,20 +11,33 @@ import { HeaterE } from "@cco2/carbon-weight/dist/house/types";
 
 const SelectConsumingHome = ({
   departments,
+  department,
+  surface,
+  buildingYear,
+  consumption,
+  type,
+  onChangeDepartment,
+  onChangeSurface,
+  onChangeBuildingYear,
+  onChangeConsumption,
+  onChangeType,
 }: {
   departments: SelectOption[];
+  department: string;
+  surface: number;
+  buildingYear: number;
+  consumption: number;
+  type: string;
+  onChangeDepartment: (value: string) => void;
+  onChangeSurface: (value: number) => void;
+  onChangeBuildingYear: (value: number) => void;
+  onChangeConsumption: (value: number) => void;
+  onChangeType: (value: string) => void;
 }): JSX.Element => {
   const { t } = useTranslation();
-  const [homeConsumingType, setHomeConsumingType] = useState<number>(0);
   const items = t("consuming.home.items", {
     returnObjects: true,
   }) as Record<string, string>;
-  const onSelectType = useCallback(
-    item => {
-      setHomeConsumingType(item);
-    },
-    [setHomeConsumingType]
-  );
   const options = useMemo(() => {
     return Object.keys(items).map(item => {
       return {
@@ -34,37 +47,62 @@ const SelectConsumingHome = ({
     });
   }, [items]);
 
+  const onChangeTypeCallback = (value: unknown) => {
+    onChangeType(String(value));
+  };
+
   // mapping a type of consuming to a component.
-  const MAPPING_TYPE_TO_COMPONENTS: Record<number, JSX.Element> =
+  const MAPPING_TYPE_TO_COMPONENTS: Record<string, JSX.Element> =
     useMemo(() => {
       return {
         [HeaterE.electric]: <NoCO2 />,
-        [HeaterE.fuelOil]: <Gas departments={departments} />,
+        [HeaterE.fuelOil]: (
+          <Gas
+            onChangeBuildingYear={onChangeBuildingYear}
+            onChangeSurface={onChangeSurface}
+            onChangeDepartment={onChangeDepartment}
+            departments={departments}
+            department={department}
+            surface={surface}
+            buildingYear={buildingYear}
+          />
+        ),
         [HeaterE.wood]: <NoCO2 />,
         [HeaterE.fuelOil]: (
           <ConsumptionSlider
+            onChangeConsumption={onChangeConsumption}
+            consumption={consumption}
             min={0}
             max={10000}
             postfix={t("Units.liter")}
-            defaultValue={5000}
           />
         ),
         [HeaterE.urban]: <NoCO2 />,
-        [HeaterE.GPL]: <Gas departments={departments} />,
+        [HeaterE.GPL]: (
+          <Gas
+            onChangeBuildingYear={onChangeBuildingYear}
+            onChangeSurface={onChangeSurface}
+            onChangeDepartment={onChangeDepartment}
+            departments={departments}
+            department={department}
+            surface={surface}
+            buildingYear={buildingYear}
+          />
+        ),
       };
     }, [departments]);
 
   return (
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
-    <SelectConsumingWrapper onCheckout={() => {}}>
+    <SelectConsumingWrapper>
       <WithLabel noBackground label={t("consuming.home.type_of_heating")}>
         <Select
+          onChange={onChangeTypeCallback}
+          defaultValue={type}
           items={options}
           icon="/types/home.svg"
-          onSelect={onSelectType}
         />
       </WithLabel>
-      {MAPPING_TYPE_TO_COMPONENTS[homeConsumingType]}
+      {MAPPING_TYPE_TO_COMPONENTS[type]}
     </SelectConsumingWrapper>
   );
 };

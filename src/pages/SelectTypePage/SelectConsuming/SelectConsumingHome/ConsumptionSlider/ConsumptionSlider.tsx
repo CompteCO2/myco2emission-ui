@@ -5,14 +5,20 @@ export const ConsumptionSlider = ({
   postfix,
   min,
   max,
-  defaultValue,
+  onChangeConsumption,
+  consumption,
 }: {
   postfix: string;
   min: number;
   max: number;
-  defaultValue: number;
+  consumption: number;
+  onChangeConsumption: (value: number) => void;
 }): JSX.Element => {
   const { t } = useTranslation();
+
+  const onChangeConsumptionCallback = (value: unknown) => {
+    onChangeConsumption(parseInt(String(value), 10));
+  };
 
   return (
     <Slider
@@ -21,9 +27,8 @@ export const ConsumptionSlider = ({
       postfix={postfix}
       min={min}
       max={max}
-      defaultValue={defaultValue}
-      // eslint-disable-next-line no-console
-      onChange={(value: number) => console.log(value)}
+      defaultValue={consumption}
+      onChange={onChangeConsumptionCallback}
     />
   );
 };
