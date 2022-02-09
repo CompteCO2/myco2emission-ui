@@ -2,6 +2,7 @@ import { makeAutoObservable, reaction } from "mobx";
 import { RootStore } from "stores";
 import { EmmisionStore } from "stores/emmisions";
 import { FlyEmmision } from "stores/emmisions/fly";
+import { HouseEmmision } from "stores/emmisions/house";
 import { TransportEmmision } from "stores/emmisions/transport";
 import { FoodEmmision } from "../emmisions/food";
 
@@ -9,6 +10,7 @@ export const enum CARBON_FOOTPRINT_MODULES {
   FOOD = "food",
   TRANSPORT = "transport",
   FLY = "fly",
+  HOUSE = "house",
 }
 
 export class CarbonFootprintStore {
@@ -28,6 +30,7 @@ export class CarbonFootprintStore {
       [CARBON_FOOTPRINT_MODULES.FOOD]: new FoodEmmision(rootStore),
       [CARBON_FOOTPRINT_MODULES.TRANSPORT]: new TransportEmmision(rootStore),
       [CARBON_FOOTPRINT_MODULES.FLY]: new FlyEmmision(rootStore),
+      [CARBON_FOOTPRINT_MODULES.HOUSE]: new HouseEmmision(rootStore),
     };
 
     // react to change emissions.

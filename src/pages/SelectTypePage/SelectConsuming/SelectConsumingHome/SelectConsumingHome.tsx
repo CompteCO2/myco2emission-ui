@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { useCallback, useMemo, useState } from "react";
+import { useMemo } from "react";
 
 import Select, { SelectOption } from "components/Select/Select";
 import SelectConsumingWrapper from "pages/SelectTypePage/SelectWrapper/SelectWrapper";
