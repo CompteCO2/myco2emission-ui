@@ -1,7 +1,7 @@
 {
     "items": [
         {
-            "id": "home",
+            "id": "house",
             "image": "/consumption_types/home.svg",
             "color": "styleColor1",
             "url": "/home"
