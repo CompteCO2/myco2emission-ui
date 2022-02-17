@@ -60,8 +60,8 @@ export const Gas = ({
       <Slider
         noBackground
         label={t("consuming.home.gas.year")}
-        min={1972}
-        max={2001}
+        min={1900}
+        max={2021}
         defaultValue={buildingYear}
         onChange={onChangeBuildingYearCallback}
       />
