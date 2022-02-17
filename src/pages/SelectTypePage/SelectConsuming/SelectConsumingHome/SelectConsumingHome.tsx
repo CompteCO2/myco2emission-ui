@@ -67,7 +67,15 @@ const SelectConsumingHome = ({
             buildingYear={buildingYear}
           />
         ),
-        [HeaterE.wood]: <NoCO2 />,
+        [HeaterE.wood]: (
+          <ConsumptionSlider
+            onChangeConsumption={onChangeConsumption}
+            consumption={consumption}
+            min={0}
+            max={10000}
+            postfix={t("Units.kg")}
+          />
+        ),
         [HeaterE.fuelOil]: (
           <ConsumptionSlider
             onChangeConsumption={onChangeConsumption}
