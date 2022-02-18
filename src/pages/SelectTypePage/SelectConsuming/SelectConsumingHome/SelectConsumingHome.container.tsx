@@ -6,6 +6,10 @@ import departments from "config/departments/fr.json";
 import { SelectOption } from "components/Select/Select";
 import { useRootStore } from "providers/RootStoreProvider";
 
+import { sort } from "fast-sort";
+
+const sortedDeps = sort(departments).asc(dep => dep.NCC);
+
 const SelectConsumingHomeContainer = observer((): JSX.Element => {
   const { houseConsumption } = useRootStore();
   const [departmentsOptions, setDepartmentsOptions] = useState<SelectOption[]>(
@@ -34,7 +38,7 @@ const SelectConsumingHomeContainer = observer((): JSX.Element => {
 
   useEffect(() => {
     setDepartmentsOptions(
-      departments.map(department => {
+      sortedDeps.map(department => {
         return {
           value: department.DEP,
           title: department.NCC,
