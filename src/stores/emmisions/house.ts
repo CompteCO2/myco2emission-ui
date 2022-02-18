@@ -38,7 +38,7 @@ export class HouseEmmision extends EmmisionStore {
         emission: houseConsumption.consumption,
         type: HouseE.apartment,
         region: houseConsumption.department,
-        heater: houseConsumption.type as HeaterE,
+        heater: this.mutateHeater(houseConsumption.type) as HeaterE,
       });
     });
   }
@@ -52,11 +52,32 @@ export class HouseEmmision extends EmmisionStore {
   }
 
   /**
+   * Mutate building heater.
+   * @param buildingYear a building year.
+   */
+  public mutateHeater(heater: string): string {
+    const mappings: Record<string, string[]> = {
+      electric: ["thermal_solar", "heat_pump"],
+    };
+    const keys = Object.keys(mappings);
+
+    for (let i = 0; i < keys.length; i++) {
+      const mapKey = keys[i];
+      const items = mappings[mapKey];
+
+      if (items.includes(heater)) {
+        return mapKey;
+      }
+    }
+
+    return heater;
+  }
+
+  /**
    *
    * @param props - a dic with props.
    */
   calculate(props: HouseT): void {
-    console.log(props);
     this.emission = props.heater ? getEmission(props) : 0;
   }
 }

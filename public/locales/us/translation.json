@@ -51,7 +51,7 @@
         "urban": "Urban heating",
         "heat_pump": "Heat pump",
         "thermal_solar": "Thermal solar",
-        "Propane": "Propane"
+        "propane": "Propane"
       },
       "gas": {
         "surface": "SURFACE",

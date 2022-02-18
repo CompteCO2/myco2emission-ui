@@ -51,7 +51,7 @@
         "wood": "Bois",
         "heat_pump": "Pompe à chaleur",
         "thermal_solar": "Solaire thermique",
-        "Propane": "Propane"
+        "propane": "Propane"
       },
       "gas": {
         "surface": "SURFACE",

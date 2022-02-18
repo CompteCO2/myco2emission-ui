@@ -56,6 +56,8 @@ const SelectConsumingHome = ({
     useMemo(() => {
       return {
         [HeaterE.electric]: <NoCO2 />,
+        heat_pump: <NoCO2 />,
+        thermal_solar: <NoCO2 />,
         [HeaterE.fuelOil]: (
           <Gas
             onChangeBuildingYear={onChangeBuildingYear}
@@ -76,15 +78,6 @@ const SelectConsumingHome = ({
             postfix={t("Units.kg")}
           />
         ),
-        [HeaterE.fuelOil]: (
-          <ConsumptionSlider
-            onChangeConsumption={onChangeConsumption}
-            consumption={consumption}
-            min={0}
-            max={10000}
-            postfix={t("Units.liter")}
-          />
-        ),
         [HeaterE.urban]: <NoCO2 />,
         [HeaterE.GPL]: (
           <Gas
@@ -95,6 +88,15 @@ const SelectConsumingHome = ({
             department={department}
             surface={surface}
             buildingYear={buildingYear}
+          />
+        ),
+        propane: (
+          <ConsumptionSlider
+            onChangeConsumption={onChangeConsumption}
+            consumption={consumption}
+            min={0}
+            max={10000}
+            postfix={t("Units.kg")}
           />
         ),
       };
