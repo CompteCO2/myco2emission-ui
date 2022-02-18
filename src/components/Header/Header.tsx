@@ -12,6 +12,10 @@ const PageHeaderWrapper = styled(PageHeader)`
   .ant-page-header-heading-title {
     font-size: 2rem;
     font-weight: normal;
+    text-overflow: initial;
+    white-space: normal;
+    overflow: auto;
+    text-align: center;
 
     @media screen and (max-width: 600px) {
       font-size: 1.5rem;
