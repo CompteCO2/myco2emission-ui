@@ -35,14 +35,19 @@ export class HouseEmmision extends EmmisionStore {
   private onCalculate(houseConsumption: HouseConsumption) {
     // react to change consumption.
     autorun(() => {
-      this.calculate({
+      const props: HouseT = {
         built: this.mutateBuild(houseConsumption.buildingYear),
         surface: houseConsumption.surface,
         emission: houseConsumption.consumption,
         type: HouseE.apartment,
-        region: houseConsumption.department,
         heater: this.mutateHeater(houseConsumption.type) as HeaterE,
-      });
+      };
+
+      if (houseConsumption.department) {
+        props.region = parseInt(houseConsumption.department, 10) ?? 0;
+      }
+
+      this.calculate(props);
     });
   }
 
