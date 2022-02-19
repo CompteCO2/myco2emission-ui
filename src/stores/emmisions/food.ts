@@ -1,5 +1,8 @@
 import { EmmisionStore } from ".";
-import { getEmission } from "@cco2/carbon-weight/dist/food/index";
+import {
+  getEmission,
+  getEmissionAvg,
+} from "@cco2/carbon-weight/dist/food/index";
 import { FoodE } from "@cco2/carbon-weight/dist/food/types";
 import { RootStore } from "stores";
 import { reaction } from "mobx";
@@ -27,5 +30,12 @@ export class FoodEmmision extends EmmisionStore {
     const emission = getEmission({ ...props } as Record<FoodE, number>);
 
     this.emission = emission.emission;
+  }
+
+  /**
+   * Calculate average.
+   */
+  public calculateAverage(): void {
+    this.average = getEmissionAvg().emission;
   }
 }

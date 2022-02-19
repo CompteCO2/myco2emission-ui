@@ -1,5 +1,8 @@
 import { EmmisionStore } from ".";
-import { getEmission } from "@cco2/carbon-weight/dist/flight/index";
+import {
+  getEmission,
+  getEmissionAvg,
+} from "@cco2/carbon-weight/dist/flight/index";
 import { Fly, FLY_CLASS, FLY_TYPE } from "stores/consumptions/fly";
 import { SeatE } from "@cco2/carbon-weight/dist/flight/types";
 import { RootStore } from "stores";
@@ -16,8 +19,6 @@ const FlyTypeComparator = {
 };
 
 export class FlyEmmision extends EmmisionStore {
-  public emission = 0;
-
   constructor(rootStore: RootStore) {
     super(rootStore);
 
@@ -53,5 +54,12 @@ export class FlyEmmision extends EmmisionStore {
     }, 0);
 
     this.emission = emissions;
+  }
+
+  /**
+   * Calculate average.
+   */
+  public calculateAverage(): void {
+    this.average = getEmissionAvg();
   }
 }

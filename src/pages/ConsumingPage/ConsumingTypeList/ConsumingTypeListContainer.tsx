@@ -15,6 +15,7 @@ const ConsumingTypeListContainer = observer((): JSX.Element => {
     const items = config.items.reduce((acc, item) => {
       acc.push({
         value: carbonFootprintStore.modules[item.id]?.emission ?? 0,
+        average: carbonFootprintStore.modules[item.id]?.average ?? 0,
         proportion: carbonFootprintStore.proportion[item.id],
         ...item,
       });

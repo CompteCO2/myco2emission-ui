@@ -26,4 +26,11 @@ export class TransportEmmision extends EmmisionStore {
   calculate(props: ConsumptionT): void {
     this.emission = props.fuel in FuelE ? getEmissionConsumed({ ...props }) : 0;
   }
+
+  /**
+   * Calculate average.
+   */
+  public calculateAverage(): void {
+    this.average = 0;
+  }
 }

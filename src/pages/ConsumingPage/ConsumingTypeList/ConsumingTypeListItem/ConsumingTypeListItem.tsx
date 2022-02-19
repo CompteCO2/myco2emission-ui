@@ -56,6 +56,13 @@ const Amount = styled.div`
   }
 `;
 
+const Average = styled.div`
+  font-size: 80%;
+  opacity: 0.7;
+  text-align: left;
+  margin-top: -1rem;
+`;
+
 export interface ConsumingTypeItem {
   id: string;
   image: string;
@@ -63,6 +70,7 @@ export interface ConsumingTypeItem {
   url?: string;
   proportion?: number;
   value?: number;
+  average?: number;
 }
 
 const ConsumingTypeListItem = ({
@@ -84,6 +92,12 @@ const ConsumingTypeListItem = ({
         {(type.value ?? 0).toFixed(0)} {t("Units.kg")}
         {t("co2")}
       </Amount>
+      {type.average ? (
+        <Average>
+          {t("national_average")} {(type.average ?? 0).toFixed(0)}{" "}
+          {t("Units.kg")} {t("co2")}
+        </Average>
+      ) : null}
     </Wrapper>
   );
 };

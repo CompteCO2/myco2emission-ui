@@ -2,7 +2,10 @@ import { RootStore } from "stores";
 import { autorun } from "mobx";
 
 import { EmmisionStore } from ".";
-import { getEmission } from "@cco2/carbon-weight/dist/house/index";
+import {
+  getEmission,
+  getEmissionAvg,
+} from "@cco2/carbon-weight/dist/house/index";
 import {
   HeaterE,
   HouseE,
@@ -79,5 +82,12 @@ export class HouseEmmision extends EmmisionStore {
    */
   calculate(props: HouseT): void {
     this.emission = props.heater ? getEmission(props) : 0;
+  }
+
+  /**
+   * Calculate average.
+   */
+  public calculateAverage(): void {
+    this.average = getEmissionAvg();
   }
 }
