@@ -12,7 +12,7 @@ export const enum CARBON_FOOTPRINT_MODULES {
   TRANSPORT = "transport",
   FLY = "fly",
   HOUSE = "house",
-  BIN = "bin"
+  BIN = "bin",
 }
 
 export class CarbonFootprintStore {
