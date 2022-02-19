@@ -94,8 +94,9 @@ const ConsumingTypeListItem = ({
       </Amount>
       {type.average ? (
         <Average>
-          {t("national_average")}<br />{(type.average ?? 0).toFixed(0)}{" "}
-          {t("Units.kg")} {t("co2")}
+          {t("national_average")}
+          <br />
+          {(type.average ?? 0).toFixed(0)} {t("Units.kg")} {t("co2")}
         </Average>
       ) : null}
     </Wrapper>
