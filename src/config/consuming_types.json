@@ -19,6 +19,12 @@
             "url": "/food"
         },
         {
+            "id": "bin",
+            "image": "/consumption_types/bin.svg",
+            "color": "styleColor4",
+            "url": "/food"
+        },
+        {
             "id": "fly",
             "image": "/consumption_types/fly.svg",
             "color": "styleColor3",

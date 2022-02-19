@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 const Wrapper = styled(Link)<{ color: string }>`
-  padding: 0 3rem;
+  padding: 0 2rem;
   display: block;
   margin-bottom: 2rem;
   text-decoration: none;
@@ -59,8 +59,8 @@ const Amount = styled.div`
 const Average = styled.div`
   font-size: 80%;
   opacity: 0.7;
-  text-align: left;
   margin-top: -1rem;
+  line-height: 120%;
 `;
 
 export interface ConsumingTypeItem {
@@ -94,7 +94,7 @@ const ConsumingTypeListItem = ({
       </Amount>
       {type.average ? (
         <Average>
-          {t("national_average")} {(type.average ?? 0).toFixed(0)}{" "}
+          {t("national_average")}<br />{(type.average ?? 0).toFixed(0)}{" "}
           {t("Units.kg")} {t("co2")}
         </Average>
       ) : null}
