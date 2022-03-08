@@ -1,5 +1,8 @@
 import { EmmisionStore } from ".";
-import { getEmissionConsumed } from "@cco2/carbon-weight/dist/vehicle/index";
+import {
+  getEmissionConsumed,
+  getEmissionAvg,
+} from "@cco2/carbon-weight/dist/vehicle/index";
 import { ConsumptionT, FuelE } from "@cco2/carbon-weight/dist/vehicle/types";
 import { RootStore } from "stores";
 import { reaction } from "mobx";
@@ -31,6 +34,6 @@ export class TransportEmmision extends EmmisionStore {
    * Calculate average.
    */
   public calculateAverage(): void {
-    this.average = 0;
+    this.average = getEmissionAvg();
   }
 }
