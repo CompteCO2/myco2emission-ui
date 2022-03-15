@@ -23,6 +23,7 @@ export const Slider = ({
   min,
   max,
   defaultValue,
+  step,
   onChange,
   label,
   noBackground = false,
@@ -31,6 +32,7 @@ export const Slider = ({
   min: number;
   max: number;
   defaultValue: number;
+  step?: number;
   onChange: (value: number) => void;
   label: string;
   noBackground?: boolean;
@@ -54,6 +56,7 @@ export const Slider = ({
           defaultValue={defaultValue}
           min={min}
           max={max}
+          step={step}
           onChange={onChangeCallback}
         />
       </SliderWrapper>

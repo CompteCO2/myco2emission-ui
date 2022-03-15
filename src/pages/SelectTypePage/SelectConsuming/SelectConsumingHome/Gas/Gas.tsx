@@ -1,4 +1,4 @@
-import { Input } from "antd";
+import { InputNumber } from "antd";
 import Select, { SelectOption } from "components/Select/Select";
 import { Slider } from "components/Slider/Slider";
 import WithLabel from "components/WithLabel/WithLabel";
@@ -49,10 +49,9 @@ export const Gas = ({
 
       <WithLabel noBackground label={t("consuming.home.gas.surface")}>
         <WithLeftSVG icon="/icons/surface.svg">
-          <Input
+          <InputNumber
             onChange={onChangeSurfaceCallback}
-            type="number"
-            value={surface}
+            defaultValue={surface}
           />
         </WithLeftSVG>
       </WithLabel>
