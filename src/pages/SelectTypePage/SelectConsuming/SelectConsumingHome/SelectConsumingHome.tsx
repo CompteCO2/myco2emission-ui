@@ -55,9 +55,9 @@ const SelectConsumingHome = ({
   const MAPPING_TYPE_TO_COMPONENTS: Record<string, JSX.Element> =
     useMemo(() => {
       return {
-        [HeaterE.electric]: <NoCO2 />,
-        heat_pump: <NoCO2 />,
-        thermal_solar: <NoCO2 />,
+        [HeaterE.electric]: <NoCO2 onChangeSurface={onChangeSurface} />,
+        heat_pump: <NoCO2 onChangeSurface={onChangeSurface} />,
+        thermal_solar: <NoCO2 onChangeSurface={onChangeSurface} />,
         [HeaterE.fuelOil]: (
           <Gas
             onChangeBuildingYear={onChangeBuildingYear}
@@ -78,7 +78,7 @@ const SelectConsumingHome = ({
             postfix={t("Units.kg")}
           />
         ),
-        [HeaterE.urban]: <NoCO2 />,
+        [HeaterE.urban]: <NoCO2 onChangeSurface={onChangeSurface} />,
         [HeaterE.GPL]: (
           <Gas
             onChangeBuildingYear={onChangeBuildingYear}
