@@ -68,10 +68,11 @@
       "items": {
         "": "FUEL",
         "NO_CAR": "No car",
-        "fuel": "Diesel (including Hybrid)",
+        "fuel": "Petrol (including Hybrid)",
         "gasoil": "Diesel (including Hybrid)",
         "electric": "Electric",
         "E85": "E85 (Superethanol)",
+        "GNV": "NGV (Natural Gas)",
         "LPG": "LPG"
       }
     },

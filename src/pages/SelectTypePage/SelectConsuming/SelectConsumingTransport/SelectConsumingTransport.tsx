@@ -97,6 +97,7 @@ const SelectConsumingTransport = ({
       return {
         [FuelE.LPG]: getDefaultSliders(),
         [FuelE.E85]: getDefaultSliders(),
+        [FuelE.GNV]: getDefaultSliders(),
         [FuelE.gasoil]: getDefaultSliders(),
         [FuelE.fuel]: getDefaultSliders(),
         [FuelE.electric]: (
