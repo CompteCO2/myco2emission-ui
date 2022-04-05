@@ -5,6 +5,7 @@ import { EmmisionStore } from ".";
 import {
   getEmission,
   getEmissionAvg,
+  getEmissionConsumed,
 } from "@cco2/carbon-weight/dist/house/index";
 import {
   HeaterE,
@@ -35,19 +36,37 @@ export class HouseEmmision extends EmmisionStore {
   private onCalculate(houseConsumption: HouseConsumption) {
     // react to change consumption.
     autorun(() => {
-      const props: HouseT = {
-        built: this.mutateBuild(houseConsumption.buildingYear),
-        surface: houseConsumption.surface,
-        emission: houseConsumption.consumption,
-        type: HouseE.apartment,
-        heater: this.mutateHeater(houseConsumption.type) as HeaterE,
-      };
+      // Workaround calculations for specific CCO2 computation
+      const heater = this.mutateHeater(houseConsumption.type) as HeaterE;
+      switch (heater) {
+        // Surface to 0 for emission not computed
+        case HeaterE.electric:
+        case HeaterE.heatPump:
+        case HeaterE.thermalSolar:
+        case HeaterE.wood:
+        case HeaterE.urban:
+          this.calculateConsumed(0, heater);
+          break;
+        // Not based on real consumption
+        case HeaterE.GPL: {
+          const props: HouseT = {
+            built: this.mutateBuild(houseConsumption.buildingYear),
+            surface: houseConsumption.surface,
+            type: HouseE.apartment,
+            heater: this.mutateHeater(houseConsumption.type) as HeaterE,
+          };
 
-      if (houseConsumption.department) {
-        props.region = parseInt(houseConsumption.department, 10) ?? 0;
+          if (houseConsumption.department) {
+            props.region = parseInt(houseConsumption.department, 10) ?? 0;
+          }
+
+          this.calculate(props);
+          break;
+        }
+        // Restore default consumption if unset
+        default:
+          this.calculateConsumed(houseConsumption.consumption, heater);
       }
-
-      this.calculate(props);
     });
   }
 
@@ -87,6 +106,14 @@ export class HouseEmmision extends EmmisionStore {
    */
   calculate(props: HouseT): void {
     this.emission = props.heater ? getEmission(props) : 0;
+  }
+
+  /**
+   *
+   * @param props - a dic with props.
+   */
+  calculateConsumed(consumption: number, heater: HeaterE): void {
+    this.emission = heater ? getEmissionConsumed([consumption], heater) : 0;
   }
 
   /**

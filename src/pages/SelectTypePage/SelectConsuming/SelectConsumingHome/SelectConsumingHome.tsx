@@ -55,30 +55,20 @@ const SelectConsumingHome = ({
   const MAPPING_TYPE_TO_COMPONENTS: Record<string, JSX.Element> =
     useMemo(() => {
       return {
-        [HeaterE.electric]: <NoCO2 onChangeSurface={onChangeSurface} />,
-        heat_pump: <NoCO2 onChangeSurface={onChangeSurface} />,
-        thermal_solar: <NoCO2 onChangeSurface={onChangeSurface} />,
+        [HeaterE.electric]: <NoCO2 />,
+        heat_pump: <NoCO2 />,
+        thermal_solar: <NoCO2 />,
         [HeaterE.fuelOil]: (
-          <Gas
-            onChangeBuildingYear={onChangeBuildingYear}
-            onChangeSurface={onChangeSurface}
-            onChangeDepartment={onChangeDepartment}
-            departments={departments}
-            department={department}
-            surface={surface}
-            buildingYear={buildingYear}
-          />
-        ),
-        [HeaterE.wood]: (
           <ConsumptionSlider
             onChangeConsumption={onChangeConsumption}
             consumption={consumption}
             min={0}
             max={10000}
-            postfix={t("Units.kg")}
+            postfix={t("Units.liter")}
           />
         ),
-        [HeaterE.urban]: <NoCO2 onChangeSurface={onChangeSurface} />,
+        [HeaterE.wood]: <NoCO2 />,
+        [HeaterE.urban]: <NoCO2 />,
         [HeaterE.GPL]: (
           <Gas
             onChangeBuildingYear={onChangeBuildingYear}
