@@ -136,6 +136,12 @@ const AddFly = ({
                   dropdownMatchSelectWidth={400}
                   items={airports}
                   icon="/fly/fly1.svg"
+                  filterOption={(inputValue, option) =>
+                    option?.props.children
+                      .toString()
+                      .toLowerCase()
+                      .includes(inputValue.toLowerCase())
+                  }
                   {...field}
                 />
               )}
@@ -153,6 +159,12 @@ const AddFly = ({
                   dropdownMatchSelectWidth={400}
                   items={airports}
                   icon="/fly/fly1.svg"
+                  filterOption={(inputValue, option) =>
+                    option?.props.children
+                      .toString()
+                      .toLowerCase()
+                      .includes(inputValue.toLowerCase())
+                  }
                   {...field}
                 />
               )}
