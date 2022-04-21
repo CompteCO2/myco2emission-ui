@@ -10,10 +10,10 @@
     "km": "km",
     "percentage": "%"
   },
-  "national_average": "moyenne nationale:",
+  "national_average": "Moyenne Française:",
   "pages": {
     "consuming": {
-      "title": "Je calcule mon empreinte carbone",
+      "title": "Mon empreinte carbone",
       "tip": "Cliquer sur une icône pour commencer le calcul"
     },
     "home": {

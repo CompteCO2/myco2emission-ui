@@ -1,34 +1,28 @@
 {
-    "items": [
-        {
-            "id": "house",
-            "image": "/consumption_types/home.svg",
-            "color": "styleColor1",
-            "url": "/home"
-        },
-        {
-            "id": "transport",
-            "image": "/consumption_types/car.svg",
-            "color": "styleColor2",
-            "url": "/transport"
-        },
-        {
-            "id": "food",
-            "image": "/consumption_types/food.svg",
-            "color": "styleColor3",
-            "url": "/food"
-        },
-        {
-            "id": "bin",
-            "image": "/consumption_types/bin.svg",
-            "color": "styleColor4",
-            "url": "/food"
-        },
-        {
-            "id": "fly",
-            "image": "/consumption_types/fly.svg",
-            "color": "styleColor3",
-            "url": "/fly"
-        }
-    ]
+  "items": [
+    {
+      "id": "house",
+      "image": "/consumption_types/home.svg",
+      "color": "styleColor1",
+      "url": "/home"
+    },
+    {
+      "id": "transport",
+      "image": "/consumption_types/car.svg",
+      "color": "styleColor2",
+      "url": "/transport"
+    },
+    {
+      "id": "food",
+      "image": "/consumption_types/food.svg",
+      "color": "styleColor3",
+      "url": "/food"
+    },
+    {
+      "id": "fly",
+      "image": "/consumption_types/fly.svg",
+      "color": "styleColor3",
+      "url": "/fly"
+    }
+  ]
 }

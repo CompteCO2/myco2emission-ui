@@ -10,10 +10,10 @@
     "km": "km",
     "percentage": "%"
   },
-  "national_average": "national average:",
+  "national_average": "French Average:",
   "pages": {
     "consuming": {
-      "title": "I calculate my carbon footprint",
+      "title": "My carbon footprint",
       "tip": "Click on an icon to start the calculation"
     },
     "home": {

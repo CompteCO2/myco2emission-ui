@@ -6,16 +6,17 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 const Wrapper = styled(Link)<{ color: string }>`
-  padding: 0 2rem;
+  width: 200px;
+  margin: 5px;
+  background-color: #f0f0f0;
+  padding: 5px;
   display: block;
-  margin-bottom: 2rem;
   text-decoration: none;
-  margin-top: 4rem;
   flex-wrap: wrap;
   color: ${props => props.theme.colors[props.color]};
   text-align: center;
   transition: transform 0.2s;
-  border-radius: 10px;
+  border-radius: 20px;
   cursor: pointer;
   &:hover {
     transform: scale(1.2);
@@ -32,24 +33,31 @@ const Line = styled.div`
   margin-bottom: 0.5rem;
 `;
 
-const Percentage = styled.div`
-  padding-left: 1rem;
-  font-size: 1rem;
-
-  @media screen and (max-width: 600px) {
-    font-size: 1.5rem;
-  }
+const Col = styled.div`
+  display: block;
 `;
 
 const Image = styled(SVG)<{ color: string }>`
-  width: 80%;
+  width: 40%;
   max-width: 100px;
+  margin: 10px;
+  background-color: white;
+  border-radius: 18px;
   fill: ${props => props.theme.colors[props.color]};
 `;
 
+const Percentage = styled.div`
+  text-align: center;
+  font-size: 2rem;
+
+  @media screen and (max-width: 600px) {
+    font-size: 2.5rem;
+  }
+`;
+
 const Amount = styled.div`
-  padding: 1rem;
-  font-size: 1rem;
+  font-size: 0.8rem;
+  text-align: center;
 
   @media screen and (max-width: 600px) {
     font-size: 1.5rem;
@@ -59,7 +67,7 @@ const Amount = styled.div`
 const Average = styled.div`
   font-size: 80%;
   opacity: 0.7;
-  margin-top: -1rem;
+  margin-top: 0.8rem;
   line-height: 120%;
 `;
 
@@ -84,14 +92,17 @@ const ConsumingTypeListItem = ({
     <Wrapper color={type.color ?? ""} to={type.url ?? ""}>
       <Line>
         <Image color={type.color ?? ""} src={getImagePath(type.image)} />
-        <Percentage>
-          {(type.proportion ?? 0).toFixed(0)} {t("Units.percentage")}
-        </Percentage>
+        <Col>
+          <Percentage>
+            {(type.proportion ?? 0).toFixed(0)} {t("Units.percentage")}
+          </Percentage>
+          <Amount>
+            {(type.value ?? 0).toFixed(0)} {t("Units.kg")}
+            {t("co2")}
+          </Amount>
+        </Col>
       </Line>
-      <Amount>
-        {(type.value ?? 0).toFixed(0)} {t("Units.kg")}
-        {t("co2")}
-      </Amount>
+
       {type.average ? (
         <Average>
           {t("national_average")}
