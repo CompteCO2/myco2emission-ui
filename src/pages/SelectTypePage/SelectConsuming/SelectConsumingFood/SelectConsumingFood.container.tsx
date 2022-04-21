@@ -1,14 +1,32 @@
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
+import { useTranslation } from "react-i18next";
+import styled from "styled-components";
 import { observer } from "mobx-react";
 
 import SelectConsumingFood from "./SelectConsumingFood";
 import { useRootStore } from "providers/RootStoreProvider";
 
+import { Checkout } from "components/Checkout/Checkout";
+
+const Wrapper = styled.div`
+  padding: 0;
+  margin: 0;
+`;
+
+const Disclaimer = styled.p`
+  padding: 0.5rem 0 1rem 0;
+`;
+
 /**
  * A container to connect food consumption with a store.
  */
 const SelectConsumingFoodContainer = observer((): JSX.Element => {
+  const { t } = useTranslation();
   const { foodConsumption } = useRootStore();
+  const [diclamerRead, setDisclamerRead] = useState(false);
+
+  // Disclamer Read
+  const onReadCallback = () => setDisclamerRead(true);
 
   // on consumption change.
   const onChangeCallback = useCallback((type, value) => {
@@ -26,12 +44,22 @@ const SelectConsumingFoodContainer = observer((): JSX.Element => {
   }, []);
 
   return (
-    <SelectConsumingFood
-      values={foodConsumption.consumptionByFood}
-      maxValue={foodConsumption.maxValue}
-      onChange={onChangeCallback}
-      onCheckout={onCheckoutCallback}
-    />
+    <Wrapper>
+      {!diclamerRead && (
+        <Disclaimer>
+          DISCLAMER
+          <Checkout onClick={onReadCallback} />
+        </Disclaimer>
+      )}
+      {diclamerRead && (
+        <SelectConsumingFood
+          values={foodConsumption.consumptionByFood}
+          maxValue={foodConsumption.maxValue}
+          onChange={onChangeCallback}
+          onCheckout={onCheckoutCallback}
+        />
+      )}
+    </Wrapper>
   );
 });
 

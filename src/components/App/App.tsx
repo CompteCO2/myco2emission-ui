@@ -21,9 +21,12 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     font-family: Open-Sans, Helvetica, Sans-Serif;
-    max-width: 420px;
+  }
+  #root {
+    width: 420px;
     margin: auto;
   }
+
   h2 {
 
   }
