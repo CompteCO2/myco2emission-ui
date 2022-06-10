@@ -2,12 +2,9 @@ import { RootStore } from "stores";
 import { autorun } from "mobx";
 
 import { EmmisionStore } from ".";
+import House from "@cco2/carbon-weight/dist/house/index";
 import {
-  getEmission,
-  getEmissionAvg,
-  getEmissionConsumed,
-} from "@cco2/carbon-weight/dist/house/index";
-import {
+  DataE,
   HeaterE,
   HouseE,
   HouseT,
@@ -16,14 +13,16 @@ import {
 import { HouseConsumption } from "stores/consumptions/house";
 
 export class HouseEmmision extends EmmisionStore {
-  // emission result.
-  public emission = 0;
+  // Calculator with specified dataset
+  private calculator;
 
   // when the building was built.
   public OLD_BUILDING_YEAR = 1970;
 
-  constructor(rootStore: RootStore) {
+  constructor(rootStore: RootStore, dataset: DataE) {
     super(rootStore);
+    this.calculator = House.build(dataset);
+    this.calculateAverage();
 
     // react to change consumption.
     this.onCalculate(rootStore.houseConsumption);
@@ -57,7 +56,7 @@ export class HouseEmmision extends EmmisionStore {
           };
 
           if (houseConsumption.department) {
-            props.region = parseInt(houseConsumption.department, 10) ?? 0;
+            props.region = parseInt(houseConsumption.department, 10) || 0;
           }
 
           this.calculate(props);
@@ -105,7 +104,9 @@ export class HouseEmmision extends EmmisionStore {
    * @param props - a dic with props.
    */
   calculate(props: HouseT): void {
-    this.emission = props.heater ? getEmission(props) : 0;
+    this.emission = props.heater
+      ? this.calculator!.getEmissionEstimated(props)
+      : 0;
   }
 
   /**
@@ -113,13 +114,15 @@ export class HouseEmmision extends EmmisionStore {
    * @param props - a dic with props.
    */
   calculateConsumed(consumption: number, heater: HeaterE): void {
-    this.emission = heater ? getEmissionConsumed([consumption], heater) : 0;
+    this.emission = heater
+      ? this.calculator!.getEmissionConsumed([consumption], heater)
+      : 0;
   }
 
   /**
    * Calculate average.
    */
   public calculateAverage(): void {
-    this.average = getEmissionAvg();
+    this.average = this.calculator!.getEmissionAvg();
   }
 }

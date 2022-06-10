@@ -1,17 +1,21 @@
 import { EmmisionStore } from ".";
+import Vehicle from "@cco2/carbon-weight/dist/vehicle/index";
 import {
-  getEmissionConsumed,
-  getEmissionAvg,
-} from "@cco2/carbon-weight/dist/vehicle/index";
-import { ConsumptionT, FuelE } from "@cco2/carbon-weight/dist/vehicle/types";
+  ConsumptionT,
+  DataE,
+  FuelE,
+} from "@cco2/carbon-weight/dist/vehicle/types";
 import { RootStore } from "stores";
 import { reaction } from "mobx";
 
 export class TransportEmmision extends EmmisionStore {
-  public emission = 0;
+  // Calculator with specified dataset
+  private calculator;
 
-  constructor(rootStore: RootStore) {
+  constructor(rootStore: RootStore, dataset: DataE) {
     super(rootStore);
+    this.calculator = Vehicle.build(dataset);
+    this.calculateAverage();
 
     // react to change consumption.
     reaction(
@@ -27,13 +31,16 @@ export class TransportEmmision extends EmmisionStore {
    * @param props - a dic with props.
    */
   calculate(props: ConsumptionT): void {
-    this.emission = props.fuel in FuelE ? getEmissionConsumed({ ...props }) : 0;
+    this.emission =
+      props.fuel in FuelE
+        ? this.calculator!.getEmissionConsumed({ ...props })
+        : 0;
   }
 
   /**
    * Calculate average.
    */
   public calculateAverage(): void {
-    this.average = getEmissionAvg();
+    this.average = this.calculator!.getEmissionAvg();
   }
 }

@@ -27,7 +27,5 @@ export abstract class EmmisionStore {
       emission: observable,
       calculate: action,
     });
-
-    this.calculateAverage();
   }
 }

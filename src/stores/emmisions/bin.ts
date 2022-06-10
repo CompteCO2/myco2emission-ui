@@ -1,17 +1,17 @@
 import { EmmisionStore } from ".";
-import {
-  getEmission,
-  getEmissionAvg,
-} from "@cco2/carbon-weight/dist/food/index";
-import { FoodE } from "@cco2/carbon-weight/dist/food/types";
+import Food from "@cco2/carbon-weight/dist/food/index";
+import { DataE, FoodE } from "@cco2/carbon-weight/dist/food/types";
 import { RootStore } from "stores";
 import { reaction } from "mobx";
 
 export class BinEmmision extends EmmisionStore {
-  public emission = 0;
+  // Calculator with specified dataset
+  private calculator: Food;
 
-  constructor(rootStore: RootStore) {
+  constructor(rootStore: RootStore, dataset: DataE) {
     super(rootStore);
+    this.calculator = Food.build(dataset);
+    this.calculateAverage();
 
     // react to change consumption.
     reaction(
@@ -23,11 +23,12 @@ export class BinEmmision extends EmmisionStore {
   }
 
   /**
-   *
-   * @param props - a dic with props.
+   * Calculate estimated emissions.
    */
   calculate(props: Record<FoodE, unknown>): void {
-    const emission = getEmission({ ...props } as Record<FoodE, number>);
+    const emission = this.calculator!.getEmissionEstimated({
+      ...props,
+    } as Record<FoodE, number>);
 
     this.emission = emission.waste;
   }
@@ -36,6 +37,6 @@ export class BinEmmision extends EmmisionStore {
    * Calculate average.
    */
   public calculateAverage(): void {
-    this.average = getEmissionAvg().waste;
+    this.average = this.calculator!.getEmissionAvg().waste;
   }
 }

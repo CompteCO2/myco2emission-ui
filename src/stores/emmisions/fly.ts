@@ -1,10 +1,7 @@
 import { EmmisionStore } from ".";
-import {
-  getEmission,
-  getEmissionAvg,
-} from "@cco2/carbon-weight/dist/flight/index";
+import Flight from "@cco2/carbon-weight/dist/flight/index";
 import { Fly, FLY_CLASS, FLY_TYPE } from "stores/consumptions/fly";
-import { SeatE } from "@cco2/carbon-weight/dist/flight/types";
+import { DataE, SeatE } from "@cco2/carbon-weight/dist/flight/types";
 import { RootStore } from "stores";
 import { reaction } from "mobx";
 
@@ -19,8 +16,13 @@ const FlyTypeComparator = {
 };
 
 export class FlyEmmision extends EmmisionStore {
-  constructor(rootStore: RootStore) {
+  // Calculator with specified dataset
+  private calculator;
+
+  constructor(rootStore: RootStore, dataset: DataE) {
     super(rootStore);
+    this.calculator = Flight.build(dataset);
+    this.calculateAverage();
 
     // react to change consumption.
     reaction(
@@ -37,7 +39,7 @@ export class FlyEmmision extends EmmisionStore {
    */
   calculate(props: { flies: Fly[] }): void {
     const emissions = props.flies.reduce((acc, value) => {
-      const emmision = getEmission(
+      const emmision = this.calculator!.getEmissionEstimated(
         {
           fromIATA: value.arrival,
           nbPassengers: value.travelNumber,
@@ -60,6 +62,6 @@ export class FlyEmmision extends EmmisionStore {
    * Calculate average.
    */
   public calculateAverage(): void {
-    this.average = getEmissionAvg();
+    this.average = this.calculator!.getEmissionAvg();
   }
 }
