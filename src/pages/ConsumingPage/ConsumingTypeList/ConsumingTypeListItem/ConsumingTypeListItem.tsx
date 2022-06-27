@@ -8,7 +8,8 @@ import { useTranslation } from "react-i18next";
 const Wrapper = styled(Link)<{ color: string }>`
   width: 200px;
   margin: 5px;
-  background-color: #f0f0f0;
+  background-color: white;
+  box-shadow: 0px 6px 10px #0000001c;
   padding: 5px;
   display: block;
   text-decoration: none;
@@ -49,6 +50,7 @@ const Image = styled(SVG)<{ color: string }>`
 const Percentage = styled.div`
   text-align: center;
   font-size: 2rem;
+  color: #405098;
 
   @media screen and (max-width: 600px) {
     font-size: 2.5rem;
@@ -58,6 +60,7 @@ const Percentage = styled.div`
 const Amount = styled.div`
   font-size: 0.8rem;
   text-align: center;
+  color: #838383;
 
   @media screen and (max-width: 600px) {
     font-size: 1.5rem;
@@ -69,6 +72,7 @@ const Average = styled.div`
   opacity: 0.7;
   margin-top: 0.8rem;
   line-height: 120%;
+  color: #838383;
 `;
 
 export interface ConsumingTypeItem {
@@ -83,8 +87,10 @@ export interface ConsumingTypeItem {
 
 const ConsumingTypeListItem = ({
   type,
+  isComputed,
 }: {
   type: ConsumingTypeItem;
+  isComputed: boolean;
 }): JSX.Element => {
   const { t } = useTranslation();
 
@@ -92,22 +98,29 @@ const ConsumingTypeListItem = ({
     <Wrapper color={type.color ?? ""} to={type.url ?? ""}>
       <Line>
         <Image color={type.color ?? ""} src={getImagePath(type.image)} />
-        <Col>
-          <Percentage>
-            {(type.proportion ?? 0).toFixed(0)} {t("Units.percentage")}
-          </Percentage>
-          <Amount>
-            {(type.value ?? 0).toFixed(0)} {t("Units.kg")}
-            {t("co2")}
-          </Amount>
-        </Col>
+        {isComputed && (
+          <Col>
+            <Percentage>
+              {(type.value && type.value > 0 && type.proportion
+                ? type.proportion
+                : 0
+              ).toFixed(0)}{" "}
+              {t("Units.percentage")}
+            </Percentage>
+            <Amount>
+              {(type.value ? type.value / 1000 : 0).toFixed(2)}{" "}
+              {` ${t("Units.t")}${t("co2")}`}
+            </Amount>
+          </Col>
+        )}
       </Line>
 
-      {type.average ? (
+      {isComputed && type.average ? (
         <Average>
           {t("national_average")}
           <br />
-          {(type.average ?? 0).toFixed(0)} {t("Units.kg")} {t("co2")}
+          {(type.average ? type.average / 1000 : 0).toFixed(2)}{" "}
+          {` ${t("Units.t")}${t("co2")}`}
         </Average>
       ) : null}
     </Wrapper>

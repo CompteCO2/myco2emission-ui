@@ -26,7 +26,12 @@ const ConsumingTypeListContainer = observer((): JSX.Element => {
     setItems(items);
   }, []);
 
-  return <ConsumingTypeList types={items} />;
+  return (
+    <ConsumingTypeList
+      types={items}
+      isComputed={carbonFootprintStore.isComputed}
+    />
+  );
 });
 
 export default ConsumingTypeListContainer;

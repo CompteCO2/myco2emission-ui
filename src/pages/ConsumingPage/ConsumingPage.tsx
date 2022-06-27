@@ -31,10 +31,12 @@ const ConsumingPage = observer((): JSX.Element => {
     <MainLayout>
       <Header title={t("pages.consuming.title")} />
       <Tip>{t("pages.consuming.tip")}</Tip>
-      <Total>
-        {carbonFootprintStore.sum.toFixed(0)} {t("Units.kg")}
-        {t("co2")}
-      </Total>
+      {carbonFootprintStore.isComputed && (
+        <Total>
+          {(carbonFootprintStore.sum / 1000).toFixed(2)}
+          {` ${t("Units.t")}${t("co2")}`}
+        </Total>
+      )}
       <ConsumingTypeListContainer />
       <ScoreImg src={getImagePath("/carbon_scores/average.png")} />
     </MainLayout>
