@@ -27,6 +27,8 @@ const ConsumingPage = observer((): JSX.Element => {
   const { t } = useTranslation();
   const { carbonFootprintStore } = useRootStore();
 
+  //<ScoreImg src={getImagePath("/carbon_scores/average.png")} />
+
   return (
     <MainLayout>
       <Header title={t("pages.consuming.title")} />
@@ -40,7 +42,6 @@ const ConsumingPage = observer((): JSX.Element => {
         </Total>
       )}
       <ConsumingTypeListContainer />
-      <ScoreImg src={getImagePath("/carbon_scores/average.png")} />
     </MainLayout>
   );
 });
