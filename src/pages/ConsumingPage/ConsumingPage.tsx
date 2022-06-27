@@ -19,9 +19,9 @@ const Total = styled.div`
   color: ${props => props.theme.colors.styleColor4};
 `;
 
-const ScoreImg = styled.img`
+/*const ScoreImg = styled.img`
   width: 100%;
-`;
+`;*/
 
 const ConsumingPage = observer((): JSX.Element => {
   const { t } = useTranslation();
