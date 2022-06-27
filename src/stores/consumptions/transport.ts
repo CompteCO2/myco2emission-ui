@@ -1,4 +1,4 @@
-import { ConsumptionT } from "@cco2/carbon-weight/dist/vehicle/types";
+import { VehicleConsumptionT as ConsumptionT } from "@cco2/carbon-weight/dist";
 import { makeAutoObservable } from "mobx";
 
 export type TConsumption = Omit<ConsumptionT, "fuel"> & {

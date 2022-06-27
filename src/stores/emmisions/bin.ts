@@ -1,6 +1,5 @@
 import { EmmisionStore } from ".";
-import Food from "@cco2/carbon-weight/dist/food/index";
-import { DataE, FoodE } from "@cco2/carbon-weight/dist/food/types";
+import { Food, FoodDataE as DataE, FoodE } from "@cco2/carbon-weight/dist";
 import { RootStore } from "stores";
 import { reaction } from "mobx";
 

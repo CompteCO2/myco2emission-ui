@@ -1,7 +1,10 @@
 import { EmmisionStore } from ".";
-import Flight from "@cco2/carbon-weight/dist/flight/index";
+import {
+  Flight,
+  FlightDataE as DataE,
+  FlightSeatE as SeatE,
+} from "@cco2/carbon-weight/dist";
 import { Fly, FLY_CLASS, FLY_TYPE } from "stores/consumptions/fly";
-import { DataE, SeatE } from "@cco2/carbon-weight/dist/flight/types";
 import { RootStore } from "stores";
 import { reaction } from "mobx";
 

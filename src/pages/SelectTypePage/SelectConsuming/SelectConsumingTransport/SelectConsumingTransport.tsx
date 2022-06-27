@@ -6,7 +6,7 @@ import WithLabel from "components/WithLabel/WithLabel";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { Electric } from "./Electric/Electric";
 import { DefaultSliders } from "./DefaultSliders/DefaultSliders";
-import { FuelE } from "@cco2/carbon-weight/dist/vehicle/types";
+import { VehicleFuelE as FuelE } from "@cco2/carbon-weight/dist";
 import { TConsumption } from "stores/consumptions/transport";
 
 const SelectConsumingTransport = ({

@@ -1,15 +1,15 @@
 import { RootStore } from "stores";
 import { autorun } from "mobx";
-
-import { EmmisionStore } from ".";
-import House from "@cco2/carbon-weight/dist/house/index";
 import {
-  DataE,
-  HeaterE,
+  House,
+  HouseDataE as DataE,
   HouseE,
+  HouseHeaterE as HeaterE,
   HouseT,
-  YearE,
-} from "@cco2/carbon-weight/dist/house/types";
+  HouseYearE as YearE,
+} from "@cco2/carbon-weight/dist";
+//
+import { EmmisionStore } from ".";
 import { HouseConsumption } from "stores/consumptions/house";
 
 export class HouseEmmision extends EmmisionStore {
@@ -47,11 +47,11 @@ export class HouseEmmision extends EmmisionStore {
           this.calculateConsumed(0, heater);
           break;
         // Not based on real consumption
-        case HeaterE.GPL: {
+        case HeaterE.propane: {
           const props: HouseT = {
             built: this.mutateBuild(houseConsumption.buildingYear),
             surface: houseConsumption.surface,
-            type: HouseE.apartment,
+            type: HouseE.house,
             heater: this.mutateHeater(houseConsumption.type) as HeaterE,
           };
 
@@ -79,7 +79,7 @@ export class HouseEmmision extends EmmisionStore {
 
   /**
    * Mutate building heater.
-   * @param buildingYear a building year.
+   * @param heater the heater type.
    */
   public mutateHeater(heater: string): string {
     const mappings: Record<string, string[]> = {
@@ -101,7 +101,6 @@ export class HouseEmmision extends EmmisionStore {
 
   /**
    *
-   * @param props - a dic with props.
    */
   calculate(props: HouseT): void {
     this.emission = props.heater
@@ -111,7 +110,6 @@ export class HouseEmmision extends EmmisionStore {
 
   /**
    *
-   * @param props - a dic with props.
    */
   calculateConsumed(consumption: number, heater: HeaterE): void {
     this.emission = heater

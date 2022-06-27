@@ -7,7 +7,7 @@ import { NoCO2 } from "./NoCO2/NoCO2";
 import { ConsumptionSlider } from "./ConsumptionSlider/ConsumptionSlider";
 import { Gas } from "./Gas/Gas";
 import WithLabel from "components/WithLabel/WithLabel";
-import { HeaterE } from "@cco2/carbon-weight/dist/house/types";
+import { HouseHeaterE } from "@cco2/carbon-weight/dist";
 
 const SelectConsumingHome = ({
   departments,
@@ -55,10 +55,10 @@ const SelectConsumingHome = ({
   const MAPPING_TYPE_TO_COMPONENTS: Record<string, JSX.Element> =
     useMemo(() => {
       return {
-        [HeaterE.electric]: <NoCO2 />,
+        [HouseHeaterE.electric]: <NoCO2 />,
         heat_pump: <NoCO2 />,
         thermal_solar: <NoCO2 />,
-        [HeaterE.fuelOil]: (
+        [HouseHeaterE.fuelOil]: (
           <ConsumptionSlider
             onChangeConsumption={onChangeConsumption}
             consumption={consumption}
@@ -67,9 +67,18 @@ const SelectConsumingHome = ({
             postfix={t("Units.liter")}
           />
         ),
-        [HeaterE.wood]: <NoCO2 />,
-        [HeaterE.urban]: <NoCO2 />,
-        [HeaterE.GPL]: (
+        [HouseHeaterE.wood]: <NoCO2 />,
+        [HouseHeaterE.coal]: (
+          <ConsumptionSlider
+            onChangeConsumption={onChangeConsumption}
+            consumption={consumption}
+            min={0}
+            max={10000}
+            postfix={t("Units.kg")}
+          />
+        ),
+        [HouseHeaterE.urban]: <NoCO2 />,
+        gnv: (
           <Gas
             onChangeBuildingYear={onChangeBuildingYear}
             onChangeSurface={onChangeSurface}
@@ -80,7 +89,7 @@ const SelectConsumingHome = ({
             buildingYear={buildingYear}
           />
         ),
-        propane: (
+        [HouseHeaterE.propane]: (
           <ConsumptionSlider
             onChangeConsumption={onChangeConsumption}
             consumption={consumption}

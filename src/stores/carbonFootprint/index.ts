@@ -2,13 +2,15 @@ import { makeAutoObservable, reaction } from "mobx";
 import { RootStore } from "stores";
 import { EmmisionStore } from "stores/emmisions";
 import { BinEmmision } from "stores/emmisions/bin";
-import { DataE as DataFood } from "@cco2/carbon-weight/dist/food/types";
+import {
+  FlightDataE,
+  FoodDataE,
+  HouseDataE,
+  VehicleDataE,
+} from "@cco2/carbon-weight/dist";
 import { FlyEmmision } from "stores/emmisions/fly";
-import { DataE as DataFly } from "@cco2/carbon-weight/dist/flight/types";
 import { HouseEmmision } from "stores/emmisions/house";
-import { DataE as DataHouse } from "@cco2/carbon-weight/dist/house/types";
 import { TransportEmmision } from "stores/emmisions/transport";
-import { DataE as DataTransport } from "@cco2/carbon-weight/dist/vehicle/types";
 import { FoodEmmision } from "../emmisions/food";
 
 export const enum CARBON_FOOTPRINT_MODULES {
@@ -28,8 +30,8 @@ export class CarbonFootprintStore {
   // a footprint proportion
   public proportion: Record<string, number> = {};
 
-  // a flag indicating if the value has been computed
-  public computed: Record<string, boolean> = {};
+  // a flag indicating if a value has been computed
+  public isComputed = false;
 
   constructor(rootStore: RootStore) {
     makeAutoObservable(this);
@@ -38,23 +40,23 @@ export class CarbonFootprintStore {
     this.modules = {
       [CARBON_FOOTPRINT_MODULES.FOOD]: new FoodEmmision(
         rootStore,
-        DataFood.ADEME_2022
+        FoodDataE.ADEME_2022
       ),
       [CARBON_FOOTPRINT_MODULES.TRANSPORT]: new TransportEmmision(
         rootStore,
-        DataTransport.CCO2_2022
+        VehicleDataE.CCO2_2022
       ),
       [CARBON_FOOTPRINT_MODULES.FLY]: new FlyEmmision(
         rootStore,
-        DataFly.ADEME_2022
+        FlightDataE.ADEME_2022
       ),
       [CARBON_FOOTPRINT_MODULES.HOUSE]: new HouseEmmision(
         rootStore,
-        DataHouse.CCO2_2022
+        HouseDataE.CCO2_2022
       ),
       [CARBON_FOOTPRINT_MODULES.BIN]: new BinEmmision(
         rootStore,
-        DataFood.ADEME_2022
+        FoodDataE.ADEME_2022
       ),
     };
 
@@ -97,6 +99,7 @@ export class CarbonFootprintStore {
    * calculate sum
    */
   private calculateFootprint() {
+    this.isComputed = true;
     this.sum = Object.keys(this.modules).reduce((acc, key) => {
       const item = this.modules[key];
 

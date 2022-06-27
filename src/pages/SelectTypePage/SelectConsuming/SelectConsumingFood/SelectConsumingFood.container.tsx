@@ -23,7 +23,7 @@ const Disclaimer = styled.p`
 const SelectConsumingFoodContainer = observer((): JSX.Element => {
   const { t } = useTranslation();
   const { foodConsumption } = useRootStore();
-  const [diclamerRead, setDisclamerRead] = useState(false);
+  const [diclamerRead, setDisclamerRead] = useState(true);
 
   // Disclamer Read
   const onReadCallback = () => setDisclamerRead(true);

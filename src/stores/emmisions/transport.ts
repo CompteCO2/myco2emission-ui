@@ -1,10 +1,10 @@
 import { EmmisionStore } from ".";
-import Vehicle from "@cco2/carbon-weight/dist/vehicle/index";
 import {
-  ConsumptionT,
-  DataE,
-  FuelE,
-} from "@cco2/carbon-weight/dist/vehicle/types";
+  Vehicle,
+  VehicleConsumptionT as ConsumptionT,
+  VehicleDataE as DataE,
+  VehicleFuelE as FuelE,
+} from "@cco2/carbon-weight/dist";
 import { RootStore } from "stores";
 import { reaction } from "mobx";
 
