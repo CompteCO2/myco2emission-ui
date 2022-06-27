@@ -47,6 +47,7 @@
       "items": {
         "": "TYPE DE CHAUFFAGE",
         "electric": "Electricité",
+        "coal": "Charbon",
         "GPL": "Gaz de ville",
         "fuelOil": "Fioul domestique",
         "urban": "Réseau de chaleur urbain",

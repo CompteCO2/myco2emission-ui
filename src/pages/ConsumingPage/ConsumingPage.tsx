@@ -30,7 +30,9 @@ const ConsumingPage = observer((): JSX.Element => {
   return (
     <MainLayout>
       <Header title={t("pages.consuming.title")} />
-      <Tip>{t("pages.consuming.tip")}</Tip>
+      {!carbonFootprintStore.isComputed && (
+        <Tip>{t("pages.consuming.tip")}</Tip>
+      )}
       {carbonFootprintStore.isComputed && (
         <Total>
           {(carbonFootprintStore.sum / 1000).toFixed(2)}

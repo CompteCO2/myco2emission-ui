@@ -46,6 +46,7 @@
       "consumption": "CONSUMPTION",
       "items": {
         "": "TYPE OF HEATING",
+        "coal": "Coal",
         "electric": "Electricity",
         "GPL": "Natural gas",
         "wood": "Coal",
