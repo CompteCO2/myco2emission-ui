@@ -19,13 +19,15 @@ const Total = styled.div`
   color: ${props => props.theme.colors.styleColor4};
 `;
 
-const ScoreImg = styled.img`
+/*const ScoreImg = styled.img`
   width: 100%;
-`;
+`;*/
 
 const ConsumingPage = observer((): JSX.Element => {
   const { t } = useTranslation();
   const { carbonFootprintStore } = useRootStore();
+
+  //<ScoreImg src={getImagePath("/carbon_scores/average.png")} />
 
   return (
     <MainLayout>
@@ -40,7 +42,6 @@ const ConsumingPage = observer((): JSX.Element => {
         </Total>
       )}
       <ConsumingTypeListContainer />
-      <ScoreImg src={getImagePath("/carbon_scores/average.png")} />
     </MainLayout>
   );
 });
