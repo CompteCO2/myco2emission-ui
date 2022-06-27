@@ -37,7 +37,6 @@ export class FoodEmmision extends EmmisionStore {
    * Calculate average.
    */
   public calculateAverage(): void {
-    console.log("COMPUTE AVG", typeof this.calculator);
     this.average = this.calculator!.getEmissionAvg().emission;
   }
 }
