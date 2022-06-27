@@ -6,7 +6,6 @@ import Header from "components/Header/Header";
 import { useRootStore } from "providers/RootStoreProvider";
 import ConsumingTypeListContainer from "./ConsumingTypeList/ConsumingTypeListContainer";
 import MainLayout from "layouts/main";
-import { getImagePath } from "helpers/image";
 
 const Tip = styled.p`
   padding: 0.5rem 0 1rem 0;
