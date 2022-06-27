@@ -1,5 +1,4 @@
 import { useCallback, useState } from "react";
-import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 import { observer } from "mobx-react";
 
@@ -21,7 +20,6 @@ const Disclaimer = styled.p`
  * A container to connect food consumption with a store.
  */
 const SelectConsumingFoodContainer = observer((): JSX.Element => {
-  const { t } = useTranslation();
   const { foodConsumption } = useRootStore();
   const [diclamerRead, setDisclamerRead] = useState(true);
 
