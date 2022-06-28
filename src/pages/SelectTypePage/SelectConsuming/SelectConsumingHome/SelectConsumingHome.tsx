@@ -64,6 +64,7 @@ const SelectConsumingHome = ({
             consumption={consumption}
             min={0}
             max={10000}
+            step={100}
             postfix={t("Units.liter")}
           />
         ),
@@ -74,11 +75,12 @@ const SelectConsumingHome = ({
             consumption={consumption}
             min={0}
             max={10000}
+            step={100}
             postfix={t("Units.kg")}
           />
         ),
         [HouseHeaterE.urban]: <NoCO2 />,
-        gnv: (
+        [HouseHeaterE.gas]: (
           <Gas
             onChangeBuildingYear={onChangeBuildingYear}
             onChangeSurface={onChangeSurface}
@@ -95,6 +97,7 @@ const SelectConsumingHome = ({
             consumption={consumption}
             min={0}
             max={10000}
+            step={100}
             postfix={t("Units.kg")}
           />
         ),

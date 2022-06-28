@@ -4,7 +4,7 @@ import Select from "components/Select/Select";
 import SelectConsumingWrapper from "pages/SelectTypePage/SelectWrapper/SelectWrapper";
 import WithLabel from "components/WithLabel/WithLabel";
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { Electric } from "./Electric/Electric";
+import { NoCO2 } from "./NoCO2/NoCO2";
 import { DefaultSliders } from "./DefaultSliders/DefaultSliders";
 import { VehicleFuelE as FuelE } from "@cco2/carbon-weight/dist";
 import { TConsumption } from "stores/consumptions/transport";
@@ -100,15 +100,7 @@ const SelectConsumingTransport = ({
         [FuelE.GNV]: getDefaultSliders(),
         [FuelE.gasoil]: getDefaultSliders(),
         [FuelE.fuel]: getDefaultSliders(),
-        [FuelE.electric]: (
-          <Electric
-            onChangeAnnualMileage={onChangeAnnualMileage}
-            distanceByYear={currentCunsomption?.distanceByYear ?? 0}
-            postfix={t("Units.km")}
-            min={0}
-            max={40000}
-          />
-        ),
+        [FuelE.electric]: <NoCO2 />,
       };
     }, [currentCunsomption]);
 

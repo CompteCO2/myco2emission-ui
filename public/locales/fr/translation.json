@@ -48,7 +48,7 @@
         "": "TYPE DE CHAUFFAGE",
         "electric": "Electricité",
         "coal": "Charbon",
-        "GPL": "Gaz de ville",
+        "gas": "Gaz de ville",
         "fuelOil": "Fioul domestique",
         "urban": "Réseau de chaleur urbain",
         "wood": "Bois",
@@ -63,6 +63,7 @@
       }
     },
     "transport": {
+      "no_co2": "La consommation de ce type de véhicule n’émet pas de CO2 dans la méthodologie de calcul",
       "fuel": "CARBURANT",
       "annual_mileage": "KILOMÉTRAGE ANNUEL",
       "consumption": "CONSOMMATION",
@@ -70,8 +71,8 @@
       "items": {
         "": "CARBURANT",
         "NO_CAR": "Pas de voiture",
-        "fuel": "Diesel (inclus Hybride)",
-        "gasoil": "Essence (inclus Hybride)",
+        "fuel": "Essence (inclus Hybride)",
+        "gasoil": "Diesel (inclus Hybride)",
         "electric": "Electrique",
         "E85": "E85 (Superethanol)",
         "GNV": "GNV (Gas Naturel)",

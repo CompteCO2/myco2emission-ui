@@ -37,6 +37,8 @@ export class HouseEmmision extends EmmisionStore {
     autorun(() => {
       // Workaround calculations for specific CCO2 computation
       const heater = this.mutateHeater(houseConsumption.type) as HeaterE;
+
+      console.log("HouseConsumption", heater);
       switch (heater) {
         // Surface to 0 for emission not computed
         case HeaterE.electric:
@@ -47,7 +49,7 @@ export class HouseEmmision extends EmmisionStore {
           this.calculateConsumed(0, heater);
           break;
         // Not based on real consumption
-        case HeaterE.propane: {
+        case HeaterE.gas: {
           const props: HouseT = {
             built: this.mutateBuild(houseConsumption.buildingYear),
             surface: houseConsumption.surface,

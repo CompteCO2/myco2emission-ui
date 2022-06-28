@@ -5,12 +5,14 @@ export const ConsumptionSlider = ({
   postfix,
   min,
   max,
+  step,
   onChangeConsumption,
   consumption,
 }: {
   postfix: string;
   min: number;
   max: number;
+  step: number;
   consumption: number;
   onChangeConsumption: (value: number) => void;
 }): JSX.Element => {
@@ -27,6 +29,7 @@ export const ConsumptionSlider = ({
       postfix={postfix}
       min={min}
       max={max}
+      step={step}
       defaultValue={consumption}
       onChange={onChangeConsumptionCallback}
     />

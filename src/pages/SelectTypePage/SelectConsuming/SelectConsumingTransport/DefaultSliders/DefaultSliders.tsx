@@ -41,7 +41,7 @@ export const DefaultSliders = ({
         postfix={t("Units.km")}
         min={0}
         max={40000}
-        step={50}
+        step={500}
         defaultValue={distanceByYear}
         onChange={onChangeAnnualMileageCallback}
       />

@@ -48,7 +48,7 @@
         "": "TYPE OF HEATING",
         "coal": "Coal",
         "electric": "Electricity",
-        "GPL": "Natural gas",
+        "gas": "Natural gas",
         "wood": "Coal",
         "fuelOil": "Heating oil",
         "urban": "Urban heating",
@@ -63,6 +63,7 @@
       }
     },
     "transport": {
+      "no_co2": "The consumption of this type of vehicle does not emit CO2 in the calculation methodology",
       "fuel": "FUEL",
       "annual_mileage": "ANNUAL MILEAGE",
       "consumption": "CONSUMPTION",
