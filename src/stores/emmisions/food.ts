@@ -1,5 +1,9 @@
 import { EmmisionStore } from ".";
-import { Food, FoodDataE as DataE, FoodE } from "@cco2/carbon-weight/dist";
+import {
+  FoodConsumptionT as ConsumptionT,
+  Food,
+  FoodDataE as DataE,
+} from "@cco2/carbon-weight/dist";
 import { RootStore } from "stores";
 import { reaction } from "mobx";
 
@@ -16,7 +20,7 @@ export class FoodEmmision extends EmmisionStore {
     reaction(
       () => rootStore.foodConsumption.consumptionByFood,
       value => {
-        this.calculate(value);
+        this.calculate(value as ConsumptionT);
       }
     );
   }
@@ -25,18 +29,16 @@ export class FoodEmmision extends EmmisionStore {
    *
    * @param props - a dic with props.
    */
-  calculate(props: Record<FoodE, unknown>): void {
-    const emission = this.calculator!.getEmissionEstimated({
-      ...props,
-    } as Record<FoodE, number>);
-
-    this.emission = emission.emission;
+  calculate(props: ConsumptionT): void {
+    const emission = this.calculator!.getEmissionEstimated({ ...props });
+    this.emission = emission.emission + emission.waste;
   }
 
   /**
    * Calculate average.
    */
   public calculateAverage(): void {
-    this.average = this.calculator!.getEmissionAvg().emission;
+    const average = this.calculator!.getEmissionAvg();
+    this.average = average.emission + average.waste;
   }
 }

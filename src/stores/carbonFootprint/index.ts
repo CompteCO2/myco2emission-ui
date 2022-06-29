@@ -1,7 +1,6 @@
 import { makeAutoObservable, reaction } from "mobx";
 import { RootStore } from "stores";
 import { EmmisionStore } from "stores/emmisions";
-import { BinEmmision } from "stores/emmisions/bin";
 import {
   FlightDataE,
   FoodDataE,
@@ -18,7 +17,6 @@ export const enum CARBON_FOOTPRINT_MODULES {
   TRANSPORT = "transport",
   FLY = "fly",
   HOUSE = "house",
-  BIN = "bin",
 }
 
 export class CarbonFootprintStore {
@@ -53,10 +51,6 @@ export class CarbonFootprintStore {
       [CARBON_FOOTPRINT_MODULES.HOUSE]: new HouseEmmision(
         rootStore,
         HouseDataE.CCO2_2022
-      ),
-      [CARBON_FOOTPRINT_MODULES.BIN]: new BinEmmision(
-        rootStore,
-        FoodDataE.ADEME_2022
       ),
     };
 
