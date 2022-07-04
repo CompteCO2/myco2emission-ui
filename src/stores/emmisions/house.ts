@@ -10,7 +10,6 @@ import {
 } from "@cco2/carbon-weight/dist";
 //
 import { EmmisionStore } from ".";
-import { HouseConsumption } from "stores/consumptions/house";
 
 export class HouseEmmision extends EmmisionStore {
   // Calculator with specified dataset
@@ -25,18 +24,22 @@ export class HouseEmmision extends EmmisionStore {
     this.calculateAverage();
 
     // react to change consumption.
-    this.onCalculate(rootStore.houseConsumption);
+    this.onCalculate(rootStore);
   }
 
   /**
    * Calclate consumption
-   * @param houseConsumption - house consumption
+   * @param rootStore - root store
    */
-  private onCalculate(houseConsumption: HouseConsumption) {
+  private onCalculate(rootStore: RootStore) {
     // react to change consumption.
     autorun(() => {
+      rootStore.setComputed(true);
+
       // Workaround calculations for specific CCO2 computation
+      const houseConsumption = rootStore.houseConsumption;
       const heater = this.mutateHeater(houseConsumption.type) as HeaterE;
+
       switch (heater) {
         // Surface to 0 for emission not computed
         case HeaterE.electric:

@@ -68,9 +68,15 @@ export class CarbonFootprintStore {
     reaction(
       () => this.sum,
       () => {
+        this.isComputed = true;
         this.calculateProportion();
       }
     );
+  }
+
+  // setter to notify computation
+  public setComputed(isComputed: boolean): void {
+    this.isComputed = isComputed;
   }
 
   /**
@@ -86,6 +92,7 @@ export class CarbonFootprintStore {
       throw new Error(`Module ${moduleName} is not exist.`);
     }
 
+    this.isComputed = true;
     this.modules[moduleName].calculate(params);
   }
 
@@ -93,7 +100,6 @@ export class CarbonFootprintStore {
    * calculate sum
    */
   private calculateFootprint() {
-    this.isComputed = true;
     this.sum = Object.keys(this.modules).reduce((acc, key) => {
       const item = this.modules[key];
 

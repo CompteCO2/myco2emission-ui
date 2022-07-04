@@ -21,6 +21,7 @@ export class TransportEmmision extends EmmisionStore {
     reaction(
       () => rootStore.transportConsumption.currentConsumption,
       value => {
+        rootStore.setComputed(true);
         this.calculate(value as ConsumptionT);
       }
     );

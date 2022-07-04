@@ -27,4 +27,9 @@ export class RootStore {
     // calculation
     this.carbonFootprintStore = new CarbonFootprintStore(this);
   }
+
+  // setter for type.
+  public setComputed(isComputed: boolean): void {
+    this.carbonFootprintStore?.setComputed(isComputed);
+  }
 }
