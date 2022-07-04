@@ -11,6 +11,9 @@
     "percentage": "%",
     "t": "t"
   },
+  "unit_names": {
+    "t": "tonne"
+  },
   "national_average": "Moyenne Française:",
   "pages": {
     "consuming": {

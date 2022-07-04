@@ -11,6 +11,9 @@
     "percentage": "%",
     "t": "t"
   },
+  "unit_names": {
+    "t": "ton"
+  },
   "national_average": "French Average:",
   "pages": {
     "consuming": {

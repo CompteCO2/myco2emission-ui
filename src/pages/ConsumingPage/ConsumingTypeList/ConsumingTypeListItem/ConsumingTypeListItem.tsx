@@ -120,7 +120,9 @@ const ConsumingTypeListItem = ({
           {t("national_average")}
           <br />
           {(type.average ? type.average / 1000 : 0).toFixed(2)}{" "}
-          {` ${t("Units.t")}${t("co2")}`}
+          {` ${t("unit_names.t")}${
+            type.average && type.average > 1010 ? "s" : ""
+          }`}
         </Average>
       ) : null}
     </Wrapper>

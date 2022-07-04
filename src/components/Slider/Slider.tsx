@@ -3,6 +3,7 @@ import { useCallback, useState } from "react";
 import styled from "styled-components";
 
 import WithLabel from "components/WithLabel/WithLabel";
+import { addSpace } from "../../helpers/format";
 
 const Wrapper = styled(WithLabel)`
   margin-top: 2rem;
@@ -50,7 +51,7 @@ export const Slider = ({
     <Wrapper label={label} noBackground={noBackground}>
       <SliderWrapper>
         <Label>
-          {value} {postfix}
+          {addSpace(value)} {postfix}
         </Label>
         <AntSlider
           defaultValue={defaultValue}
