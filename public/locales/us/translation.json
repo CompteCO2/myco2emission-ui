@@ -4,6 +4,12 @@
     "fr": "French"
   },
   "co2": "CO2",
+  "carbon_score_imgs": {
+    "bad": "/carbon_scores/bilan-bad-france-en.png",
+    "champion": "/carbon_scores/bilan-champion-en.png",
+    "cop21": "/carbon_scores/bilan-cop21-en.png",
+    "france": "/carbon_scores/bilan-france-en.png"
+  },
   "Units": {
     "kg": "kg",
     "liter": "L",

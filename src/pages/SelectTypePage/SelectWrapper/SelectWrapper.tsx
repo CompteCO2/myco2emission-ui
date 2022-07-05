@@ -5,7 +5,7 @@ import { Checkout } from "components/Checkout/Checkout";
 
 const Wrapper = styled.div`
   width: 80%;
-  margin: 4rem auto;
+  margin: 1rem auto;
 
   @media screen and (max-width: 700px) {
     width: 100%;

@@ -7,8 +7,9 @@ import { useTranslation } from "react-i18next";
 
 const Wrapper = styled.div`
   margin-bottom: 3rem;
+  margin-left: 0;
+  margin-right: 0;
   display: flex;
-  justify-content: space-between;
 
   @media screen and (max-width: 700px) {
     display: block;
@@ -16,7 +17,7 @@ const Wrapper = styled.div`
 `;
 
 const Tooltip = styled.div`
-  font-size: 90%;
+  font-size: 80%;
   text-align: center;
   color: ${props => props.theme.colors.styleColor2};
 `;
