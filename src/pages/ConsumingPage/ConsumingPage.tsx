@@ -65,12 +65,12 @@ const ConsumingPage = observer((): JSX.Element => {
     let pathImg = "";
     switch (true) {
       case sum < RESULT_THRESHOLD.champion:
-        backgroundImg = "/carbon_scores/header-champion.png";
-        pathImg = t("carbon_score_imgs.champion");
-        break;
-      case sum < RESULT_THRESHOLD.cop21:
         backgroundImg = "/carbon_scores/header-cop21.png";
         pathImg = t("carbon_score_imgs.cop21");
+        break;
+      case sum < RESULT_THRESHOLD.cop21:
+        backgroundImg = "/carbon_scores/header-champion.png";
+        pathImg = t("carbon_score_imgs.champion");
         break;
       case sum < RESULT_THRESHOLD.national:
         backgroundImg = "/carbon_scores/header-france.png";

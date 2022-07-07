@@ -124,54 +124,48 @@ const AddFly = ({
 
   return (
     <Wrapper>
-      <Line>
-        <Cell>
-          <WithLabel label={t("consuming.fly.departure")}>
-            <Controller
-              name="destination"
-              control={control}
-              render={({ field }) => (
-                <DSelector
-                  showSearch
-                  dropdownMatchSelectWidth={400}
-                  items={airports}
-                  icon="/fly/fly1.svg"
-                  filterOption={(inputValue, option) =>
-                    option?.props.children
-                      .toString()
-                      .toLowerCase()
-                      .includes(inputValue.toLowerCase())
-                  }
-                  {...field}
-                />
-              )}
+      <WithLabel label={t("consuming.fly.departure")}>
+        <Controller
+          name="destination"
+          control={control}
+          render={({ field }) => (
+            <DSelector
+              showSearch
+              dropdownMatchSelectWidth={400}
+              items={airports}
+              icon="/fly/fly1.svg"
+              filterOption={(inputValue, option) =>
+                option?.props.children
+                  .toString()
+                  .toLowerCase()
+                  .includes(inputValue.toLowerCase())
+              }
+              {...field}
             />
-          </WithLabel>
-        </Cell>
-        <Cell>
-          <WithLabel label={t("consuming.fly.arrival")}>
-            <Controller
-              name="arrival"
-              control={control}
-              render={({ field }) => (
-                <ASelector
-                  showSearch
-                  dropdownMatchSelectWidth={400}
-                  items={airports}
-                  icon="/fly/fly1.svg"
-                  filterOption={(inputValue, option) =>
-                    option?.props.children
-                      .toString()
-                      .toLowerCase()
-                      .includes(inputValue.toLowerCase())
-                  }
-                  {...field}
-                />
-              )}
+          )}
+        />
+      </WithLabel>
+      <WithLabel label={t("consuming.fly.arrival")}>
+        <Controller
+          name="arrival"
+          control={control}
+          render={({ field }) => (
+            <ASelector
+              showSearch
+              dropdownMatchSelectWidth={400}
+              items={airports}
+              icon="/fly/fly1.svg"
+              filterOption={(inputValue, option) =>
+                option?.props.children
+                  .toString()
+                  .toLowerCase()
+                  .includes(inputValue.toLowerCase())
+              }
+              {...field}
             />
-          </WithLabel>
-        </Cell>
-      </Line>
+          )}
+        />
+      </WithLabel>
       <Line>
         <Cell>
           <WithLabel label={t("consuming.fly.class.name")} noBackground={true}>
@@ -180,7 +174,7 @@ const AddFly = ({
               control={control}
               render={({ field }) => (
                 <Radio.Group defaultValue="1" {...field}>
-                  <Radio.Button value="1">
+                  <Radio.Button value="1" style={{ marginBottom: "15px" }}>
                     {t("consuming.fly.class.1")}
                   </Radio.Button>
                   <Radio.Button value="2">
@@ -212,7 +206,7 @@ const AddFly = ({
               control={control}
               render={({ field }) => (
                 <Radio.Group {...field}>
-                  <Space direction="vertical">
+                  <Space direction="horizontal">
                     <Radio value={1}>{t("consuming.fly.type.1")}</Radio>
                     <Radio value={2}>{t("consuming.fly.type.2")}</Radio>
                   </Space>
