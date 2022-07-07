@@ -7,6 +7,7 @@ import { useTranslation } from "react-i18next";
 
 const Wrapper = styled.div`
   margin-bottom: 3rem;
+  margin-top: 3rem;
   margin-left: 0;
   margin-right: 0;
   display: flex;
@@ -24,14 +25,12 @@ const Tooltip = styled.div`
 
 const SliderWrapper = styled.div`
   width: 70%;
-
-  @media screen and (max-width: 700px) {
-    width: 100%;
-  }
+  padding-left: 30px;
 `;
 
 const Title = styled.div`
-  font-size: 120%;
+  font-size: 100%;
+  width: 40%;
 `;
 
 /**

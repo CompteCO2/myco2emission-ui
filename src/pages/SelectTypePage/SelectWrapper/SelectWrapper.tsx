@@ -4,13 +4,10 @@ import { useHistory } from "react-router";
 import { Checkout } from "components/Checkout/Checkout";
 
 const Wrapper = styled.div`
-  width: 80%;
+  width: 100%;
   margin: 1rem auto;
-
-  @media screen and (max-width: 700px) {
-    width: 100%;
-    margin: 2rem auto;
-  }
+  margin-left: 0;
+  margin-right: 0;
 `;
 
 const SelectConsumingWrapper = ({

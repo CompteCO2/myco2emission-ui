@@ -10,6 +10,11 @@
     "cop21": "/carbon_scores/bilan-cop21-en.png",
     "france": "/carbon_scores/bilan-france-en.png"
   },
+  "links": {
+    "cco2": "https://www.compteco2.com/en/",
+    "method": "https://www.compteco2.com/en/article/how-does-the-green-euro-work",
+    "method_txt": "Learn more about the calculation method"
+  },
   "Units": {
     "kg": "kg",
     "liter": "L",

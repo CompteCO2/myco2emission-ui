@@ -14,6 +14,25 @@ const RESULT_THRESHOLD = {
   national: 4525,
 };
 
+const Footer = styled.div`
+  width: 100%;
+  margin-top: 40px;
+`;
+
+const Link = styled.a`
+  color: #a2b32b;
+  font-size: 12px;
+  margin-left: 40px;
+  position: relative;
+  top: 20px;
+`;
+
+const Logo = styled.img`
+  float: left;
+  width: 150px;
+  height: 60px;
+`;
+
 const Tip = styled.p`
   padding: 0.5rem 0 1rem 0;
   color: ${props => props.theme.colors.styleColor3};
@@ -103,6 +122,12 @@ const ConsumingPage = observer((): JSX.Element => {
       )}
       {carbonFootprintStore.isComputed && scoreWrapper()}
       <ConsumingTypeListContainer />
+      <Footer>
+        <a href={t("links.cco2")}>
+          <Logo src={getImagePath("/cco2.png")} />
+        </a>
+        <Link href={t("links.method")}>{t("links.method_txt")}</Link>
+      </Footer>
     </MainLayout>
   );
 });
