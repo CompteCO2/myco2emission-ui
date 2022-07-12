@@ -29,7 +29,7 @@ const ConsumingTypeListContainer = observer((): JSX.Element => {
   return (
     <ConsumingTypeList
       types={items}
-      isComputed={carbonFootprintStore.isComputed}
+      isModuleComputed={carbonFootprintStore.isModuleComputed}
     />
   );
 });

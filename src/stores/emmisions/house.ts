@@ -10,6 +10,7 @@ import {
 } from "@cco2/carbon-weight/dist";
 //
 import { EmmisionStore } from ".";
+import { CARBON_FOOTPRINT_MODULES } from "stores/carbonFootprint";
 
 export class HouseEmmision extends EmmisionStore {
   // Calculator with specified dataset
@@ -34,7 +35,7 @@ export class HouseEmmision extends EmmisionStore {
   private onCalculate(rootStore: RootStore) {
     // react to change consumption.
     autorun(() => {
-      rootStore.setComputed(true);
+      rootStore.setComputed(CARBON_FOOTPRINT_MODULES.HOUSE);
 
       // Workaround calculations for specific CCO2 computation
       const houseConsumption = rootStore.houseConsumption;

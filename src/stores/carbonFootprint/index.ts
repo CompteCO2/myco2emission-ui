@@ -19,6 +19,13 @@ export const enum CARBON_FOOTPRINT_MODULES {
   HOUSE = "house",
 }
 
+export type ModuleComputationMap = {
+  food: boolean;
+  transport: boolean;
+  fly: boolean;
+  house: boolean;
+};
+
 export class CarbonFootprintStore {
   public modules: Record<string, EmmisionStore>;
 
@@ -30,6 +37,15 @@ export class CarbonFootprintStore {
 
   // a flag indicating if a value has been computed
   public isComputed = false;
+
+  // a flag indicating for each module if the value has been computed
+  // Note: demo feature request - TODO check if should be kept and better handled
+  public isModuleComputed = {
+    food: false,
+    transport: false,
+    fly: false,
+    house: false,
+  };
 
   constructor(rootStore: RootStore) {
     makeAutoObservable(this);
@@ -75,8 +91,9 @@ export class CarbonFootprintStore {
   }
 
   // setter to notify computation
-  public setComputed(isComputed: boolean): void {
-    this.isComputed = isComputed;
+  public setComputed(mod: CARBON_FOOTPRINT_MODULES): void {
+    this.isModuleComputed[mod] = true;
+    this.isComputed = true;
   }
 
   /**

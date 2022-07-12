@@ -6,6 +6,7 @@ import {
 } from "@cco2/carbon-weight/dist";
 import { Fly, FLY_CLASS, FLY_TYPE } from "stores/consumptions/fly";
 import { RootStore } from "stores";
+import { CARBON_FOOTPRINT_MODULES } from "stores/carbonFootprint";
 import { reaction } from "mobx";
 
 const FlyClassComparator = {
@@ -31,6 +32,7 @@ export class FlyEmmision extends EmmisionStore {
     reaction(
       () => rootStore.flyConsumption.flies,
       flies => {
+        rootStore.setComputed(CARBON_FOOTPRINT_MODULES.FLY);
         this.calculate({ flies });
       }
     );

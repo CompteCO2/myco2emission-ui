@@ -3,6 +3,10 @@ import styled from "styled-components";
 import ConsumingTypeListItem, {
   ConsumingTypeItem,
 } from "./ConsumingTypeListItem/ConsumingTypeListItem";
+import {
+  CARBON_FOOTPRINT_MODULES,
+  ModuleComputationMap,
+} from "stores/carbonFootprint";
 
 const Wrapper = styled.section`
   display: flex;
@@ -14,10 +18,10 @@ const Wrapper = styled.section`
 
 const ConsumingTypeList = ({
   types,
-  isComputed,
+  isModuleComputed,
 }: {
   types: ConsumingTypeItem[];
-  isComputed: boolean;
+  isModuleComputed: ModuleComputationMap;
 }): JSX.Element => {
   return (
     <Wrapper>
@@ -25,7 +29,7 @@ const ConsumingTypeList = ({
         return (
           <ConsumingTypeListItem
             type={type}
-            isComputed={isComputed}
+            isComputed={isModuleComputed[type.id as CARBON_FOOTPRINT_MODULES]}
             key={key}
           />
         );

@@ -1,5 +1,8 @@
 import { AirportStore } from "./airport";
-import { CarbonFootprintStore } from "./carbonFootprint";
+import {
+  CarbonFootprintStore,
+  CARBON_FOOTPRINT_MODULES,
+} from "./carbonFootprint";
 import { FlyConsumption } from "./consumptions/fly";
 import { FoodConsumption } from "./consumptions/food";
 import { HouseConsumption } from "./consumptions/house";
@@ -29,7 +32,7 @@ export class RootStore {
   }
 
   // setter for type.
-  public setComputed(isComputed: boolean): void {
-    this.carbonFootprintStore?.setComputed(isComputed);
+  public setComputed(mod: CARBON_FOOTPRINT_MODULES): void {
+    this.carbonFootprintStore?.setComputed(mod);
   }
 }

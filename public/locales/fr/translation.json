@@ -132,7 +132,9 @@
     }
   },
   "share": {
+    "title": "Partager",
     "link": "https://myco2emission.com",
-    "message": "Mon empreinte carbone est de {{value}} tCO2."
+    "message": "Mon empreinte carbone est de {{value}} tCO2.",
+    "mailto": "?&subject=Hello%20there!&body=Good%20Morning,%0d%0dHow%20are%20you%20today"
   }
 }

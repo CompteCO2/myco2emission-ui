@@ -7,6 +7,7 @@ import {
 } from "@cco2/carbon-weight/dist";
 import { RootStore } from "stores";
 import { reaction } from "mobx";
+import { CARBON_FOOTPRINT_MODULES } from "stores/carbonFootprint";
 
 export class TransportEmmision extends EmmisionStore {
   // Calculator with specified dataset
@@ -21,7 +22,7 @@ export class TransportEmmision extends EmmisionStore {
     reaction(
       () => rootStore.transportConsumption.currentConsumption,
       value => {
-        rootStore.setComputed(true);
+        rootStore.setComputed(CARBON_FOOTPRINT_MODULES.TRANSPORT);
         this.calculate(value as ConsumptionT);
       }
     );

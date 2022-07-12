@@ -26,22 +26,22 @@ export class HouseConsumption {
     makeAutoObservable(this);
   }
 
-  // setter for dep.
+  // setter for department.
   public setDepartment(department: string): void {
     this.department = department;
   }
 
-  // setter for suft.
+  // setter for surface.
   public setSurface(surface: number): void {
     this.surface = surface;
   }
 
-  // setter for building yaer.
+  // setter for building year.
   public setBuildingYear(buildingYear: number): void {
     this.buildingYear = buildingYear;
   }
 
-  // setter for cons.
+  // setter for consumptions.
   public setConsumption(consumption: number): void {
     this.consumption = consumption;
   }
