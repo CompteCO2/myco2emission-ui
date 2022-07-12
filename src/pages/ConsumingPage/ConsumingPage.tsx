@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { observer } from "mobx-react";
 
 import Header from "components/Header/Header";
+import Share from "components/Share/Share";
 import { useRootStore } from "providers/RootStoreProvider";
 import { getImagePath } from "helpers/image";
 import ConsumingTypeListContainer from "./ConsumingTypeList/ConsumingTypeListContainer";
@@ -128,6 +129,7 @@ const ConsumingPage = observer((): JSX.Element => {
         </a>
         <Link href={t("links.method")}>{t("links.method_txt")}</Link>
       </Footer>
+      {carbonFootprintStore.isComputed && <Share />}
     </MainLayout>
   );
 });

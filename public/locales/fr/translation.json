@@ -130,5 +130,9 @@
         "path": "{{arrivalName}} > {{destinationName}}"
       }
     }
+  },
+  "share": {
+    "link": "https://myco2emission.com",
+    "message": "Mon empreinte carbone est de {{value}} tCO2."
   }
 }

@@ -63,7 +63,7 @@
         "coal": "Coal",
         "electric": "Electricity",
         "gas": "Natural gas",
-        "wood": "Coal",
+        "wood": "Wood",
         "fuelOil": "Heating oil",
         "urban": "Urban heating",
         "heat_pump": "Heat pump",
@@ -130,5 +130,10 @@
         "path": "{{arrivalName}} > {{destinationName}}"
       }
     }
+  },
+  "share": {
+    "link": "https://myco2emission.com",
+    "message": "Mon empreinte carbone est de {{value}} tCO2.",
+    "mailto": "?&subject=Hello%20there!&body=Good%20Morning,%0d%0dHow%20are%20you%20today"
   }
 }
