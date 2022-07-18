@@ -6,10 +6,7 @@
     "esModuleInterop": true,
     "isolatedModules": true,
     "jsx": "react-jsx",
-    "lib": [
-      "es6",
-      "DOM"
-    ],
+    "lib": ["es6", "DOM"],
     "moduleResolution": "node",
     "noEmit": true,
     "strict": true,
@@ -21,7 +18,5 @@
     "module": "esnext",
     "resolveJsonModule": true
   },
-  "include": [
-    "src"
-  ]
+  "include": ["src"]
 }

@@ -1,5 +1,4 @@
 import styled from "styled-components";
-
 import Loader from "components/Loader/Loader";
 
 const Wrapper = styled.div`

@@ -2,6 +2,11 @@ import { Suspense } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Normalize } from "styled-normalize";
 import { ThemeProvider, createGlobalStyle } from "styled-components";
+import Cookies from "js-cookie";
+import i18next from "i18next";
+import { useTranslation } from "react-i18next";
+import { useEffect } from "react";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 import "i18n/index";
 import ConsumingPage from "pages/ConsumingPage/ConsumingPage";
@@ -20,7 +25,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    font-family: Open-Sans, Helvetica, Sans-Serif;
+    font-family: 'Roboto', cursive;
   }
   #root {
     width: 420px;
@@ -62,21 +67,43 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const App = (): JSX.Element => {
+  const url = new URL(window.location.href);
+  const lang = url.searchParams.get("lang");
+  const { t } = useTranslation();
+
+  // Handle Lang Params & Meta Data
+  useEffect(() => {
+    if (!lang) {
+      return;
+    }
+    Cookies.set("lang", lang);
+    i18next.changeLanguage(lang);
+  }, [lang]);
+
   return (
     <ThemeProvider theme={mainTheme}>
       <Suspense fallback={<LoadingPage />}>
-        <GlobalStyle />
-        <Normalize />
-        <Router>
-          <Switch>
-            <Route path="/:type">
-              <SelectTypePage />
-            </Route>
-            <Route path="/">
-              <ConsumingPage />
-            </Route>
-          </Switch>
-        </Router>
+        <HelmetProvider>
+          <Helmet>
+            <title>{t("meta.title")}</title>
+            <meta name="description" content={t("meta.description")} />
+            <meta name="url" content={t("meta.url")} />
+            <meta name="image" content={t("meta.image")} />
+          </Helmet>
+
+          <GlobalStyle />
+          <Normalize />
+          <Router>
+            <Switch>
+              <Route path="/:type">
+                <SelectTypePage />
+              </Route>
+              <Route path="/">
+                <ConsumingPage />
+              </Route>
+            </Switch>
+          </Router>
+        </HelmetProvider>
       </Suspense>
     </ThemeProvider>
   );

@@ -15,6 +15,7 @@ const Wrapper = styled.div`
   top: 2%;
   right: 4%;
   z-index: 99;
+  display: none;
 `;
 
 const StyledFlag = styled(Flag)`

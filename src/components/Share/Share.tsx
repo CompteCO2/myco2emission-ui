@@ -27,7 +27,6 @@ const ShareImg = styled.img`
 `;
 
 const Share = (): JSX.Element => {
-  const value = 500;
   const { t } = useTranslation();
   const dataFb = `https://www.facebook.com/dialog/share?${new URLSearchParams({
     app_id: "724539778650793",
@@ -35,7 +34,6 @@ const Share = (): JSX.Element => {
   }).toString()}`;
   const dataTwitter = `https://twitter.com/share?${new URLSearchParams({
     url: t("share.link"),
-    text: t("share.message", { value: value }),
   }).toString()}`;
   const dataLinkedin = `https://www.linkedin.com/sharing/share-offsite?${new URLSearchParams(
     {
@@ -45,7 +43,7 @@ const Share = (): JSX.Element => {
 
   return (
     <Wrapper>
-      <Title>Partager :</Title>
+      <Title>{t("share.title")}</Title>
       <ShareList>
         <a href={dataFb}>
           <ShareImg src={getImagePath("/icons/facebook.png")} />
