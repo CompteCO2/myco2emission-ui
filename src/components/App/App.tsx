@@ -89,6 +89,34 @@ const App = (): JSX.Element => {
             <meta name="description" content={t("meta.description")} />
             <meta name="url" content={t("meta.url")} />
             <meta name="image" content={t("meta.image")} />
+            <meta
+              name="author"
+              content="Andrei Makar-Uvarov - Michaël Jeulin-Lagarrigue"
+            />
+
+            <meta
+              property="og:title"
+              content={`${t("meta.title")} | Compte CO2`}
+            />
+            <meta property="og:image" content={t("meta.image")} />
+            <meta property="og:description" content={t("meta.description")} />
+            <meta property="og:url" content={t("meta.url")} />
+
+            <meta property="og:type" content="website" />
+            <meta property="og:locale" content="en_US" />
+            <meta property="og:locale:alternate" content="fr_FR" />
+            <meta property="og:website" content={t("meta.url")} />
+
+            {/* Twitter Card tags */}
+            <meta name="twitter:card" content={"summary_large_image"} />
+            <meta name="twitter:creator" content={"@CompteCo2"} />
+            <meta name="twitter:image" content={t("meta.image")} />
+            <meta name="twitter:card" content="summary" />
+            <meta name="twitter:description" content={t("meta.description")} />
+            <meta
+              name="twitter:title"
+              content={`${t("meta.title")} | Compte CO2`}
+            />
           </Helmet>
 
           <GlobalStyle />
