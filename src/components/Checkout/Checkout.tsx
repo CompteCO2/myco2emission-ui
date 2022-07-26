@@ -26,7 +26,7 @@ const Wrapper = styled.div`
       height: 40px !important;
     }
 
-    background-color: #fff;
+    background-color: #f8f8f8;
     color: ${props => props.theme.colors.styleColor3};
     transition: color, box-shadow 0.3s;
 
