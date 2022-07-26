@@ -124,7 +124,7 @@ const ConsumingPage = observer((): JSX.Element => {
       {carbonFootprintStore.isComputed && scoreWrapper()}
       <ConsumingTypeListContainer />
       <Footer>
-        <a href={t("links.cco2")}>
+        <a href={t("links.cco2")} target="_blank">
           <Logo src={getImagePath("/cco2.png")} />
         </a>
         <Link href={t("links.method")}>{t("links.method_txt")}</Link>
