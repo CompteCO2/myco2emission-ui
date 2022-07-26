@@ -26,6 +26,7 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     font-family: 'Roboto', cursive;
+    background-color: #f8f8f8;
   }
   #root {
     width: 420px;
