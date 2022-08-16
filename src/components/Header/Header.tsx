@@ -16,6 +16,8 @@ const PageHeaderWrapper = styled(PageHeader)`
     white-space: normal;
     overflow: auto;
     text-align: center;
+    color: #46579c;
+    font: normal normal 800 40px/46px Martel Sans;
 
     @media screen and (max-width: 600px) {
       font-size: 1.5rem;

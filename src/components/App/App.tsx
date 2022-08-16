@@ -25,7 +25,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    font-family: 'Roboto', cursive;
+    font-family: 'Martel Sans', cursive;
     background-color: #f8f8f8;
   }
   #root {
