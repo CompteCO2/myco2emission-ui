@@ -33,6 +33,14 @@ export class FlyConsumption {
   }
 
   /**
+   * Set consumption.
+   * @param flies new flies.
+   */
+  public setFlies(flies: Fly[]): void {
+    this.flies = flies;
+  }
+
+  /**
    * Add a new fly to the list.
    * @param fly a fly.
    */

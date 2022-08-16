@@ -12,6 +12,13 @@ const SelectConsumingFlyContainer = observer((): JSX.Element => {
   const [airports, setAirports] = useState<SelectOption[]>([]);
   const [flies, setFlies] = useState<FlyWithFullAirportsName[]>([]);
 
+  const onCheckoutCallback = useCallback(
+    (flies: Fly[]) => {
+      flyConsumption.setFlies(flies);
+    },
+    [flyConsumption]
+  );
+
   // on delete a fly.
   const onDelete = useCallback(
     (index: number) => {
@@ -57,6 +64,7 @@ const SelectConsumingFlyContainer = observer((): JSX.Element => {
       onDeleteItem={onDelete}
       airports={airports}
       onAdd={onAddCallback}
+      onCheckout={onCheckoutCallback}
     />
   );
 });

@@ -117,7 +117,14 @@ const ConsumingPage = observer((): JSX.Element => {
 
   return (
     <MainLayout>
-      <Header title={t("pages.consuming.title")} />
+      <Header
+        title={t("pages.consuming.title")}
+        avatar={{
+          src: getImagePath("/ornaments/headband-flower-center.png"),
+          alt: "Compte CO2 - Headband Illustration",
+          size: "large",
+        }}
+      />
       {!carbonFootprintStore.isComputed && (
         <Tip>{t("pages.consuming.tip")}</Tip>
       )}
