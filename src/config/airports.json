@@ -40437,6 +40437,15 @@
     "passengers": 0
   },
   {
+    "name": "Hamad International Airport",
+    "city": "Doha",
+    "country": "Qatar",
+    "IATA": "DOH",
+    "lat": 25.273056,
+    "lon": 51.608056,
+    "passengers": 0
+  },
+  {
     "name": "Hamadan Aéroport",
     "city": "Hamadan",
     "country": "Iran",
