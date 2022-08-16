@@ -127,7 +127,9 @@ const ConsumingPage = observer((): JSX.Element => {
         <a href={t("links.cco2")} target="_blank">
           <Logo src={getImagePath("/cco2.png")} />
         </a>
-        <Link href={t("links.method")}>{t("links.method_txt")}</Link>
+        <Link href={t("links.method")} target="_blank">
+          {t("links.method_txt")}
+        </Link>
       </Footer>
       {carbonFootprintStore.isComputed && <Share />}
     </MainLayout>
