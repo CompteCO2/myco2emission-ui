@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 //
+import { useRootStore } from "providers/RootStoreProvider";
 import { getImagePath } from "helpers/image";
 
 const Title = styled.h1`
@@ -28,6 +29,8 @@ const ShareImg = styled.img`
 
 const Share = (): JSX.Element => {
   const { t } = useTranslation();
+  const { carbonFootprintStore } = useRootStore();
+
   const dataFb = `https://www.facebook.com/dialog/share?${new URLSearchParams({
     app_id: "724539778650793",
     href: t("share.link"),
@@ -54,7 +57,11 @@ const Share = (): JSX.Element => {
         <a href={dataLinkedin}>
           <ShareImg src={getImagePath("/icons/linkedin.png")} />
         </a>
-        <a href="mailto:">
+        <a
+          href={`mailto:${t("share.mailto", {
+            value: (carbonFootprintStore.sum / 1000).toFixed(2),
+          })}`}
+        >
           <ShareImg src={getImagePath("/icons/mail.png")} />
         </a>
       </ShareList>
