@@ -141,6 +141,6 @@
     "title": "Share",
     "link": "https://myco2emission.com",
     "message": "Mon empreinte carbone est de {{value}} tCO2.",
-    "mailto": "&subject=My%20carbon%20footprint%20is%20{{value}}%20tCO2.%20And%20you?&body=Hello,%0d%0dI just did my carbon footprint in two minutes. Super interesting.%0d%0dDiscover%20yours%20too%20and%20tell%20me%20how%20much%20you%20weigh!%0d%0dhttps://www.compteco2.com/en/carbon-footprint"
+    "mailto": "?subject=My%20carbon%20footprint%20is%20{{value}}%20tCO2.%20And%20you?&body=Hello,%0d%0dI just did my carbon footprint in two minutes. Super interesting.%0d%0dDiscover%20yours%20too%20and%20tell%20me%20how%20much%20you%20weigh!%0d%0dhttps://www.compteco2.com/en/carbon-footprint"
   }
 }
