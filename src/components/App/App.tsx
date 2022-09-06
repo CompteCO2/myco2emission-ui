@@ -33,14 +33,9 @@ const GlobalStyle = createGlobalStyle`
     margin: auto;
   }
 
-  h2 {
-
-  }
-
   p {
     text-align: center;
   }
-
 
   .ant-slider-handle {
     width: 25px;

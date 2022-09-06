@@ -14,7 +14,7 @@ const PageHeaderWrapper = styled(PageHeader)`
     font-weight: normal;
     text-overflow: initial;
     white-space: normal;
-    overflow: auto;
+    overflow: hidden;
     text-align: center;
     color: #46579c;
     font: normal normal 800 40px/46px Martel Sans;
