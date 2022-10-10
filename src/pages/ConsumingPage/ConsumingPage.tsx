@@ -46,10 +46,6 @@ const LogoCO2 = styled.img`
   width: 100px;
 `;
 
-const LogoEU = styled.img`
-  margin-right: 10px;
-`;
-
 const LogoOther = styled.img`
   width: 60px;
   margin-right: 10px;
