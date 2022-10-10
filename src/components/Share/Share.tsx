@@ -5,7 +5,7 @@ import { useRootStore } from "providers/RootStoreProvider";
 import { getImagePath } from "helpers/image";
 
 const Title = styled.h1`
-  margin-top: 60px;
+  margin-top: 20px;
   text-align: center;
   font-size: 16px;
 `;
@@ -15,7 +15,7 @@ const Wrapper = styled.div`
 `;
 
 const ShareList = styled.div`
-  margin-bottom: 60px;
+  margin-bottom: 40px;
   margin-top: 30px;
   display: flex;
   align-items: center;

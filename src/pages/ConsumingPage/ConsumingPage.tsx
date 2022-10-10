@@ -22,16 +22,37 @@ const Footer = styled.div`
 
 const Link = styled.a`
   color: #a2b32b;
-  font-size: 12px;
-  margin-left: 40px;
-  position: relative;
-  top: 20px;
+  font-size: 14px;
+  text-align: center;
+  display: block;
 `;
 
-const Logo = styled.img`
-  float: left;
-  width: 150px;
-  height: 60px;
+const DataTitle = styled.h1`
+  margin-top: 20px;
+  text-align: center;
+  font-size: 16px;
+`;
+
+const LogoList = styled.ul`
+  width: 100%;
+  margin-top: 40px;
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  padding: 0;
+`;
+
+const LogoCO2 = styled.img`
+  width: 100px;
+`;
+
+const LogoEU = styled.img`
+  margin-right: 10px;
+`;
+
+const LogoOther = styled.img`
+  width: 60px;
+  margin-right: 10px;
 `;
 
 const Tip = styled.p`
@@ -131,14 +152,40 @@ const ConsumingPage = observer((): JSX.Element => {
       {carbonFootprintStore.isComputed && scoreWrapper()}
       <ConsumingTypeListContainer />
       <Footer>
-        <a href={t("links.cco2")} target="_blank">
-          <Logo src={getImagePath("/cco2.png")} />
-        </a>
         <Link href={t("links.method")} target="_blank">
           {t("links.method_txt")}
         </Link>
+        {carbonFootprintStore.isComputed && <Share />}
+        <DataTitle>{t("share.title_data")}</DataTitle>
+
+        <LogoList>
+          <li>
+            <a href={t("links.ccnucc")} target="_blank">
+              <LogoOther src={getImagePath("/logos/CNUCC.png")} />
+            </a>
+          </li>
+          <li>
+            <a href={t("links.ademe")} target="_blank">
+              <LogoOther src={getImagePath("/logos/ADEME.png")} />
+            </a>
+          </li>
+          <li>
+            <a href={t("links.citepa")} target="_blank">
+              <LogoOther src={getImagePath("/logos/CITEPA.png")} />
+            </a>
+          </li>
+          <li>
+            <a href={t("links.beneffice")} target="_blank">
+              <LogoOther src={getImagePath("/logos/UE.png")} />
+            </a>
+          </li>
+          <li>
+            <a href={t("links.cco2")} target="_blank">
+              <LogoCO2 src={getImagePath("/cco2.png")} />
+            </a>
+          </li>
+        </LogoList>
       </Footer>
-      {carbonFootprintStore.isComputed && <Share />}
     </MainLayout>
   );
 });

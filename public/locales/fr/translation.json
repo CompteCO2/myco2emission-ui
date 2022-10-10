@@ -17,6 +17,10 @@
     "france": "/carbon_scores/bilan-france-fr.png"
   },
   "links": {
+    "beneffice": "http://beneffice.eu/",
+    "citepa": "https://www.citepa.org/fr/",
+    "ademe": "https://www.ademe.fr/",
+    "ccnucc": "https://unfccc.int/fr",
     "cco2": "https://www.compteco2.com/",
     "method": "https://www.compteco2.com/article/methodologies-de-calculs-co2",
     "method_txt": "En savoir plus sur la méthode de calcul"
@@ -139,6 +143,7 @@
   },
   "share": {
     "title": "Partager",
+    "title_data": "Données de votre bilan carbone",
     "link": "https://myco2emission.com",
     "message": "Mon empreinte carbone est de {{value}} tCO2.",
     "mailto": "?subject=Mon%20bilan%20carbone%20est%20de%20{{value}}%20tCO2.%20Et%20toi%20?&body=Hello,%0d%0dJe%20viens%20de%20faire%20mon%20bilan%20carbone%20en%20deux%20minutes.%20Hyper%20intéressant.%0d%0dDécouvres%20le%20tien%20aussi%20et%20dis%20moi%20combien%20tu%20pèses%20!%0d%0dhttps://www.compteco2.com/carbon-footprint"
