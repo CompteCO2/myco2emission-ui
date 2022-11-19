@@ -12,7 +12,7 @@ import MainLayout from "layouts/main";
 const RESULT_THRESHOLD = {
   champion: 735,
   cop21: 1345,
-  national: 4525,
+  national: 4585,
 };
 
 const Footer = styled.div`
